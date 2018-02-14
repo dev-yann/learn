@@ -64,3 +64,26 @@ services:
           - learn_network
      links:
           - mysql:learn
+
+######################
+############ Migration Service
+######################
+  db.migrate:
+      image: canals/php
+      container_name: migrate.learn.local
+      environment:
+          - VHOST_HOSTNAME=migrate.learn
+          - VHOST_DOCROOT=/var/www/data
+  #       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
+  #       - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
+      ports:
+          - "10083:80"
+          - "10444:443"
+      volumes :
+          - ./src/config:/var/www/data
+          - ./src:/var/www/src
+          - ./vendor:/var/www/vendor
+      networks:
+          - learn_network
+      links :
+          - mysql:learn
