@@ -11,5 +11,10 @@
             "name": "Yann Dumas",
             "email": "yanndumas54230@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\":"src"
+        }
+    }
 }
