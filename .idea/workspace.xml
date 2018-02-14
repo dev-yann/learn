@@ -2,14 +2,125 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38412368-d933-4255-a949-18dfbddb742d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/api/.htaccess" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/api/app.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/config/database.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/services/services.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/config/migration.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/config/settings.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/controllers/BaseController.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/controllers/UserController.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/controllers/Writer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/middleware/CheckForm.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/middleware/CheckJwt.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/models/User.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/services/connectDb.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/services/dependencies.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/services/routes.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/backend/api/app.php" afterPath="$PROJECT_DIR$/backend/api/app.php" />
       <change beforePath="$PROJECT_DIR$/backend/composer.json" afterPath="$PROJECT_DIR$/backend/composer.json" />
       <change beforePath="$PROJECT_DIR$/backend/composer.lock" afterPath="$PROJECT_DIR$/backend/composer.lock" />
+      <change beforePath="$PROJECT_DIR$/backend/docker-compose.yml" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" />
+      <change beforePath="$PROJECT_DIR$/backend/src/config/database.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/services.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.json" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/.scrutinizer.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/.travis.install.sh" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/README.md" afterPath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/README.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/composer.json" afterPath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/composer.json" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/phpmd.xml.dist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/phpunit.xml.dist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php" afterPath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/UnexpectedValueException.php" afterPath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception/UnexpectedValueException.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php" afterPath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorPerformance/InstantiatorPerformanceEvent.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTest/Exception/InvalidArgumentExceptionTest.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTest/Exception/UnexpectedValueExceptionTest.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTest/InstantiatorTest.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/AbstractClassAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/ArrayObjectAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/ExceptionAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/FinalExceptionAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/PharAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/PharExceptionAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/SerializableArrayObjectAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/SimpleSerializableAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/SimpleTraitAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/UnCloneableAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/UnserializeExceptionArrayObjectAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/WakeUpNoticesAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/XMLReaderAsset.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/.travis.yml" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/.travis.yml" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/FastRoute.hhi" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/FastRoute.hhi" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/composer.json" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/composer.json" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/BadRouteException.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/BadRouteException.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/CharCountBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/CharCountBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/GroupCountBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/GroupCountBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/GroupPosBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/GroupPosBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/MarkBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/MarkBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/CharCountBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/CharCountBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/GroupCountBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/GroupCountBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/GroupPosBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/GroupPosBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/MarkBased.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/MarkBased.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/RegexBasedAbstract.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Dispatcher/RegexBasedAbstract.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Route.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/Route.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/RouteCollector.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/RouteCollector.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/RouteParser.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/RouteParser.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/RouteParser/Std.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/RouteParser/Std.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/bootstrap.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/bootstrap.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/functions.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/src/functions.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/CharCountBasedTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/CharCountBasedTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/DispatcherTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/DispatcherTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/GroupCountBasedTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/GroupCountBasedTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/GroupPosBasedTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/GroupPosBasedTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/MarkBasedTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/Dispatcher/MarkBasedTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/HackTypechecker/HackTypecheckerTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/HackTypechecker/HackTypecheckerTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/RouteCollectorTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/RouteCollectorTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/RouteParser/StdTest.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/RouteParser/StdTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/bootstrap.php" afterPath="$PROJECT_DIR$/backend/vendor/nikic/fast-route/test/bootstrap.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock/src/DocBlock/Serializer.php" afterPath="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock/src/DocBlock/Serializer.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/composer.json" afterPath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/composer.json" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/ClassCodeGenerator.php" afterPath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/ClassCodeGenerator.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Exception/Doubler/MethodNotFoundException.php" afterPath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Exception/Doubler/MethodNotFoundException.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.github/ISSUE_TEMPLATE.md" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.github/ISSUE_TEMPLATE.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.gitignore" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.php_cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.travis.yml" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.travis.yml" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/ChangeLog-5.7.md" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/ChangeLog-5.7.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/ChangeLog-6.5.md" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/ChangeLog-6.5.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/LICENSE" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/phpunit.xsd" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/phpunit.xsd" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Framework/TestCase.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Framework/TestCase.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Framework/TestSuite.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Framework/TestSuite.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Runner/Version.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Runner/Version.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Util/Configuration.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Util/Configuration.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/ArraySubsetTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/ArraySubsetTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/CountTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/CountTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/IsJsonTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/IsJsonTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/JsonMatchesTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/JsonMatchesTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/LogicalAndTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/LogicalAndTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/LogicalOrTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/Constraint/LogicalOrTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/ConstraintTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/ConstraintTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/TestCaseTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Framework/TestCaseTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Util/ConfigurationTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Util/ConfigurationTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Util/TestDox/NamePrettifierTest.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/Util/TestDox/NamePrettifierTest.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/_files/configuration.xml" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/tests/_files/configuration.xml" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/sebastian/comparator/ChangeLog.md" afterPath="$PROJECT_DIR$/backend/vendor/sebastian/comparator/ChangeLog.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/sebastian/comparator/composer.json" afterPath="$PROJECT_DIR$/backend/vendor/sebastian/comparator/composer.json" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/.styleci.yml" afterPath="$PROJECT_DIR$/backend/vendor/webmozart/assert/.styleci.yml" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/CHANGELOG.md" afterPath="$PROJECT_DIR$/backend/vendor/webmozart/assert/CHANGELOG.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/README.md" afterPath="$PROJECT_DIR$/backend/vendor/webmozart/assert/README.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/appveyor.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/phpunit.xml.dist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/src/Assert.php" afterPath="$PROJECT_DIR$/backend/vendor/webmozart/assert/src/Assert.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/webmozart/assert/tests/AssertTest.php" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,33 +131,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/config/database.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="23" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/services/services.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="e#6#84#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="230">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#85#141#0#PHP" expanded="true" />
               </folding>
@@ -54,21 +143,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
+      <file leaf-file-name="settings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/config/settings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="46">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/api/.htaccess">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="69">
+              <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="88" column="23" lean-forward="true" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="migration.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/src/config/migration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="39" column="51" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connectDb.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/services/connectDb.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -82,16 +201,28 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/composer.json" />
         <option value="$PROJECT_DIR$/backend/src/app.php" />
         <option value="$PROJECT_DIR$/backend/.htaccess" />
         <option value="$PROJECT_DIR$/backend/app.php" />
-        <option value="$PROJECT_DIR$/backend/docker-compose.yml" />
         <option value="$PROJECT_DIR$/backend/composer.lock" />
         <option value="$PROJECT_DIR$/backend/api/.htaccess" />
-        <option value="$PROJECT_DIR$/backend/src/config/database.php" />
         <option value="$PROJECT_DIR$/backend/src/services/services.php" />
+        <option value="$PROJECT_DIR$/backend/src/middleware/checkJwt.php" />
+        <option value="$PROJECT_DIR$/backend/src/controllers/Writer.php" />
+        <option value="$PROJECT_DIR$/backend/src/middleware/CheckJwt.php" />
+        <option value="$PROJECT_DIR$/backend/src/controllers/BaseController.php" />
+        <option value="$PROJECT_DIR$/backend/src/middleware/CheckForm.php" />
+        <option value="$PROJECT_DIR$/backend/src/services/routes.php" />
+        <option value="$PROJECT_DIR$/backend/src/services/dependencies.php" />
+        <option value="$PROJECT_DIR$/backend/composer.json" />
+        <option value="$PROJECT_DIR$/backend/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/backend/src/models/User.php" />
+        <option value="$PROJECT_DIR$/backend/src/config/database.php" />
+        <option value="$PROJECT_DIR$/backend/src/config/settings.php" />
         <option value="$PROJECT_DIR$/backend/api/app.php" />
+        <option value="$PROJECT_DIR$/backend/src/services/connectDb.php" />
+        <option value="$PROJECT_DIR$/backend/src/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/backend/src/config/migration.php" />
       </list>
     </option>
   </component>
@@ -103,10 +234,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="283" />
-    <option name="y" value="55" />
-    <option name="width" value="645" />
-    <option name="height" value="700" />
+    <option name="x" value="375" />
+    <option name="y" value="25" />
+    <option name="width" value="643" />
+    <option name="height" value="664" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -125,6 +256,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -141,19 +273,40 @@
               <item name="learn" type="b2602c69:ProjectViewProjectNode" />
               <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="learn" type="b2602c69:ProjectViewProjectNode" />
               <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="services" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,17 +346,18 @@
       <updated>1518597482143</updated>
       <workItem from="1518597483860" duration="6581000" />
       <workItem from="1518605329966" duration="2936000" />
+      <workItem from="1518626204644" duration="7270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9517000" />
+    <option name="totallyTimeSpent" value="16787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12375096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2083013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -236,6 +390,48 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/backend/src/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#85#141#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding />
@@ -246,9 +442,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#84#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -285,44 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/composer.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/services/services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#84#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -334,13 +494,155 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/middleware/jwt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/middleware/checkJwt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/controllers/Writer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/middleware/CheckJwt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="50" column="38" lean-forward="false" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+          <folding>
+            <element signature="e#113#133#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/controllers/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/middleware/CheckForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding>
+            <element signature="e#111#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/dependencies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="230">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="e#85#141#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="31" column="83" lean-forward="false" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
+          <folding>
+            <element signature="e#112#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/config/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/connectDb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="88" column="23" lean-forward="true" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/config/migration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="39" column="51" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

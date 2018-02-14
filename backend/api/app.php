@@ -10,19 +10,13 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 try {
     require_once __DIR__ . '/../vendor/autoload.php';
-    $container = require_once __DIR__ . '/../src/config/database.php';
-
+    $container = require_once __DIR__ . '/../src/config/settings.php';
 
     $app = new Slim\App($container);
 
-    $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-
-        $response->getBody()->write("Hello ".$args['name']);
-
-        return $response;
-    });
-
-    require __DIR__.'/../src/services/services.php';
+    require __DIR__.'/../src/services/connectDb.php';
+    require __DIR__.'/../src/services/dependencies.php';
+    require __DIR__.'/../src/services/routes.php';
 
     $app->run();
 
