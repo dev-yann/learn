@@ -6,4 +6,7 @@
  * Time: 18:12
  */
 
-$app->post("/user[/]","UserController:createUser")->setArguments(['username','password']);
+$app->post("/user[/]","UserController:createUser")->add( new \App\middleware\CheckForm())->setArguments(['username','password']);
+
+$app->get('/user[/]',"UserController:connectUser");
+
