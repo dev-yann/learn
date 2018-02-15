@@ -16,18 +16,44 @@
                       <v-list-tile>
                         <v-list-tile-content><h3>Badges</h3></v-list-tile-content>
                       </v-list-tile>
+                      <div v-if="ttBadges===false">
+                        <v-list-tile >
+                          <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
+                          <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
+                          <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
+                        </v-list-tile>
+                      </div>
+
+                    <div v-else>
+                      <div v-for="(badge, index) in badges">
+                            <v-list-tile>
+                              <!-- Affiche le badge de l'index & le badge de l'index ++ et le badge de l'index +++ -->
+                              <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
+                              <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
+                              <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
+                            </v-list-tile>
+                        </div>
+                    </div>
+
                       <v-list-tile>
-                        <v-list-tile-content text-xs-center class="align-end">1</v-list-tile-content>
-                        <v-list-tile-content text-xs-center class="align-end">2</v-list-tile-content>
-                        <v-list-tile-content text-xs-center class="align-end">3</v-list-tile-content>
-                      </v-list-tile>
-                      <v-list-tile>
-                        <v-list-tile-content class="align-end"><router-link to="#">tous...</router-link></v-list-tile-content>
+                        <v-list-tile-content class="align-end"><a @click="totalBadge()">tous...</a></v-list-tile-content>
                       </v-list-tile>
                     </v-list>
                   </v-card>
                   </v-flex>
-                  </v-container>
+              </v-container>
+              <v-container fluid grid-list-md>
+                <v-flex xs11>
+                    <div>
+                      <div>
+                        <h4>Filtrer par :</h4>
+                      </div>
+                      <v-flex xs6 offset-xs3>
+                        <v-select label="Select" disabled></v-select>
+                      </v-flex>
+                    </div>
+                </v-flex>
+              </v-container>
           </v-flex>
 
 
@@ -48,10 +74,7 @@
                         <v-list-tile-content v-if="props.item.difficulte === 'easy'" class="align-end"><div><v-icon color="light-green lighten-1">grade</v-icon></div></v-list-tile-content>
                         <v-list-tile-content v-if="props.item.difficulte === 'medium'" class="align-end"><div><v-icon color="orange lighten-2">grade</v-icon><v-icon color="orange lighten-2">grade</v-icon></div></v-list-tile-content>
                         <v-list-tile-content v-if="props.item.difficulte === 'hard'" class="align-end"><div><v-icon color="red lighten-2">grade</v-icon><v-icon color="red lighten-2">grade</v-icon><v-icon color="red lighten-2">grade</v-icon></div></v-list-tile-content>
-
                       </v-list-tile>
-
-
                     </v-list>
                   </v-card>
                 </v-flex>
@@ -68,10 +91,18 @@
 export default {
    name: 'ExoListe',
    data: () => ({
+      ttBadges : false,
       rowsPerPageItems: [4, 8, 12],
       pagination: {
         rowsPerPage: 4
       },
+      badges:[
+        {'php5' : 'cake'},
+        {'tableaux' : 'cake'},
+        {'trou' : 'cake'},
+        {'cool' : 'cake'}
+      ],
+
       items: [
         {
           name: 'Les variables en PHP',
@@ -104,7 +135,13 @@ export default {
           temps: '24 min'
         },
       ]
-    })
+    }),
+    methods:{
+      totalBadge(){
+        console.log('coucou')
+         return this.ttBadges = true;
+      }
+    }
  }</script>
 
 
@@ -120,7 +157,7 @@ a:hover{
   color:white;
   transition: 0.2s;
 }
-h1, h2{
+h1, h2, h4{
   margin:auto;
   text-align: center;
 }
@@ -128,6 +165,6 @@ h1{
   margin-bottom: 3vh;
 }
 .timerIcon{
-  margin-right : 20px;
+  margin-right : 18px;
 }
 </style>
