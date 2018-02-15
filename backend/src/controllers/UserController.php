@@ -9,13 +9,15 @@ namespace App\controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use App\models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Firebase\JWT\JWT;
 
 class UserController extends BaseController
 {
 
     /**
      * @param Request $request
-     * @param Response $response
+     * @param Response $responseonse
      * @return \Psr\Http\Message\ResponseInterface|static
      */
 
@@ -39,14 +41,64 @@ class UserController extends BaseController
             try{
                 $user->save();
                 unset($user->password);
-                return Writer::json_output($response,201,$user);
+                return Writer::json_output($responseonse,201,$user);
 
             } catch (\Exception $e){
                 // revoyer erreur format json
-                return Writer::json_output($response,500,['error' => 'Internal Server Error']);
+                return Writer::json_output($responseonse,500,['error' => 'Internal Server Error']);
             }
         } else {
-            return Writer::json_output($response,401,['error' => "Bad credentials"]);
+            return Writer::json_output($responseonse,401,['error' => "Bad credentials"]);
         }
+    }
+
+    public function connectUser(Request $request, Response $response){
+
+        // header authorization
+       if(!$request->hasHeader('Authorization')){
+            // JE RENVOIE LE TYPE D'AUTH NECESSAIRE
+            $responseonse = $response->withHeader('WWW-Authenticate', 'Basic realm="api.lbs.local"');
+            return Writer::json_output($response, 401, ['type' => 'error', 'error' => 401, 'message' => 'No authorization header present']);
+        }
+
+        // https
+        if(!$this->container['settings']['production'] && 'http' == $request->getUri()->getScheme()){
+            return Writer::json_output($response, 401, ['type' => 'error', 'error' => 401, 'message' => 'insecure']);
+        }
+
+        $auth = base64_decode(explode( " ", $request->getHeader('Authorization')[0])[1]);
+       list($username, $pass) = explode(':', $auth);
+
+        // Database test
+        try {
+            $user = User::where('username','=',$username)->firstOrFail();
+
+            if (!password_verify($pass,$user->password)){
+                throw new \Exception("Bad credentials");
+            }
+
+        } catch (ModelNotFoundException $e){
+
+            $response = $response->withHeader('WWW-Authenticate', 'Basic realm="api.learn"');
+            return Writer::json_output($response,400,['error' => "Bad request"]);
+
+        } catch (\Exception $e){
+
+            $response = $response->withHeader('WWW-Authenticate', 'Basic realm="api.learn"');
+            $response = $response->withStatus(401);
+            return Writer::json_output($response,401,['error' => $e->getMessage()]);
+        }
+
+        // SI ON ARRIVE ICI C'EST QUE TOUT EST BON : ON CREER LE TOKEN JWT
+        $mysecret = 'je suis un secret $µ°';
+        $token = JWT::encode([
+            'iss' => "http://api.learn/user",
+            'aud' => "http://api.learn/",
+            'iat' => time(),
+            'exp' => time()+2000000,
+            'uid' => $user->id ],
+            $mysecret, 'HS512');
+
+        return Writer::json_output($response,201,["token" => $token]);
     }
 }

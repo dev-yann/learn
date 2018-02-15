@@ -13,7 +13,7 @@ use App\controllers\Writer;
 class CheckForm
 {
 
-    public  function checkFormulaire (Request $req, Response $resp, $next)
+    public  function __invoke(Request $req, Response $resp, $next)
     {
         $checked = null;
         $fields=$req->getAttribute('route')->getArgument('fields');

@@ -11,7 +11,7 @@ namespace App\controllers;
 
 class BaseController
 {
-    private $container;
+    protected $container;
 
     public function __construct($c)
     {

@@ -8,6 +8,7 @@
 
 
 namespace App\middleware;
+use App\controllers\BaseController;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use \Psr\Http\Message\ServerRequestInterface as Request;
@@ -32,7 +33,7 @@ class CheckJwt
      * @return Response|static
      */
 
-    public function check(Request $req, Response $resp, $next){
+    public function __invoke(Request $req, Response $resp, $next){
 
         if(!$req->hasHeader('Authorization')){
 
