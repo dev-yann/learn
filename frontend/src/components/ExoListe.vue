@@ -2,11 +2,11 @@
   <div class="containerGeneral">
 
         <v-layout row wrap>
-          <v-flex xs12>
+          <v-flex xs10 lg7 offset-xs1 offset-lg3>
             <h1>Parcours</h1>
           </v-flex>
 
-          <v-flex lg3 offset-md0 offset-lg1>
+        <!--  <v-flex lg3 offset-md0 offset-lg1>
             <v-container fluid grid-list-md>
               <v-flex xs11>
                 <v-card>
@@ -26,9 +26,9 @@
 
                     <div v-else>
                       <div v-for="(badge, index) in badges">
-                            <v-list-tile>
+                            <v-list-tile> -->
                               <!-- Affiche le badge de l'index & le badge de l'index ++ et le badge de l'index +++ -->
-                              <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
+                        <!--      <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
                               <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
                               <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
                             </v-list-tile>
@@ -54,10 +54,10 @@
                     </div>
                 </v-flex>
               </v-container>
-          </v-flex>
+          </v-flex> -->
 
 
-          <v-flex mdlg7>
+          <v-flex xs10 lg7 offset-xs1 offset-lg3>
             <v-container fluid grid-list-md>
               <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
                 <v-flex slot="item" slot-scope="props" xs11 offset-xs1>
