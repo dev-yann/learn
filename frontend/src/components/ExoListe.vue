@@ -39,44 +39,44 @@
 <script>
 export default {
    name: 'ExoListe',
-   data: () => ({
-      rowsPerPageItems: [4, 8, 12],
-      pagination: {
-        rowsPerPage: 4
-      },
-      items: [
-        {
-          name: 'Les variables en PHP',
-          redacteur: 'Husson',
-          difficulte : 'easy',
-          temps: '24 min'
+     data: () => ({
+        rowsPerPageItems: [4, 8, 12],
+        pagination: {
+          rowsPerPage: 4
         },
-        {
-          name: 'Les objets en PHP',
-          redacteur: 'Bouzayani',
-          difficulte : 'medium',
-          temps: '24 min'
-        },
-        {
-          name: 'Les tableaux',
-          redacteur: 'Clavelin',
-          difficulte : 'medium',
-          temps: '24 min'
-        },
-        {
-          name: 'Eloquent',
-          redacteur: 'Husson',
-          difficulte : 'easy',
-          temps: '24 min'
-        },
-        {
-          name: 'Les requête avancées',
-          redacteur: 'Frederic',
-          difficulte : 'hard',
-          temps: '24 min'
-        },
-      ]
-    })
+        items: [
+          {
+            name: 'Les variables en PHP',
+            redacteur: 'Husson',
+            difficulte : 'easy',
+            temps: '24 min'
+          },
+          {
+            name: 'Les objets en PHP',
+            redacteur: 'Bouzayani',
+            difficulte : 'medium',
+            temps: '24 min'
+          },
+          {
+            name: 'Les tableaux',
+            redacteur: 'Clavelin',
+            difficulte : 'medium',
+            temps: '24 min'
+          },
+          {
+            name: 'Eloquent',
+            redacteur: 'Husson',
+            difficulte : 'easy',
+            temps: '24 min'
+          },
+          {
+            name: 'Les requête avancées',
+            redacteur: 'Frederic',
+            difficulte : 'hard',
+            temps: '24 min'
+          },
+        ]
+      })
  }</script>
 
 
