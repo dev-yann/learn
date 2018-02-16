@@ -4,23 +4,23 @@
       <v-container  grid-list-md text-xs-center>
 
         <v-layout row wrap>
-          <v-flex lg12>
+          <v-flex xs12>
             <h1>Connexion</h1>
           </v-flex>
 
-          <v-flex lg6 offset-lg3>
+          <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
               <v-text-field  type="text" label="Name" v-model="name" :rules="nameRules" required></v-text-field>
           </v-flex>
 
-          <v-flex lg6 offset-lg3>
+          <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
               <v-text-field type="password" label="Password" v-model="password" :rules="passwordRules" required></v-text-field>
           </v-flex>
 
-          <v-flex lg6 offset-lg3>
+          <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
             <v-btn type='submit'>Se connecter</v-btn>
           </v-flex>
 
-          <v-flex lg6 offset-lg3>
+          <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
             <router-link to="/inscription">Je n'ai pas encore de compte</router-link>
           </v-flex>
 

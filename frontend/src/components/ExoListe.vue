@@ -2,11 +2,11 @@
   <div class="containerGeneral">
 
         <v-layout row wrap>
-          <v-flex lg12>
-            <h1>Exercices et parcours</h1>
+          <v-flex xs12>
+            <h1>Parcours</h1>
           </v-flex>
 
-          <v-flex lg3 offset-lg1>
+          <v-flex lg3 offset-md0 offset-lg1>
             <v-container fluid grid-list-md>
               <v-flex xs11>
                 <v-card>
@@ -57,7 +57,7 @@
           </v-flex>
 
 
-          <v-flex lg7>
+          <v-flex mdlg7>
             <v-container fluid grid-list-md>
               <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
                 <v-flex slot="item" slot-scope="props" xs11 offset-xs1>
