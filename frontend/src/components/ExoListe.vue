@@ -6,57 +6,6 @@
             <h1>Parcours</h1>
           </v-flex>
 
-        <!--  <v-flex lg3 offset-md0 offset-lg1>
-            <v-container fluid grid-list-md>
-              <v-flex xs11>
-                <v-card>
-                    <v-card-title><h2>3600 XP</h2></v-card-title>
-                    <v-divider></v-divider>
-                    <v-list dense>
-                      <v-list-tile>
-                        <v-list-tile-content><h3>Badges</h3></v-list-tile-content>
-                      </v-list-tile>
-                      <div v-if="ttBadges===false">
-                        <v-list-tile >
-                          <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
-                          <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
-                          <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
-                        </v-list-tile>
-                      </div>
-
-                    <div v-else>
-                      <div v-for="(badge, index) in badges">
-                            <v-list-tile> -->
-                              <!-- Affiche le badge de l'index & le badge de l'index ++ et le badge de l'index +++ -->
-                        <!--      <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
-                              <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
-                              <v-list-tile-content text-xs-center class="align-end"><v-icon x-large>crop_square</v-icon></v-list-tile-content>
-                            </v-list-tile>
-                        </div>
-                    </div>
-
-                      <v-list-tile>
-                        <v-list-tile-content class="align-end"><a @click="totalBadge()">tous...</a></v-list-tile-content>
-                      </v-list-tile>
-                    </v-list>
-                  </v-card>
-                  </v-flex>
-              </v-container>
-              <v-container fluid grid-list-md>
-                <v-flex xs11>
-                    <div>
-                      <div>
-                        <h4>Filtrer par :</h4>
-                      </div>
-                      <v-flex xs6 offset-xs3>
-                        <v-select label="Select" disabled></v-select>
-                      </v-flex>
-                    </div>
-                </v-flex>
-              </v-container>
-          </v-flex> -->
-
-
           <v-flex xs10 lg7 offset-xs1 offset-lg3>
             <v-container fluid grid-list-md>
               <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
@@ -91,18 +40,10 @@
 export default {
    name: 'ExoListe',
    data: () => ({
-      ttBadges : false,
       rowsPerPageItems: [4, 8, 12],
       pagination: {
         rowsPerPage: 4
       },
-      badges:[
-        {'php5' : 'cake'},
-        {'tableaux' : 'cake'},
-        {'trou' : 'cake'},
-        {'cool' : 'cake'}
-      ],
-
       items: [
         {
           name: 'Les variables en PHP',
@@ -135,13 +76,7 @@ export default {
           temps: '24 min'
         },
       ]
-    }),
-    methods:{
-      totalBadge(){
-        console.log('coucou')
-         return this.ttBadges = true;
-      }
-    }
+    })
  }</script>
 
 
