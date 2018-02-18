@@ -3,33 +3,66 @@
 
 
     <!-- Side Bar -->
-    <v-navigation-drawer
-            clipped
-            fixed
-            v-model="drawer"
-            app
+    <v-navigation-drawer clipped fixed v-model="drawer" app
     >
+    <v-toolbar flat class="transparent">
+        <v-list class="pa-0">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <img class="profil" src="https://randomuser.me/api/portraits/men/85.jpg" >
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title class="nbXp">3600 XP</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+      <v-divider></v-divider>
       <v-list dense>
 
-        <router-link to ="/dashboard">
-          <v-list-tile>
-            <v-list-tile-action><v-icon>dashboard</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Dashboard</v-list-tile-title></v-list-tile-content>
-          </v-list-tile>
-        </router-link>
+      <router-link to ="/dashboard">
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon v-if="this.$router.currentRoute.fullPath==='/dashboard'" color="light-green lighten-1">dashboard</v-icon>
+            <v-icon v-else>dashboard</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <span v-if="this.$router.currentRoute.fullPath==='/dashboard'" class="navCurrent">Dashboard</span>
+              <span v-else>Dashboard</span>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </router-link>
 
-        <router-link to ="/listexercices">
-          <v-list-tile>
-            <v-list-tile-action><v-icon>code</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Exercices</v-list-tile-title></v-list-tile-content>
+      <router-link to ="/listexercices">
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon v-if="this.$router.currentRoute.fullPath==='/listexercices'" color="light-green lighten-1">code</v-icon>
+            <v-icon v-else>code</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <span v-if="this.$router.currentRoute.fullPath==='/listexercices'" class="navCurrent">Exercices</span>
+              <span v-else>Exercices</span>
+            </v-list-tile-title>
+          </v-list-tile-content>
           </v-list-tile>
         </router-link>
 
         <router-link to ="/forum">
           <v-list-tile>
-            <v-list-tile-action><v-icon>forum</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Forum</v-list-tile-title></v-list-tile-content>
-          </v-list-tile>
+            <v-list-tile-action>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/forum'" color="light-green lighten-1">forum</v-icon>
+              <v-icon v-else>forum</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/forum'" class="navCurrent">Forum</span>
+                <span v-else>Forum</span>
+              </v-list-tile-title>
+            </v-list-tile-content>
+            </v-list-tile>
         </router-link>
 
 
@@ -48,15 +81,31 @@
 
         <router-link to ="/groupes">
           <v-list-tile>
-            <v-list-tile-action><v-icon>people</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Groupes</v-list-tile-title></v-list-tile-content>
+            <v-list-tile-action>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/groupes'" color="light-green lighten-1">people</v-icon>
+              <v-icon v-else>people</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/groupes'" class="navCurrent">Groupes</span>
+                <span v-else>Groupes</span>
+              </v-list-tile-title>
+            </v-list-tile-content>
           </v-list-tile>
         </router-link>
 
         <router-link to ="/cours">
           <v-list-tile>
-            <v-list-tile-action><v-icon>business_center</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Mes cours</v-list-tile-title></v-list-tile-content>
+            <v-list-tile-action>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/cours'" color="light-green lighten-1">business_center</v-icon>
+              <v-icon v-else>business_center</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/cours'" class="navCurrent">Mes cours</span>
+                <span v-else>Mes cours</span>
+              </v-list-tile-title>
+            </v-list-tile-content>
           </v-list-tile>
         </router-link>
 
@@ -70,19 +119,35 @@
 
       <router-link to ="/connexion">
         <v-list-tile>
-          <v-list-tile-action><v-icon>lock_open</v-icon></v-list-tile-action>
-          <v-list-tile-content><v-list-tile-title>Sign in</v-list-tile-title></v-list-tile-title></v-list-tile-content>
-      </v-list-tile>
+          <v-list-tile-action>
+            <v-icon v-if="this.$router.currentRoute.fullPath==='/connexion'" color="light-green lighten-1">lock_open</v-icon>
+            <v-icon v-else>lock_open</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <span v-if="this.$router.currentRoute.fullPath==='/connexion'" class="navCurrent">Sign in</span>
+              <span v-else>Sign in</span>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
     </router-link>
 
         <router-link to ="/inscription">
           <v-list-tile>
-            <v-list-tile-action><v-icon>lock_open</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Sign up</v-list-tile-title></v-list-tile-title></v-list-tile-content>
-        </v-list-tile>
+            <v-list-tile-action>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/inscription'" color="light-green lighten-1">lock_open</v-icon>
+              <v-icon v-else>lock_open</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/inscription'" class="navCurrent">Sign up</span>
+                <span v-else>Sign up</span>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
       </router-link>
 
-      <router-link to ="/connexion">
+      <router-link to ="#">
         <v-list-tile>
           <v-list-tile-action><v-icon>lock</v-icon></v-list-tile-action>
           <v-list-tile-content><v-list-tile-title>Log out</v-list-tile-title></v-list-tile-content>
@@ -97,7 +162,7 @@
 
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>Thomas Richard</v-toolbar-title>
     </v-toolbar>
 
 
@@ -156,6 +221,17 @@ a, .list__tile__content{
 body{
   margin-top:45px;
 }
+.nbXp{
+  font-size : 1.1em;
+  margin : auto;
+}
 
+.avatar{
+  width : 5px;
+}
+
+.navCurrent{
+  color:#9CCC65;
+}
 
 </style>
