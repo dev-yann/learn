@@ -10,3 +10,7 @@ $app->post("/user[/]","UserController:createUser")->add( new \App\middleware\Che
 
 $app->get('/user[/]',"UserController:connectUser");
 
+$app->get('/courses[/]', "CoursesController:getCourses");
+
+$app->get('/courses/{id:[0-9]+}/exercices', "ExerciceController:getExercices");
+

@@ -35,7 +35,7 @@ class Migrator {
     public function migrate() {
 
         /**
-         * create table for user*
+         * create table for user
          */
         if (!Capsule::schema()->hasTable('user')) {
             Capsule::schema()->create('user', function($table)
@@ -43,8 +43,53 @@ class Migrator {
                 $table->integer('id', true);
                 $table->string('username');
                 $table->string('password');
+                $table->bigInteger('exp');
 
                 $table->engine = 'InnoDB';
+            });
+        }
+
+
+        /**
+         * create table for courses
+         */
+        if (!Capsule::schema()->hasTable('parcours')) {
+            Capsule::schema()->create('parcours', function($table)
+            {
+
+                $table->integer('id', true);
+                $table->string('author')->default('');
+                $table->integer('temps');
+                $table->integer('level');
+                $table->string('title')->default('');
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+
+                $table->engine = 'InnoDB';
+            });
+        }
+
+        /**
+         * create table for exercices
+         */
+        if (!Capsule::schema()->hasTable('exercices')) {
+            Capsule::schema()->create('exercices', function($table)
+            {
+
+                $table->integer('id', true);
+                $table->string('title')->default('');
+                $table->boolean('confirmed');
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+                //FK
+                $table->integer('parcours_id');
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('parcours_id')->references('id')->on('parcours')->onDelete('cascade');
+
+
             });
         }
 
