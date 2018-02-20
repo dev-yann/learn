@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Vuex from './vuex'
 /**
  * Chargement du framework css vuetify
  * Ensure you are using css-loader

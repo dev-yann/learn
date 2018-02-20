@@ -3,8 +3,7 @@
 
 
     <!-- Side Bar -->
-    <v-navigation-drawer clipped fixed v-model="drawer" app
-    >
+    <v-navigation-drawer clipped fixed v-model="drawer" app>
     <v-toolbar flat class="transparent">
         <v-list class="pa-0">
           <v-list-tile avatar>
@@ -168,21 +167,15 @@
 
     <!-- Contenu Application -->
 
-  <!--  <v-content>
+  <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
-          <v-tooltip right>
-            <v-btn icon large :href="source" target="_blank" slot="activator">
-              <v-icon large>code</v-icon>
-            </v-btn>
-            <span>Source</span>
-          </v-tooltip>
           <router-view></router-view>
         </v-layout>
       </v-container>
-    </v-content> -->
+  </v-content>
 
-    <router-view></router-view>
+
 
     <!-- Footer -->
 
@@ -218,9 +211,7 @@ a, .list__tile__content{
   text-decoration:none;
   color:white;
 }
-body{
-  margin-top:45px;
-}
+
 .nbXp{
   font-size : 1.1em;
   margin : auto;

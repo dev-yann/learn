@@ -2,14 +2,14 @@
   <div class="containerGeneral">
 
         <v-layout row wrap>
-          <v-flex xs10 lg7 offset-xs1 offset-lg3>
-            <h1>Parcours</h1>
+          <v-flex xs10 offset-xs1>
+            <h1 class="text-sm-left">Parcours</h1>
           </v-flex>
 
-          <v-flex xs10 lg7 offset-xs1 offset-lg3>
+          <v-flex xs12>
             <v-container fluid grid-list-md>
               <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
-                <v-flex slot="item" slot-scope="props" xs11 offset-xs1>
+                <v-flex slot="item" slot-scope="props" xs10 offset-xs1>
 
                   <v-card>
                     <v-card-title>
@@ -82,9 +82,7 @@ export default {
 
 <style scoped>
 
-.containerGeneral{
-  margin-top : 8vh;
-}
+
 a{
   color:grey;
 }
