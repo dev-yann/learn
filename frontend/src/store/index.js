@@ -6,8 +6,19 @@ import createPersistedState from 'vuex-persistedstate'
 // Activation de vuex dans vue
 Vue.use(Vuex);
 
-const state = {}
-
 export default new Vuex.Store({
-state
+    state: {
+        connected: false,
+        user: {}
+    },
+    getters: {
+        // Retourne l'état connecté
+        isConnected: state => state.connected
+    },
+    mutations: {
+        setConnectedUser: (state, user) => {
+            state.connected = true
+            state.user = user
+        }
+    }
 })
