@@ -13,5 +13,4 @@ class Exercices extends Model
     public function parcours() {
     	return $this->belongsTo(Parcours::class,"parcours_id");
     }
-
 }

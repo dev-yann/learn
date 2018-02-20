@@ -9,7 +9,13 @@
 namespace App\controllers;
 
 
-class XpController
+class XpController extends BaseController
 {
+
+    /**
+     * Gestion des points
+     * Le but est d'ajouter des points à chaque exercice terminer
+     */
+
 
 }

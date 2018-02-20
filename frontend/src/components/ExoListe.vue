@@ -5,9 +5,7 @@
           <v-flex xs10 offset-xs1>
             <h1 class="text-sm-left">Parcours</h1>
           </v-flex>
-
-          <v-flex xs10 lg9 offset-xs1 offset-lg2>
-            <v-flex xs10 md10 lg11 offset-xs1>
+            <v-flex xs12 md10 lg11>
               <v-container fluid grid-list-md>
                 <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
                   <v-flex slot="item" slot-scope="props" xs12 sm6 md5 lg3 offset-md1>
@@ -36,7 +34,6 @@
                 </v-data-iterator>
               </v-container>
             </v-flex>
-          </v-flex>
         </v-layout>
 
   </div>
