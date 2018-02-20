@@ -15,7 +15,5 @@ class Parcours extends Model
     public function exercices (){
     	return $this->hasMany(Exercices::class,'parcours_id');
     }
-    public function  cours () {
-    	return $this->belongsTo(Parcours::class,'cours_id');
-    }
+
 }
