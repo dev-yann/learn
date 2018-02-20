@@ -37,7 +37,7 @@
   </div>
 </template>
 <script>
-import unSujet from '@/components/unSujet'
+import UnSujet from '@/components/UnSujet'
 export default {
      name: 'Forum',
       data: () => ({

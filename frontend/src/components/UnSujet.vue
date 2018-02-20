@@ -11,7 +11,7 @@
 </template>
 <script>
   export default{
-    name : 'unSujet',
+    name : 'UnSujet',
     data : {
     },
     methods :{
