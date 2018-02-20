@@ -11,7 +11,7 @@ class Groupe extends Model
     public $timestamps = true;
 
     public function users() {
-    	return $this->belongsToMany(Parcours::class,"parcours_id");
+    	 return $this->belongsToMany(User::class, 'user2groupe', 'groupe_id', 'user_id');
     }
 
 }
