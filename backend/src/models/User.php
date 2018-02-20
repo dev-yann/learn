@@ -23,4 +23,10 @@ class User extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    protected $hidden =["password"];
+
+      public function groupes() {
+         return $this->belongsToMany(Groupe::class, 'user2groupe', 'user_id', 'groupe_id');
+    }
 }

@@ -51,7 +51,7 @@ class Migrator {
 
 
         /**
-         * create table for courses
+         * create table for parcours
          */
         if (!Capsule::schema()->hasTable('parcours')) {
             Capsule::schema()->create('parcours', function($table)
@@ -92,7 +92,29 @@ class Migrator {
 
             });
         }
+           if (!Capsule::schema()->hasTable('groupes')) {
+            Capsule::schema()->create('groupes', function($table)
+            {
 
+                $table->integer('id', true);
+                $table->string('name')->default('');
+                $table->boolean('user_id');
+                $table->engine = 'InnoDB';
+
+
+            });
+        }
+                 if (!Capsule::schema()->hasTable('user2groupe')) {
+            Capsule::schema()->create('user2groupe', function($table)
+            {
+
+                $table->integer('user_id');
+                $table->integer('groupe_id');
+                $table->engine = 'InnoDB';
+
+
+            });
+        }
         /**
          * create table for series
          */
