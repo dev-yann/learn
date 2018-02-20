@@ -7,8 +7,8 @@ import ParcoursListe from '@/components/ParcoursListe'
 /* Routes uniquement pour les personnes connectées */
 import Dashboard from '@/components/Dashboard'
 import Forum from '@/components/Forum'
-import UnSujet from '@/components/UnSujet'
-import AddSujet from '@/components/AddSujet'
+import ForumSujet from '@/components/ForumSujet'
+import ForumAdd from '@/components/ForumAdd'
 import Parcours from '@/components/Parcours'
 
 /* Routes uniquement pour les profs */
@@ -65,14 +65,14 @@ export default new Router({
       component: Parcours
     },
     {
-      path: '/unsujet',
-      name: 'UnSujet',
-      component: UnSujet
+      path: '/forumsujet',
+      name: 'ForumSujet',
+      component: ForumSujet
     },
     {
-      path: '/addsujet',
-      name: 'AddSujet',
-      component: AddSujet
+      path: '/forumadd',
+      name: 'ForumAdd',
+      component: ForumAdd
     }
 
   ]

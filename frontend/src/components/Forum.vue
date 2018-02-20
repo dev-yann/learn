@@ -3,7 +3,7 @@
 
     <v-layout row wrap>
       <v-flex xs10 offset-xs1>
-        <h1>Forum <router-link to="/addsujet"><v-icon medium color="light-green lighten-1">add_circle</v-icon></router-link></h1>
+        <h1>Forum <router-link to="/forumadd"><v-icon medium color="light-green lighten-1">add_circle</v-icon></router-link></h1>
 
       </v-flex>
 
@@ -12,7 +12,7 @@
           <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
             <v-flex slot="item" slot-scope="props" xs12 >
 
-              <router-link to="/unsujet">
+              <router-link to="/forumsujet">
                 <v-card>
                   <v-card-title>
                     <h2>{{ props.item.name }}</h2> <span class="resolu" v-if=" props.item.resolu"><v-icon color="light-green lighten-1">check</v-icon></span>
@@ -34,7 +34,6 @@
   </div>
 </template>
 <script>
-import UnSujet from '@/components/UnSujet'
 export default {
      name: 'Forum',
       data: () => ({

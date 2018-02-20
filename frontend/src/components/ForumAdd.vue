@@ -10,7 +10,7 @@
 
 <script>
 export default{
-  name :'AddSujet',
+  name :'ForumAdd',
   data : {
 
   }
