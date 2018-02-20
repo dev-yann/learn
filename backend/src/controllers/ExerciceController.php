@@ -20,9 +20,9 @@ class ExerciceController extends BaseController
     	try {
     		$exercice = Exercices::where('id',"=",$args["id"])->firstOrFail();
     		$parcours=$exercice->parcours()->first();
-    		$result = ["exercice" => $exercice,'parcours' => $parcours]
+    		$result = ["exercice" => $exercice,'parcours' => $parcours];
 
-    		return Writer::json_output($response,201,);
+    		return Writer::json_output($response,201,$result);
     	} catch (ModelNotFoundException $exception){
 
 
@@ -32,4 +32,19 @@ class ExerciceController extends BaseController
 		
     	
     }
+
+ public function createExercice (Request $request,Response $response,$args) {
+    $tab = $request->getParsedBody();
+    
+    try {
+        $exercice = new Exercices();
+        $exercice->title = $tab["title"];
+        $exercice->parcours_id = $args["id"];
+        $exercice->enonce = $tab["enonce"];
+        $exercice->save();
+        return Writer::json_output($response,201,$exercice);
+    } catch (Exception $e) {
+        return Writer::json_output($response,500,['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
+    }
+}
 }

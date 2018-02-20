@@ -10,7 +10,13 @@ $app->post("/user[/]","UserController:createUser")->add( new \App\middleware\Che
 
 $app->get('/user[/]',"UserController:connectUser");
 
-$app->get('/courses[/]', "CoursController:getCourses");
+$app->get('/parcours[/]', "ParcoursController:getParcours");
+$app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");
 
-$app->get('/courses/{id:[0-9]+}/exercices', "ExerciceController:getExercices");
+$app->post('/parcours/',"ParcoursController:createParcours");
+$app->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
 
+$app->get('/groupes[/]',"GroupeController:getGroupes");
+$app->post('/groupes[/]',"GroupeController:createGroupe");
+$app->get('/groupes/{id:[0-9]+}[/]',"GroupeController:getGroupe");
+$app->post('/groupes/{id:[0-9]+}/add',"GroupeController:addUserInGroupe");
