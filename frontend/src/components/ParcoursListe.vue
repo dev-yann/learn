@@ -2,17 +2,16 @@
   <div class="containerGeneral">
 
         <v-layout row wrap>
-          <v-flex xs10 lg7 offset-xs1 offset-lg3>
-            <h1>Parcours</h1>
+          <v-flex xs10 offset-xs1>
+            <h1 class="text-sm-left">Parcours</h1>
           </v-flex>
 
-          <v-flex xs10 lg9 offset-xs1 offset-lg2>
-            <v-flex xs10 md10 lg11 offset-xs1>
+            <v-flex xs12 md11>
               <v-container fluid grid-list-md>
                 <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
                   <v-flex slot="item" slot-scope="props" xs12 sm6 md5 lg3 offset-md1>
 
-                    <router-link to="/exo">
+                    <router-link to="/parcours">
                       <v-card class="unCours">
                         <v-card-title>
                           <v-list-tile-content><h2>{{ props.item.name }}</h2></v-list-tile-content>
@@ -36,16 +35,12 @@
                 </v-data-iterator>
               </v-container>
             </v-flex>
-          </v-flex>
-
-
         </v-layout>
 
   </div>
 </template>
 
 <script>
-import Exo from '@/components/Exo.vue'
 export default {
    name: 'ExoListe',
      data: () => ({
@@ -120,10 +115,6 @@ export default {
 
 
 <style scoped>
-
-.containerGeneral{
-  margin-top : 8vh;
-}
 a{
   color:grey;
 }
@@ -151,7 +142,6 @@ h2{
 .unCours:hover .timeNdiff{
   background-color: white;
 }
-
 .timeNdiff{
   position: absolute;
   bottom: 0;

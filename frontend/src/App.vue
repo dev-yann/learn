@@ -3,8 +3,7 @@
 
 
     <!-- Side Bar -->
-    <v-navigation-drawer clipped fixed v-model="drawer" app
-    >
+    <v-navigation-drawer clipped fixed v-model="drawer" app>
     <v-toolbar flat class="transparent">
         <v-list class="pa-0">
           <v-list-tile avatar>
@@ -35,15 +34,15 @@
         </v-list-tile>
       </router-link>
 
-      <router-link to ="/listexercices">
+      <router-link to ="/parcoursliste">
         <v-list-tile>
           <v-list-tile-action>
-            <v-icon v-if="this.$router.currentRoute.fullPath==='/listexercices'" color="light-green lighten-1">code</v-icon>
+            <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" color="light-green lighten-1">code</v-icon>
             <v-icon v-else>code</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>
-              <span v-if="this.$router.currentRoute.fullPath==='/listexercices'" class="navCurrent">Parcours</span>
+              <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" class="navCurrent">Parcours</span>
               <span v-else>Parcours</span>
             </v-list-tile-title>
           </v-list-tile-content>
@@ -63,14 +62,6 @@
               </v-list-tile-title>
             </v-list-tile-content>
             </v-list-tile>
-        </router-link>
-
-
-        <router-link to ="#">
-          <v-list-tile>
-            <v-list-tile-action><v-icon>settings</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Settings</v-list-tile-title></v-list-tile-content>
-          </v-list-tile>
         </router-link>
 
         <!-- Routes uniquement pour les profs -->
@@ -168,21 +159,15 @@
 
     <!-- Contenu Application -->
 
-  <!--  <v-content>
+  <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
-          <v-tooltip right>
-            <v-btn icon large :href="source" target="_blank" slot="activator">
-              <v-icon large>code</v-icon>
-            </v-btn>
-            <span>Source</span>
-          </v-tooltip>
           <router-view></router-view>
         </v-layout>
       </v-container>
-    </v-content> -->
+  </v-content>
 
-    <router-view></router-view>
+
 
     <!-- Footer -->
 
@@ -218,9 +203,7 @@ a, .list__tile__content{
   text-decoration:none;
   color:white;
 }
-body{
-  margin-top:45px;
-}
+
 .nbXp{
   font-size : 1.1em;
   margin : auto;
