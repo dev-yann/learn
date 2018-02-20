@@ -78,7 +78,6 @@ class Migrator {
 
                 $table->integer('id', true);
                 $table->string('title')->default('');
-                $table->boolean('confirmed');
                 $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
                 //FK
@@ -104,12 +103,24 @@ class Migrator {
 
             });
         }
-                 if (!Capsule::schema()->hasTable('user2groupe')) {
+        if (!Capsule::schema()->hasTable('user2groupe')) {
             Capsule::schema()->create('user2groupe', function($table)
             {
 
                 $table->integer('user_id');
                 $table->integer('groupe_id');
+                $table->engine = 'InnoDB';
+
+
+            });
+        }
+                if (!Capsule::schema()->hasTable('user2exercice')) {
+            Capsule::schema()->create('user2exercice', function($table)
+            {
+
+                $table->integer('user_id');
+                $table->integer('exercice_id');
+                $table->integer('state')->default(0);
                 $table->engine = 'InnoDB';
 
 
