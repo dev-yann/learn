@@ -15,7 +15,7 @@ class GroupeController extends BaseController
 	}
 	public function getGroupe (Request $request,Response $response, $args) {
 		try {
-			$groupe = Groupe::where("id","=",$args["id"])->firstOrFail();
+			$groupe = Groupe::where("id","=",$args["id"])->with("users")->firstOrFail();
 			return Writer::json_output($response,200,$groupe);
 		} catch (ModelNotFoundException $exception){
 			$notFoundHandler = $this->container->get('notFoundHandler');
