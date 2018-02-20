@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yann
- * Date: 16/02/18
- * Time: 11:24
- */
 
 namespace App\controllers;
 use App\models\Exercices;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 class ExerciceController extends BaseController
 {
 
@@ -18,6 +12,24 @@ class ExerciceController extends BaseController
 
         // REGEX AU NIVEAU DE L'URL, CE NE PEUT ETRE QU'UNE SUITE DE CHIFFRES ( args id )
         $exercices = Exercices::where('parcours_id','=',$args['id'])->get();
-        Writer::json_output($response,201,['exercices' => $exercices]);
+      return  Writer::json_output($response,201,['exercices' => $exercices]);
+    }
+
+    public function getExercice (Request $request,Response $response,$args)
+    {
+    	try {
+    		$exercice = Exercices::where('id',"=",$args["id"])->firstOrFail();
+    		$parcours=$exercice->parcours()->first();
+    		$result = ["exercice" => $exercice,'parcours' => $parcours]
+
+    		return Writer::json_output($response,201,);
+    	} catch (ModelNotFoundException $exception){
+
+
+			$notFoundHandler = $this->container->get('notFoundHandler');
+			return $notFoundHandler($request,$response);
+		}
+		
+    	
     }
 }

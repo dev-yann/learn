@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Connexion from '@/components/connexion.vue'
+import Connexion from '@/components/Connexion.vue'
 export default {
    name: 'Inscription',
    components:{Connexion},
