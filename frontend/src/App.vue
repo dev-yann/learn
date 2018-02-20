@@ -34,15 +34,15 @@
         </v-list-tile>
       </router-link>
 
-      <router-link to ="/listexercices">
+      <router-link to ="/parcoursliste">
         <v-list-tile>
           <v-list-tile-action>
-            <v-icon v-if="this.$router.currentRoute.fullPath==='/listexercices'" color="light-green lighten-1">code</v-icon>
+            <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" color="light-green lighten-1">code</v-icon>
             <v-icon v-else>code</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>
-              <span v-if="this.$router.currentRoute.fullPath==='/listexercices'" class="navCurrent">Parcours</span>
+              <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" class="navCurrent">Parcours</span>
               <span v-else>Parcours</span>
             </v-list-tile-title>
           </v-list-tile-content>
@@ -62,14 +62,6 @@
               </v-list-tile-title>
             </v-list-tile-content>
             </v-list-tile>
-        </router-link>
-
-
-        <router-link to ="#">
-          <v-list-tile>
-            <v-list-tile-action><v-icon>settings</v-icon></v-list-tile-action>
-            <v-list-tile-content><v-list-tile-title>Settings</v-list-tile-title></v-list-tile-content>
-          </v-list-tile>
         </router-link>
 
         <!-- Routes uniquement pour les profs -->
