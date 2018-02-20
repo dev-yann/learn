@@ -2,13 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Connexion from '@/components/Connexion'
 import Inscription from '@/components/Inscription'
-import ExoListe from '@/components/ExoListe'
+import ParcoursListe from '@/components/ParcoursListe'
 
 /* Routes uniquement pour les personnes connectées */
 import Dashboard from '@/components/Dashboard'
 import Forum from '@/components/Forum'
-import UnSujet from '@/components/UnSujet'
-import Exo from '@/components/Exo'
+import ForumSujet from '@/components/ForumSujet'
+import ForumAdd from '@/components/ForumAdd'
+import Parcours from '@/components/Parcours'
 
 /* Routes uniquement pour les profs */
 import Cours from '@/components/Cours'
@@ -39,9 +40,9 @@ export default new Router({
       component: Dashboard
     },
     {
-      path: '/listexercices',
-      name: 'ExoListe',
-      component: ExoListe
+      path: '/parcoursliste',
+      name: 'ParcoursListe',
+      component: ParcoursListe
     },
     {
       path: '/forum',
@@ -59,14 +60,19 @@ export default new Router({
       component: Cours
     },
     {
-      path: '/exo',
-      name: 'Exo',
-      component: Exo
+      path: '/parcours',
+      name: 'Parcours',
+      component: Parcours
     },
     {
-      path: '/unsujet',
-      name: 'UnSujet',
-      component: UnSujet
+      path: '/forumsujet',
+      name: 'ForumSujet',
+      component: ForumSujet
+    },
+    {
+      path: '/forumadd',
+      name: 'ForumAdd',
+      component: ForumAdd
     }
 
   ]

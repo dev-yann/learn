@@ -15,7 +15,7 @@ class GroupeController extends BaseController
 	}
 	public function getGroupe (Request $request,Response $response, $args) {
 		try {
-			$groupe = Groupe::where("id","=",$args["id"])->with("users")->firstOrFail();
+			$groupe = Groupe::where("id",$args["id"])->with("users")->firstOrFail();
 			return Writer::json_output($response,200,$groupe);
 		} catch (ModelNotFoundException $exception){
 			$notFoundHandler = $this->container->get('notFoundHandler');
@@ -37,10 +37,32 @@ class GroupeController extends BaseController
 
 
 	}
+	public function deleteGroupe (Request $request,Response $response,$args) {
+		 	try {
+        		$groupe = Groupe::findOrFail($args['id']);
+        		$groupe->delete();
+        		return Writer::json_output($response, 204);
+        	} catch (ModelNotFoundException $e) {
+        		$notFoundHandler = $this->container->get('notFoundHandler');
+        		return $notFoundHandler($request,$response);
+        	}
+	}
+	public function editGroupe(Request $request,Response $response,$args) {
+		$tab = $request->getParsedBody();
+		try {
+			$groupe = Groupe::where("id",$args["id"])->firstOrFail();
+			$groupe->name= $tab["name"];
+			$groupe->save();
+			return Writer::json_output($response,200,$groupe);
+		}catch (ModelNotFoundException $exception){
+			$notFoundHandler = $this->container->get('notFoundHandler');
+			return $notFoundHandler($request,$response);
+		}
+	}
 	public function addUserInGroupe (Request $request,Response $response,$args) {
 		$tab = $request->getParsedBody();
 		try {
-			$groupe = Groupe::where("id","=",$args["id"])->firstOrFail();
+			$groupe = Groupe::where("id",$args["id"])->firstOrFail();
 			$user = User::where("username","=",$tab["username"])->firstOrFail();
 			$user->groupes()->attach($args["id"]);
 			

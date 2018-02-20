@@ -12,7 +12,7 @@
 
 <script>
   export default{
-    name : 'Exo',
+    name : 'Parcours',
     data:{
     },
     methods:{

@@ -3,10 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// Importation du store
-import store from './store'
-
-/**
+import Vuex from 'vuex'
+import store from 'store'
+/*
  * Chargement du framework css vuetify
  * Ensure you are using css-loader
  */

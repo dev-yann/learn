@@ -29,4 +29,7 @@ class User extends Model
       public function groupes() {
          return $this->belongsToMany(Groupe::class, 'user2groupe', 'user_id', 'groupe_id');
     }
+       public function exercices() {
+         return $this->belongsToMany(Exercice::class, 'user2groupe', 'user_id', 'exercice_id');
+    }
 }
