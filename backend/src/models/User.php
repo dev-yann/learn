@@ -24,7 +24,7 @@ class User extends Model
      */
     public $timestamps = false;
 
-    protected $hidden =["password"];
+    protected $hidden =["password","pivot"];
 
       public function groupes() {
          return $this->belongsToMany(Groupe::class, 'user2groupe', 'user_id', 'groupe_id');

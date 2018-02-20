@@ -15,3 +15,8 @@ $app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");
 
 $app->post('/parcours/',"ParcoursController:createParcours");
 $app->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
+
+$app->get('/groupes[/]',"GroupeController:getGroupes");
+$app->post('/groupes[/]',"GroupeController:createGroupe");
+$app->get('/groupes/{id:[0-9]+}[/]',"GroupeController:getGroupe");
+$app->post('/groupes/{id:[0-9]+}/add',"GroupeController:addUserInGroupe");

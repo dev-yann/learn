@@ -17,7 +17,7 @@ class Parcours extends Model
     	return $this->hasMany(Exercices::class,'parcours_id');
     }
     public function author() {
-    	return $this->belongsTo(User::class,'author_id');
+    	return $this->belongsTo(User::class,'author_id')->select("id","username");
     }
 
 }
