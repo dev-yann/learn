@@ -7,6 +7,8 @@ import ExoListe from '@/components/ExoListe'
 /* Routes uniquement pour les personnes connectées */
 import Dashboard from '@/components/Dashboard'
 import Forum from '@/components/Forum'
+import UnSujet from '@/components/UnSujet'
+import Exo from '@/components/Exo'
 
 /* Routes uniquement pour les profs */
 import Cours from '@/components/Cours'
@@ -55,6 +57,16 @@ export default new Router({
       path: '/cours',
       name: 'Cours',
       component: Cours
+    },
+    {
+      path: '/exo',
+      name: 'Exo',
+      component: Exo
+    },
+    {
+      path: '/unsujet',
+      name: 'UnSujet',
+      component: UnSujet
     }
 
   ]

@@ -43,8 +43,8 @@
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>
-              <span v-if="this.$router.currentRoute.fullPath==='/listexercices'" class="navCurrent">Exercices</span>
-              <span v-else>Exercices</span>
+              <span v-if="this.$router.currentRoute.fullPath==='/listexercices'" class="navCurrent">Parcours</span>
+              <span v-else>Parcours</span>
             </v-list-tile-title>
           </v-list-tile-content>
           </v-list-tile>
