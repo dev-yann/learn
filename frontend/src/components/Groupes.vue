@@ -1,34 +1,125 @@
 <template>
   <div class="container">
-    <form @submit="log" >
-      <v-container  grid-list-md text-xs-center>
+<!-- Nom du groupe
+Listes de gens des gens existants
+Supprimer qqun
+Supprimer un groupe -->
 
-        <v-layout row wrap>
-          <v-flex lg12>
-            <h1>Groupes</h1>
-          </v-flex>
-          
-          <!--
-            Nom du groupe
-            Personne du groupe (liste des gens)
-            Supprimer un groupe
-            Supprimer un membre
-          -->
+    <v-layout row wrap>
+      <v-flex xs10 offset-xs1>
+        <h1>Mes groupes <router-link to="/groupeadd"><v-icon medium color="light-green lighten-1">add_circle</v-icon></router-link></h1>
+      </v-flex>
 
-        </v-layout>
-      </v-container>
-    </form>
+      <v-flex xs12 md12 lg8 offset-md2>
+        <v-expansion-panel>
+          <v-expansion-panel-content v-for="(groupe, indexGr) in groupes" :key="indexGr">
+            <div slot="header"><h2>{{groupe.name}}</h2></div>
+            <v-card>
+              <v-card-text>
+                  <v-layout row>
+                    <v-flex xs12 sm6 offset-sm3>
+                      <v-card>
+                        <v-list>
+                          <v-list-tile v-for="(pers, indexPers) in personnes" :key="indexPers" avatar @click="" v-if="pers.groupe===(indexGr+1)">
+                            <v-list-tile-content>
+                              <v-list-tile-title v-text="pers.name"></v-list-tile-title>
+                            </v-list-tile-content>
+                           <v-list-tile-avatar>
+                              <v-icon @click="supprPers" color="red lighten-2">delete</v-icon>
+                            </v-list-tile-avatar>
+                          </v-list-tile>
+                        </v-list>
+                      </v-card>
+                    </v-flex>
+                  </v-layout>
+              </v-card-text>
+            </v-card>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-flex>
+
+    </v-layout>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Groupes',
-   data: () => ({
+  data () {
+      return {
 
-   }),
+        groupes: [
+          {
+            name: 'LP1 CISIIE',
+            nbPers : 19
+          },
+          {
+            name: 'LP2 CISIIE',
+            nbPers : 25
+          },
+          {
+            name: 'CISIIE',
+            nbPers : 40
+          }
+        ],
+        personnes: [
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Jean-Louis',
+            groupe : 1
+          },
+          {
+            name: 'Paul',
+            groupe : 1
+          },
+          {
+            name: 'Thomas',
+            groupe : 2
+          },
+          {
+            name: 'Arthur',
+            groupe : 3
+          }
+        ],
+        items: [
+        { title: 'Jason Oner', avatar: 'https://vuetifyjs.com/static/doc-images/lists/1.jpg' },
+        { title: 'Travis Howard', avatar: 'https://vuetifyjs.com/static/doc-images/lists/2.jpg' },
+        { title: 'Ali Connors', avatar: 'https://vuetifyjs.com/static/doc-images/lists/3.jpg' },
+        { title: 'Cindy Baker', avatar: 'https://vuetifyjs.com/static/doc-images/lists/4.jpg' }
+      ]
+      }
+    },
    methods :{
-
+     supprPers(){
+       console.log("coucou")
+     }
    }
  }
  </script>
@@ -37,6 +128,6 @@ export default {
 <style scoped>
 
 .container{
-  margin-top : 5vh;
+  width: 100%;
 }
 </style>
