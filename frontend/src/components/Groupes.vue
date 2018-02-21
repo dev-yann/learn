@@ -7,6 +7,13 @@
           <v-flex lg12>
             <h1>Groupes</h1>
           </v-flex>
+          
+          <!--
+            Nom du groupe
+            Personne du groupe (liste des gens)
+            Supprimer un groupe
+            Supprimer un membre
+          -->
 
         </v-layout>
       </v-container>
