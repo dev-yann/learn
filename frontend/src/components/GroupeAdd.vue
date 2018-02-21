@@ -27,7 +27,7 @@ persGr<template>
           <v-flex xs4 sm2 md4>
             <v-flex>
               <div v-for="(pers, index) in persGr">
-                {{pers}}<v-icon @click="supprPers()" class="iconDelete" color="red lighten-2" small>delete</v-icon><br />
+                {{pers}}<v-icon @click="supprPers(index)" class="iconDelete" color="red lighten-2" small>delete</v-icon><br />
               </div>
             </v-flex>
           </v-flex>
@@ -80,14 +80,14 @@ persGr<template>
           }
         });
 
-        // Sinon
+        // Si le champs n'est pas vide et qu'il n'est pas déjà present dans le tableau, on l'ajoute
         if(!present){
           this.persGr.push(this.addpersonne)
         }
 
       },
-      supprPers(){
-        console.log("supprimer cette personne")
+      supprPers(indexPers){
+        this.persGr.splice(indexPers, 1)
       }
     }
   }
