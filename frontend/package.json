@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "persisted": "0.0.1",
     "store": "^2.0.12",
     "vue": "^2.5.2",

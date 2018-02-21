@@ -13,7 +13,7 @@
           </v-flex>
 
           <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
-              <v-text-field type="password" label="Password" v-model="password" :rules="passwordRules" required></v-text-field>
+              <v-text-field type="password" label="Password" v-model="password" required></v-text-field>
           </v-flex>
 
           <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
@@ -33,6 +33,7 @@
 <script>
 import Inscription from '@/components/Inscription.vue'
 import Dashboard from '@/components/Dashboard.vue'
+import url from './../services/config'
 export default {
    name: 'Connexion',
    components:{Inscription, Dashboard},
@@ -46,16 +47,24 @@ export default {
      ]
    }),
    methods :{
-     log(){
-         if(this.passwordBis===this.password){
-            this.$router.push('/dashboard')
-         }
-         else {
-           console.log("erreur mdp")
-         }
+
+     log(name,password){
+
+             url.post('/user',[], {
+                 headers: {
+                     'Authorization': 'Basic ' + window.btoa(name + ':' + password)
+                 }
+             }).then(response => {
+                 console.log($response)
+             }).catch(error => {
+                 console.log(error)
+             })
+
+            //this.$router.push('/dashboard')
       }
    }
- }</script>
+ }
+</script>
 
 
 <style scoped>

@@ -153,8 +153,7 @@
 
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title v-if="isConnected">Thomas Richard</v-toolbar-title>
-      <v-toolbar-title v-else>Learn</v-toolbar-title>
+      <v-toolbar-title>Thomas Richard</v-toolbar-title>
     </v-toolbar>
 
 
@@ -168,21 +167,19 @@
       </v-container>
   </v-content>
 
-
-
     <!-- Footer -->
 
     <v-footer app fixed>
       <span class="contenuFooter">&copy; Environnement d'apprentissage 2018</span>
     </v-footer>
-
-
   </v-app>
 </template>
 
 
 <script>
   import { mapGetters } from 'vuex'
+  import url from './services/config'
+
 export default {
     name: 'App',
     data: () => ({
@@ -190,6 +187,9 @@ export default {
     }),
     props: {
         source: String
+    },
+    methods:{
+
     },
     computed:{
         ...mapGetters(['isConnected'])
