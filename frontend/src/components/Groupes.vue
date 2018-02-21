@@ -25,7 +25,7 @@ Supprimer un groupe -->
                               <v-list-tile-title v-text="pers.name"></v-list-tile-title>
                             </v-list-tile-content>
                            <v-list-tile-avatar>
-                              <v-icon @click="supprPers" color="red lighten-2">delete</v-icon>
+                              <v-icon @click="supprPers(indexPers)" color="red lighten-2">delete</v-icon>
                             </v-list-tile-avatar>
                           </v-list-tile>
                         </v-list>
@@ -72,30 +72,6 @@ export default {
             groupe : 1
           },
           {
-            name: 'Jean-Louis',
-            groupe : 1
-          },
-          {
-            name: 'Jean-Louis',
-            groupe : 1
-          },
-          {
-            name: 'Jean-Louis',
-            groupe : 1
-          },
-          {
-            name: 'Jean-Louis',
-            groupe : 1
-          },
-          {
-            name: 'Jean-Louis',
-            groupe : 1
-          },
-          {
-            name: 'Jean-Louis',
-            groupe : 1
-          },
-          {
             name: 'Paul',
             groupe : 1
           },
@@ -107,18 +83,12 @@ export default {
             name: 'Arthur',
             groupe : 3
           }
-        ],
-        items: [
-        { title: 'Jason Oner', avatar: 'https://vuetifyjs.com/static/doc-images/lists/1.jpg' },
-        { title: 'Travis Howard', avatar: 'https://vuetifyjs.com/static/doc-images/lists/2.jpg' },
-        { title: 'Ali Connors', avatar: 'https://vuetifyjs.com/static/doc-images/lists/3.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://vuetifyjs.com/static/doc-images/lists/4.jpg' }
-      ]
+        ]
       }
     },
    methods :{
-     supprPers(){
-       console.log("coucou")
+     supprPers(indexPers){
+       console.log("supprimer la pers " + indexPers)
      }
    }
  }
