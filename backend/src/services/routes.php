@@ -6,9 +6,9 @@
  * Time: 18:12
  */
 
-$app->post("/user[/]","UserController:createUser")->add( new \App\middleware\CheckForm())->setArguments(['username','password']);
+$app->post("/adduser[/]","UserController:createUser");
 
-$app->get('/user[/]',"UserController:connectUser");
+$app->post('/user[/]',"UserController:connectUser");
 
 $app->get('/parcours[/]', "ParcoursController:getParcours");
 $app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");

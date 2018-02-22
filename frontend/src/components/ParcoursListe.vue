@@ -42,7 +42,7 @@
 
 <script>
 export default {
-   name: 'ExoListe',
+   name: 'ParcoursListe',
      data: () => ({
         rowsPerPageItems: [3, 6, 9],
         pagination: {
@@ -131,6 +131,8 @@ h1{
 }
 h2{
   font-size: 12pt;
+  font-weight: 400;
+  margin-bottom: 8  px;
 }
 .timerIcon{
   margin-right : 13px;

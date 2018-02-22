@@ -34,6 +34,9 @@
 import Inscription from '@/components/Inscription.vue'
 import Dashboard from '@/components/Dashboard.vue'
 import url from './../services/config'
+import ls from './../services/localStorage'
+import { mapMutations } from 'vuex'
+
 export default {
    name: 'Connexion',
    components:{Inscription, Dashboard},
@@ -47,15 +50,21 @@ export default {
      ]
    }),
    methods :{
+       ...mapMutations(['setConnectedUser']),
+     log(){
 
-     log(name,password){
-
-             url.post('/user',[], {
+             return url.post('/user',[], {
                  headers: {
-                     'Authorization': 'Basic ' + window.btoa(name + ':' + password)
+                     'Authorization': 'Basic ' + window.btoa(this.name + ':' + this.password)
                  }
              }).then(response => {
-                 console.log($response)
+
+                 console.log(response);
+                 ls.set('token',response.data.token);
+
+                 // Méthode de mutation su store
+                 this.setConnectedUser(response.data.user);
+
              }).catch(error => {
                  console.log(error)
              })

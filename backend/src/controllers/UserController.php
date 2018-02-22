@@ -41,14 +41,15 @@ class UserController extends BaseController
             try{
                 $user->save();
                 unset($user->password);
-                return Writer::json_output($responseonse,201,$user);
+                unset($user->id);
+                return Writer::json_output($response,201,$user);
 
             } catch (\Exception $e){
                 // revoyer erreur format json
-                return Writer::json_output($responseonse,500,['error' => 'Internal Server Error']);
+                return Writer::json_output($response,500,['error' => $e->getMessage()]);
             }
         } else {
-            return Writer::json_output($responseonse,401,['error' => "Bad credentials"]);
+            return Writer::json_output($response,401,['error' => "Bad credentials"]);
         }
     }
 
@@ -71,7 +72,7 @@ class UserController extends BaseController
 
         // Database test
         try {
-            $user = User::where('username','=',$username)->firstOrFail();
+            $user = User::where('username',$username)->firstOrFail();
 
             if (!password_verify($pass,$user->password)){
                 throw new \Exception("Bad credentials");
@@ -80,7 +81,7 @@ class UserController extends BaseController
         } catch (ModelNotFoundException $e){
 
             $response = $response->withHeader('WWW-Authenticate', 'Basic realm="api.learn"');
-            return Writer::json_output($response,400,['error' => "Bad request"]);
+            return Writer::json_output($response,400,['error' => "Ce compte n'éxiste pas"]);
 
         } catch (\Exception $e){
 
@@ -91,6 +92,7 @@ class UserController extends BaseController
 
         // SI ON ARRIVE ICI C'EST QUE TOUT EST BON : ON CREER LE TOKEN JWT
         $mysecret = 'je suis un secret $µ°';
+
         $token = JWT::encode([
             'iss' => "http://api.learn/user",
             'aud' => "http://api.learn/",
@@ -99,6 +101,10 @@ class UserController extends BaseController
             'uid' => $user->id ],
             $mysecret, 'HS512');
 
-        return Writer::json_output($response,201,["token" => $token]);
+        // Pour renvoyer de bonnes informations user
+        unset($user->password);
+        unset($user->id);
+
+        return Writer::json_output($response,201,["user" => $user,"token" => $token]);
     }
 }

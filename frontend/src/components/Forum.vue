@@ -4,10 +4,9 @@
     <v-layout row wrap>
       <v-flex xs10 offset-xs1>
         <h1>Forum <router-link to="/forumadd"><v-icon medium color="light-green lighten-1">add_circle</v-icon></router-link></h1>
-
       </v-flex>
 
-      <v-flex xs12 md10 lg11 offset-md1>
+      <v-flex xs12 md10 lg12 offset-md1 offset-lg0>
         <v-container fluid grid-list-md>
           <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
             <v-flex slot="item" slot-scope="props" xs12 >

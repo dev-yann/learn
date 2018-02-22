@@ -9,11 +9,11 @@
           </v-flex>
 
           <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
-              <v-text-field  type="text" label="Name" v-model="name" :rules="nameRules" required></v-text-field>
+              <v-text-field  type="text" label="Name" v-model="user.username" :rules="nameRules" required></v-text-field>
           </v-flex>
 
           <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
-              <v-text-field type="password" label="Password" v-model="password" :rules="passwordRules" required></v-text-field>
+              <v-text-field type="password" label="Password" v-model="user.password" :rules="passwordRules" required></v-text-field>
           </v-flex>
 
           <v-flex xs12 sm8 md6 offset-sm2 offset-md3>
@@ -36,12 +36,16 @@
 
 <script>
 import Connexion from '@/components/Connexion.vue'
+import url from './../services/config'
+
 export default {
    name: 'Inscription',
    components:{Connexion},
    data: () => ({
-     name: '',
-     password: '',
+       user: {
+           username : '',
+           password: ''
+       },
      passwordBis: '',
      nameRules: [
        v => !!v || 'name is required',
@@ -49,15 +53,20 @@ export default {
      ],
      passwordRules: [
        v => !!v || 'password is required',
-       v => v.length >= 15 || 'password must be less than 15 characters'
+       v => v.length >= 10 || 'password must be less than 10 characters'
      ]
    }),
    methods :{
      log(){
-         if(this.passwordBis===this.password){
-            this.$router.push('/connexion')
-         }
-         else {
+         if(this.passwordBis===this.user.password){
+
+             return url.post('/adduser',this.user).then(response => {
+                 this.$router.push('/connexion')
+             }).catch(error => {
+                 alert(error.response.data.error)
+             })
+
+         } else {
            console.log("erreur mdp")
          }
       }

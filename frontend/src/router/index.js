@@ -14,6 +14,8 @@ import Parcours from '@/components/Parcours'
 /* Routes uniquement pour les profs */
 import Cours from '@/components/Cours'
 import Groupes from '@/components/Groupes'
+import GroupeAdd from '@/components/GroupeAdd'
+import GroupeEdit from '@/components/GroupeEdit'
 
 Vue.use(Router)
 
@@ -73,7 +75,18 @@ export default new Router({
       path: '/forumadd',
       name: 'ForumAdd',
       component: ForumAdd
+    },
+    {
+      path: '/groupeadd',
+      name: 'GroupeAdd',
+      component: GroupeAdd
+    },
+    {
+      path: '/groupeedit',
+      name: 'GroupeEdit',
+      component: GroupeEdit
     }
+
 
   ]
 })
