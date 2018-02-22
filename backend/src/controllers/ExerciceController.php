@@ -40,7 +40,7 @@ class ExerciceController extends BaseController
         $exercice = new Exercices();
         $exercice->title = $tab["title"];
         $exercice->parcours_id = $args["id"];
-        $exercice->enonce = $tab["enonce"];
+        $exercice->description = $tab["description"];
         $exercice->save();
         return Writer::json_output($response,201,$exercice);
     } catch (Exception $e) {
@@ -62,7 +62,7 @@ public function editExercice (Request $request,Response $response,$args) {
     $tab = $request->getParsedBody();
     try {
         $exercice = Exercices::where("id",$args["id"])->firstOrFail();
-        $exercice->enonce = $tab["enonce"];
+        $exercice->description = $tab["description"];
         $exercice->title = $tab["title"];
         $exercice->save();
         return Writer::json_output($response,200,$exercice);
