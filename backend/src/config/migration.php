@@ -43,7 +43,7 @@ class Migrator {
                 $table->integer('id', true);
                 $table->string('username');
                 $table->string('password');
-                $table->bigInteger('exp');
+                $table->bigInteger('exp')->default(0);
 
                 $table->engine = 'InnoDB';
             });
@@ -78,6 +78,7 @@ class Migrator {
 
                 $table->integer('id', true);
                 $table->string('title')->default('');
+                $table->string('description')->default('');
                 $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
                 //FK
