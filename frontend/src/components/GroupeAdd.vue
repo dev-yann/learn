@@ -4,14 +4,21 @@ persGr<template>
       <v-container  grid-list-md text-xs-center>
 
         <v-layout row wrap>
-          <v-flex xs12>
-            <h1>Créer un groupe</h1>
+          <v-flex xs12 sm10 md6 lg9 offset-sm1 offset-md2 offset-lg1>
+            <v-alert outline color="orange lighten-2" icon="priority_high" :value="alertMembre">Ce membre fait partie du groupe</v-alert>
           </v-flex>
+        </v-layout>
 
-          <v-flex xs8 sm8 md6 offset-sm2 offset-md2>
+        <v-layout row wrap>
+          <v-flex xs12 sm10 md7 lg6 offset-sm1 offset-lg1>
             <v-layout row wrap>
+
               <v-flex xs12>
-                <v-text-field  type="text" label="Name of group" v-model="name" prepend-icon="people"></v-text-field>
+                <h1>Créer un groupe</h1>
+              </v-flex>
+
+              <v-flex xs12>
+                <v-text-field type="text" label="Name of group" v-model="name" prepend-icon="people"></v-text-field>
               </v-flex>
 
               <v-flex xs12 sm8 md10>
@@ -24,10 +31,13 @@ persGr<template>
             </v-layout>
           </v-flex>
 
-          <v-flex xs4 sm2 md4>
+          <v-flex xs12 sm12 md4>
             <v-flex>
+              <h2>Liste des membres :</h2>
               <div v-for="(pers, index) in persGr">
-                {{pers}}<v-icon @click="supprPers(index)" class="iconDelete" color="red lighten-2" small>delete</v-icon><br />
+                <div class="unMembre">
+                  {{pers}}<v-icon @click="supprPers(index)" class="iconDelete" color="red lighten-2" small>delete</v-icon><br />
+                </div>
               </div>
             </v-flex>
           </v-flex>
@@ -56,7 +66,9 @@ persGr<template>
       name: '',
       addpersonne : '',
       persGr :['Monsieur'],
-      personnes : ['Jean', 'Paul', 'Alexis', 'Coucou']
+      personnes : ['Jean', 'Paul', 'Alexis', 'Coucou'],
+      value : true,
+      alertMembre : false
     }),
     methods :{
       add(){
@@ -83,8 +95,11 @@ persGr<template>
         // Si le champs n'est pas vide et qu'il n'est pas déjà present dans le tableau, on l'ajoute
         if(!present){
           this.persGr.push(this.addpersonne)
+          this.alertMembre=false
         }
-
+        else{
+          this.alertMembre=true;
+        }
       },
       supprPers(indexPers){
         this.persGr.splice(indexPers, 1)
@@ -104,5 +119,13 @@ a:hover{
 .iconDelete{
   position: relative;
   left: 20px;
+}
+h2{
+  font-size: 14pt;
+  font-weight: 400;
+  margin-bottom: 13px;
+}
+.unMembre{
+  margin-bottom: 5px;
 }
 </style>

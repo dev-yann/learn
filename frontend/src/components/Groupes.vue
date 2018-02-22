@@ -1,16 +1,15 @@
 <template>
   <div class="container">
-<!-- Nom du groupe
-Listes de gens des gens existants
-Supprimer qqun
-Supprimer un groupe -->
-
     <v-layout row wrap>
-      <v-flex xs10 offset-xs1>
-        <h1>Mes groupes <router-link to="/groupeadd"><v-icon medium color="light-green lighten-1">add_circle</v-icon></router-link></h1>
+      <v-flex xs11 lg9 offset-xs0 offset-lg1>
+        <h1>Mes groupes</h1>
       </v-flex>
 
-      <v-flex xs12 md12 lg8 offset-md2>
+      <v-flex xs1>
+        <router-link class="addIcon" to="/groupeadd"><v-icon x-large color="light-green lighten-1">add_circle</v-icon></router-link>
+      </v-flex>
+
+      <v-flex xs12 md12 lg10 offset-lg1>
         <v-expansion-panel>
           <v-expansion-panel-content v-for="(groupe, indexGr) in groupes" :key="indexGr">
             <div slot="header"><h2>{{groupe.name}}</h2></div>
@@ -47,7 +46,6 @@ export default {
   name: 'Groupes',
   data () {
       return {
-
         groupes: [
           {
             name: 'LP1 CISIIE',
@@ -99,5 +97,15 @@ export default {
 
 .container{
   width: 100%;
+}
+h1{
+  margin-bottom: 3vh;
+}
+h2{
+  font-size: 13pt;
+  font-weight: 500;
+}
+.addIcon{
+  float:right;
 }
 </style>
