@@ -42,7 +42,7 @@
 
 <script>
 export default {
-   name: 'ExoListe',
+   name: 'ParcoursListe',
      data: () => ({
         rowsPerPageItems: [3, 6, 9],
         pagination: {
