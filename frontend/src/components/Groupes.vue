@@ -12,7 +12,13 @@
       <v-flex xs12 md12 lg10 offset-lg1>
         <v-expansion-panel>
           <v-expansion-panel-content v-for="(groupe, indexGr) in groupes" :key="indexGr">
-            <div slot="header"><h2>{{groupe.name}}</h2></div>
+            <div slot="header">
+              <h2>
+                {{groupe.name}}
+                <router-link :to="{ name: 'GroupeEdit'}"><v-icon class="iconTitre" small color="orange lighten-2">edit</v-icon></router-link>
+                <v-icon class="iconTitre" small color="red lighten-2" @click="supprGr(indexGr, groupe.name)">delete</v-icon>
+              </h2>
+            </div>
             <v-card>
               <v-card-text>
                   <v-layout row>
@@ -86,7 +92,12 @@ export default {
     },
    methods :{
      supprPers(indexPers){
-       console.log("supprimer la pers " + indexPers)
+       this.personnes.splice(indexPers, 1)
+     },
+     supprGr(indexGr, nameGroupe){
+       if(confirm('Etes-vous sure de vouloir suppprimer le groupe : ' + nameGroupe)){
+        this.groupes.splice(indexGr, 1)
+       }
      }
    }
  }
@@ -107,5 +118,9 @@ h2{
 }
 .addIcon{
   float:right;
+}
+.iconTitre{
+  float:right;
+  margin-right: 20px;
 }
 </style>

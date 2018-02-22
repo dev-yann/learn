@@ -1,4 +1,4 @@
-persGr<template>
+<template>
   <div class="container">
     <form @submit="add" >
       <v-container  grid-list-md text-xs-center>

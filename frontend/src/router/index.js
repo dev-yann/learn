@@ -15,6 +15,7 @@ import Parcours from '@/components/Parcours'
 import Cours from '@/components/Cours'
 import Groupes from '@/components/Groupes'
 import GroupeAdd from '@/components/GroupeAdd'
+import GroupeEdit from '@/components/GroupeEdit'
 
 Vue.use(Router)
 
@@ -79,6 +80,11 @@ export default new Router({
       path: '/groupeadd',
       name: 'GroupeAdd',
       component: GroupeAdd
+    },
+    {
+      path: '/groupeedit',
+      name: 'GroupeEdit',
+      component: GroupeEdit
     }
 
 
