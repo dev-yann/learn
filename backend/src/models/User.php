@@ -26,6 +26,14 @@ class User extends Model
 
     protected $hidden =["password","pivot"];
 
+    public function posts () {
+        return $this->hasMany(Posts::class, 'user_id');
+    }
+
+    public function parcours () {
+        return $this->belongsToMany(Parcours::class, 'parcours2users','user_id','parcours_id');
+    }
+
       public function groupes() {
          return $this->belongsToMany(Groupe::class, 'user2groupe', 'user_id', 'groupe_id');
     }

@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Inscription from '@/components/Inscription.vue'
-import Dashboard from '@/components/Dashboard.vue'
+import Inscription from '@/components/Inscription'
+import Dashboard from '@/components/Dashboard'
 import url from './../services/config'
 import ls from './../services/localStorage'
 import { mapMutations } from 'vuex'

@@ -11,20 +11,20 @@
                 <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
                   <v-flex slot="item" slot-scope="props" xs12 sm6 md5 lg3 offset-md1>
 
-                    <router-link to="/parcours">
+                    <router-link :to="{ name : 'parcours', params : { id : props.item.id, name : props.item.title}}">
                       <v-card class="unCours">
                         <v-card-title>
-                          <v-list-tile-content><h2>{{ props.item.name }}</h2></v-list-tile-content>
-                          <v-list-tile-content><router-link class="redacteur" to="#">{{ props.item.redacteur }}</router-link></v-list-tile-content>
+                          <v-list-tile-content><h2>{{ props.item.title }}</h2></v-list-tile-content>
+                          <v-list-tile-content><router-link class="redacteur" to="#">{{ props.item.author }}</router-link></v-list-tile-content>
                         </v-card-title>
                         <div class="timeNdiff">
                           <v-divider></v-divider>
                           <v-list dense>
                             <v-list-tile>
                               <v-list-tile-content><div><v-icon color="grey" class="timerIcon">timelapse</v-icon>{{ props.item.temps }}</div></v-list-tile-content>
-                              <v-list-tile-content v-if="props.item.difficulte === 'easy'" class="align-end"><div><v-icon color="light-green lighten-1">grade</v-icon></div></v-list-tile-content>
-                              <v-list-tile-content v-if="props.item.difficulte === 'medium'" class="align-end"><div><v-icon color="orange lighten-2">grade</v-icon><v-icon color="orange lighten-2">grade</v-icon></div></v-list-tile-content>
-                              <v-list-tile-content v-if="props.item.difficulte === 'hard'" class="align-end"><div><v-icon color="red lighten-2">grade</v-icon><v-icon color="red lighten-2">grade</v-icon><v-icon color="red lighten-2">grade</v-icon></div></v-list-tile-content>
+                              <v-list-tile-content v-if="props.item.level === 1" class="align-end"><div><v-icon color="light-green lighten-1">grade</v-icon></div></v-list-tile-content>
+                              <v-list-tile-content v-if="props.item.level === 2" class="align-end"><div><v-icon color="orange lighten-2">grade</v-icon><v-icon color="orange lighten-2">grade</v-icon></div></v-list-tile-content>
+                              <v-list-tile-content v-if="props.item.level === 3" class="align-end"><div><v-icon color="red lighten-2">grade</v-icon><v-icon color="red lighten-2">grade</v-icon><v-icon color="red lighten-2">grade</v-icon></div></v-list-tile-content>
                             </v-list-tile>
                           </v-list>
                         </div>
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+
+    import Url from './../services/config'
 export default {
    name: 'ParcoursListe',
      data: () => ({
@@ -48,70 +50,24 @@ export default {
         pagination: {
           rowsPerPage: 6
         },
-        items: [
-          {
-            name: 'Comment bien construire ses models en fonction des bases de données avec une architectures MVC',
-            redacteur: 'Husson',
-            difficulte : 'easy',
-            temps: '24 min'
-          },
-          {
-            name: 'Bien débuter avec les objets et les namespace en PHP',
-            redacteur: 'Bouzayani',
-            difficulte : 'medium',
-            temps: '24 min'
-          },
-          {
-            name: 'Les tableaux',
-            redacteur: 'Clavelin',
-            difficulte : 'medium',
-            temps: '24 min'
-          },
-          {
-            name: 'Connaître toutes les subtilités de l\'ORM Eloquent pour l\'utiliser de la manière manière possible',
-            redacteur: 'Husson',
-            difficulte : 'easy',
-            temps: '24 min'
-          },
-          {
-            name: 'Comment bien manipuler les requête avancées',
-            redacteur: 'Frederic',
-            difficulte : 'hard',
-            temps: '24 min'
-          },
-          {
-            name: 'Comment bien construire ses models en fonction des bases de données avec une architectures MVC',
-            redacteur: 'Husson',
-            difficulte : 'easy',
-            temps: '24 min'
-          },
-          {
-            name: 'Comment bien construire ses models en fonction des bases de données avec une architectures MVC',
-            redacteur: 'Husson',
-            difficulte : 'easy',
-            temps: '24 min'
-          },
-          {
-            name: 'Les tableaux',
-            redacteur: 'Clavelin',
-            difficulte : 'medium',
-            temps: '24 min'
-          },
-          {
-            name: 'Connaître toutes les subtilités de l\'ORM Eloquent pour l\'utiliser de la manière manière possible',
-            redacteur: 'Husson',
-            difficulte : 'easy',
-            temps: '24 min'
-          },
-          {
-            name: 'Comment bien manipuler les requête avancées',
-            redacteur: 'Frederic',
-            difficulte : 'hard',
-            temps: '24 min'
-          },
-        ]
-      })
- }</script>
+        items: []
+      }),
+
+    mounted () {
+
+       // Récupération des données
+
+        Url.get('/parcours').then(response => {
+
+            this.items = response.data.parcours
+
+        }).catch(error => {
+
+            console.log(error)
+        })
+    }
+ }
+</script>
 
 
 <style scoped>

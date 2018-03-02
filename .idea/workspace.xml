@@ -2,9 +2,785 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38412368-d933-4255-a949-18dfbddb742d" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/chat/server.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/models/Posts.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/Makefile" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/AbstractConnectionDecorator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/App.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/ComponentInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/ConnectionInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Http/Guzzle/Http/Message/RequestFactory.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Http/HttpRequestParser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Http/HttpServerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Http/OriginCheck.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Http/Router.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/MessageComponentInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/MessageInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Server/EchoServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Server/FlashPolicy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Server/IoConnection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Server/IpBlackList.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Session/Serialize/HandlerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Session/Serialize/PhpBinaryHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Session/Serialize/PhpHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Session/SessionProvider.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Session/Storage/Proxy/VirtualProxy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Session/Storage/VirtualSessionStorage.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/Exception.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/JsonException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/ServerProtocol.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/Topic.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/TopicManager.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/WampConnection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/WampServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/Wamp/WampServerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Encoding/ToggleableValidator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Encoding/Validator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Encoding/ValidatorInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/DataInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/FrameInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/Hixie76.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/Hixie76/Connection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/Hixie76/Frame.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/HyBi10.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/MessageInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/RFC6455.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/RFC6455/Connection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/RFC6455/Frame.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/RFC6455/HandshakeVerifier.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/RFC6455/Message.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/Version/VersionInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/VersionManager.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/autobahn/bin/fuzzingserver-noutf8.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/autobahn/bin/fuzzingserver.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/autobahn/fuzzingclient-all.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/autobahn/fuzzingclient-profile.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/autobahn/fuzzingclient-quick.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/bootstrap.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/AbstractMessageComponentTestCase.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/Mock/Component.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/Mock/Connection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/Mock/ConnectionDecorator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/Mock/WampComponent.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/NullComponent.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/Wamp/Stub/WsWampServerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/helpers/Ratchet/WebSocket/Stub/WsMessageComponentInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/integration/GuzzleTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/AbstractConnectionDecoratorTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Http/Guzzle/Http/Message/RequestFactoryTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Http/HttpRequestParserTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Http/HttpServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Http/OriginCheckTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Http/RouterTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Server/EchoServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Server/FlashPolicyComponentTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Server/IoConnectionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Server/IoServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Server/IpBlackListComponentTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Session/Serialize/PhpHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Session/SessionComponentTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Session/Storage/VirtualSessionStoragePDOTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Wamp/ServerProtocolTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Wamp/TopicManagerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Wamp/TopicTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Wamp/WampConnectionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/Wamp/WampServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/Version/Hixie76Test.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/Version/HyBi10Test.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/Version/RFC6455/FrameTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/Version/RFC6455/HandshakeVerifierTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/Version/RFC6455/MessageTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/Version/RFC6455Test.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/VersionManagerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/cboden/ratchet/tests/unit/WebSocket/WsServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/doc/00-intro.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/doc/01-api.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/doc/02-plugin-system.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/examples/benchmark-emit-no-arguments.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/examples/benchmark-emit-once.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/examples/benchmark-emit-one-argument.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/examples/benchmark-emit.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/src/Evenement/EventEmitter.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/src/Evenement/EventEmitterInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/tests/Evenement/Tests/EventEmitterTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/tests/Evenement/Tests/Listener.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/evenement/evenement/tests/Evenement/Tests/functions.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/AbstractHasDispatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Collection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Event.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Exception/BadMethodCallException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Exception/ExceptionCollection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Exception/GuzzleException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Exception/InvalidArgumentException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Exception/RuntimeException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Exception/UnexpectedValueException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/FromConfigInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/HasDispatcherInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/ToArrayInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/Version.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/common/Guzzle/Common/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/AbstractEntityBodyDecorator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/CachingEntityBody.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Client.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/ClientInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Curl/CurlHandle.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Curl/CurlMulti.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Curl/CurlMultiInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Curl/CurlMultiProxy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Curl/CurlVersion.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Curl/RequestMediator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/EntityBody.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/EntityBodyInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/BadResponseException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/ClientErrorResponseException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/CouldNotRewindStreamException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/CurlException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/HttpException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/MultiTransferException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/RequestException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/ServerErrorResponseException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Exception/TooManyRedirectsException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/IoEmittingEntityBody.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/AbstractMessage.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/EntityEnclosingRequest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/EntityEnclosingRequestInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Header.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Header/CacheControl.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Header/HeaderCollection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Header/HeaderFactory.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Header/HeaderFactoryInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Header/HeaderInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Header/Link.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/MessageInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/PostFile.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/PostFileInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Request.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/RequestFactory.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/RequestFactoryInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/RequestInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Message/Response.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Mimetypes.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/QueryAggregator/CommaAggregator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/QueryAggregator/DuplicateAggregator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/QueryAggregator/PhpAggregator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/QueryAggregator/QueryAggregatorInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/QueryString.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/ReadLimitEntityBody.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/RedirectPlugin.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Resources/cacert.pem" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/StaticClient.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/Url.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/http/Guzzle/Http/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Cookie/CookieParser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Cookie/CookieParserInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Message/AbstractMessageParser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Message/MessageParser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Message/MessageParserInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Message/PeclHttpMessageParser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/ParserRegistry.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/UriTemplate/PeclUriTemplate.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/UriTemplate/UriTemplate.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/UriTemplate/UriTemplateInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Url/UrlParser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/Url/UrlParserInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/parser/Guzzle/Parser/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/stream/Guzzle/Stream/PhpStreamRequestFactory.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/stream/Guzzle/Stream/Stream.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/stream/Guzzle/Stream/StreamInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/stream/Guzzle/Stream/StreamRequestFactoryInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/guzzle/stream/Guzzle/Stream/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/Traits/Localizable.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/build-phar.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/dist/random_compat.phar.pubkey" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/byte_safe_strings.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/cast_to_int.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/error_polyfill.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/random.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/random_bytes_com_dotnet.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/random_bytes_dev_urandom.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/random_bytes_libsodium.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/random_bytes_libsodium_legacy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/random_bytes_mcrypt.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/lib/random_int.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/other/build_phar.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/psalm-autoload.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/psalm.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/TypeHintReference.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/.codeclimate.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/composer.lock" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/example/chat.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/example/client.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/example/reset.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/example/server.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/example/style.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/AbstractMultiRoomServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/BasicMultiRoomServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/ConnectedClient.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/Exception/ConnectedClientNotFoundException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/Exception/InvalidActionException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/Exception/MissingActionException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/Interfaces/ConnectedClientInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/tests/ConnectedClientTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/tests/MultiRoomServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/pmill/php-chat/tests/bootstrap.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/ExtEventLoop.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/Factory.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/LibEvLoop.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/LibEventLoop.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/LoopInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/StreamSelectLoop.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/Tick/FutureTickQueue.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/Tick/NextTickQueue.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/Timer/Timer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/Timer/TimerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/src/Timer/Timers.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/AbstractLoopTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/CallableStub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/ExtEventLoopTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/LibEvLoopTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/LibEventLoopTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/StreamSelectLoopTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/TestCase.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/Timer/AbstractTimerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/Timer/ExtEventTimerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/Timer/LibEvTimerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/Timer/LibEventTimerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/Timer/StreamSelectTimerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/Timer/TimersTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/tests/bootstrap.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/event-loop/travis-init.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/CancellablePromiseInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/CancellationQueue.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/Deferred.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/Exception/LengthException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/ExtendedPromiseInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/FulfilledPromise.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/LazyPromise.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/Promise.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/PromiseInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/PromisorInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/RejectedPromise.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/UnhandledRejectionException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/functions.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/src/functions_include.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/CancellationQueueTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/DeferredTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FulfilledPromiseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionAllTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionAnyTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionCheckTypehintTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionMapTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionRaceTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionReduceTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionRejectTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionResolveTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/FunctionSomeTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/LazyPromiseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseAdapter/CallbackPromiseAdapter.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseAdapter/PromiseAdapterInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/CancelTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/FullTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/NotifyTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/PromiseFulfilledTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/PromisePendingTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/PromiseRejectedTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/PromiseSettledTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/RejectTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/PromiseTest/ResolveTestTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/RejectedPromiseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/Stub/CallableStub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/TestCase.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/bootstrap.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/fixtures/SimpleFulfilledTestPromise.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/fixtures/SimpleFulfilledTestThenable.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/fixtures/SimpleRejectedTestPromise.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/fixtures/SimpleTestCancellable.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/promise/tests/fixtures/SimpleTestCancellableThenable.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/examples/01-echo.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/examples/02-chat-server.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/examples/03-benchmark.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/examples/10-generate-self-signed.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/examples/localhost.pem" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/examples/localhost_swordfish.pem" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/src/Connection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/src/ConnectionException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/src/ConnectionInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/src/SecureServer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/src/Server.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/src/ServerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/src/StreamEncryption.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/ConnectionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/FunctionalSecureServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/FunctionalServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/SecureServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/ServerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/Stub/CallableStub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/Stub/ConnectionStub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/Stub/ServerStub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/socket/tests/TestCase.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/examples/benchmark-throughput.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/Buffer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/BufferedSink.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/CompositeStream.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/DuplexStreamInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/ReadableStream.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/ReadableStreamInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/Stream.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/ThroughStream.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/Util.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/WritableStream.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/src/WritableStreamInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/BufferTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/BufferedSinkTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/CallableStub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/CompositeStreamTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/ReadableStreamTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/StreamIntegrationTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/StreamTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/Stub/ReadableStreamStub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/TestCase.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/ThroughStreamTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/UtilTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/WritableStreamTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/react/stream/tests/bootstrap.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Debug/TraceableEventDispatcherInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Debug/WrappedListener.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Event.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/EventDispatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/EventDispatcherInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/EventSubscriberInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/GenericEvent.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/ImmutableEventDispatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Tests/AbstractEventDispatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Tests/Debug/TraceableEventDispatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Tests/DependencyInjection/RegisterListenersPassTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Tests/EventDispatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Tests/EventTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Tests/GenericEventTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/Tests/ImmutableEventDispatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/AcceptHeader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/AcceptHeaderItem.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/ApacheRequest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/BinaryFileResponse.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Cookie.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Exception/ConflictingHeadersException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Exception/RequestExceptionInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Exception/SuspiciousOperationException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/ExpressionRequestMatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/Exception/AccessDeniedException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/Exception/FileException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/Exception/FileNotFoundException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/Exception/UnexpectedTypeException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/Exception/UploadException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/File.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/MimeType/ExtensionGuesser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/MimeType/ExtensionGuesserInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/MimeType/FileBinaryMimeTypeGuesser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/MimeType/FileinfoMimeTypeGuesser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/MimeType/MimeTypeExtensionGuesser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/MimeType/MimeTypeGuesser.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/MimeType/MimeTypeGuesserInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/Stream.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/File/UploadedFile.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/FileBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/HeaderBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/IpUtils.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/JsonResponse.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/ParameterBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/RedirectResponse.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Request.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/RequestMatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/RequestMatcherInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/RequestStack.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Response.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/ResponseHeaderBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/ServerBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Attribute/AttributeBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Attribute/AttributeBagInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Attribute/NamespacedAttributeBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Flash/AutoExpireFlashBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Flash/FlashBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Flash/FlashBagInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Session.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/SessionBagInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/SessionBagProxy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/SessionInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/AbstractSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/MemcacheSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/MemcachedSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/MongoDbSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/NativeFileSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/NativeSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/NullSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/PdoSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/StrictSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Handler/WriteCheckSessionHandler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/MetadataBag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/MockArraySessionStorage.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/MockFileSessionStorage.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/NativeSessionStorage.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/PhpBridgeSessionStorage.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Proxy/AbstractProxy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Proxy/NativeProxy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Session/Storage/SessionStorageInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/StreamedResponse.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/AcceptHeaderItemTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/AcceptHeaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/ApacheRequestTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/BinaryFileResponseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/CookieTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/ExpressionRequestMatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/FakeFile.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/FileTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/Fixtures/.unknownextension" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/Fixtures/directory/.empty" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/Fixtures/other-file.example" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/Fixtures/test" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/Fixtures/test.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/MimeType/MimeTypeTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/File/UploadedFileTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/FileBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/HeaderBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/IpUtilsTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/JsonResponseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/ParameterBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/RedirectResponseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/RequestMatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/RequestStackTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/RequestTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/ResponseHeaderBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/ResponseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/ResponseTestCase.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/ServerBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Attribute/AttributeBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Attribute/NamespacedAttributeBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Flash/AutoExpireFlashBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Flash/FlashBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/SessionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/AbstractSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/common.inc" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/empty_destroys.expected" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/empty_destroys.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/read_only.expected" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/read_only.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/regenerate.expected" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/regenerate.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/storage.expected" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/storage.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/with_cookie.expected" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/with_cookie.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/with_cookie_and_session.expected" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/Fixtures/with_cookie_and_session.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/MemcacheSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/MemcachedSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/MongoDbSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/NativeFileSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/NativeSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/NullSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/PdoSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/StrictSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Handler/WriteCheckSessionHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/MetadataBagTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/MockArraySessionStorageTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/MockFileSessionStorageTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/NativeSessionStorageTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/PhpBridgeSessionStorageTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Proxy/AbstractProxyTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Proxy/NativeProxyTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/Session/Storage/Proxy/SessionHandlerProxyTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/StreamedResponseTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/schema/http-status-codes.rng" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/Tests/schema/iana-registry.rng" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Php70.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Resources/stubs/AssertionError.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Resources/stubs/Error.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Resources/stubs/ParseError.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/Resources/stubs/TypeError.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/bootstrap.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Annotation/Route.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/CompiledRoute.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/DependencyInjection/RoutingResolverPass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Exception/ExceptionInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Exception/InvalidParameterException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Exception/MethodNotAllowedException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Exception/MissingMandatoryParametersException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Exception/NoConfigurationException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Exception/ResourceNotFoundException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Exception/RouteNotFoundException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Generator/ConfigurableRequirementsInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Generator/Dumper/GeneratorDumper.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Generator/Dumper/GeneratorDumperInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Generator/Dumper/PhpGeneratorDumper.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Generator/UrlGenerator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Generator/UrlGeneratorInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/AnnotationClassLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/AnnotationDirectoryLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/AnnotationFileLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/ClosureLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/Configurator/CollectionConfigurator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/Configurator/ImportConfigurator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/Configurator/RouteConfigurator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/Configurator/RoutingConfigurator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/Configurator/Traits/AddTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/Configurator/Traits/RouteTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/DependencyInjection/ServiceRouterLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/DirectoryLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/ObjectRouteLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/PhpFileLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/XmlFileLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/YamlFileLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Loader/schema/routing/routing-1.0.xsd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/Dumper/DumperCollection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/Dumper/DumperRoute.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/Dumper/MatcherDumper.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/Dumper/MatcherDumperInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/Dumper/PhpMatcherDumper.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/Dumper/StaticPrefixCollection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/RedirectableUrlMatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/RedirectableUrlMatcherInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/RequestMatcherInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/TraceableUrlMatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/UrlMatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Matcher/UrlMatcherInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/RequestContext.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/RequestContextAwareInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Route.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/RouteCollection.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/RouteCollectionBuilder.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/RouteCompiler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/RouteCompilerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Router.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/RouterInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Annotation/RouteTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/CompiledRouteTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/DependencyInjection/RoutingResolverPassTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/AnnotatedClasses/AbstractClass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/AnnotatedClasses/BarClass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/AnnotatedClasses/BazClass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/AnnotatedClasses/FooClass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/AnnotatedClasses/FooTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/CustomCompiledRoute.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/CustomRouteCompiler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/CustomXmlFileLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/OtherAnnotatedClasses/AnonymousClassInTrait.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/OtherAnnotatedClasses/NoStartTagClass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/OtherAnnotatedClasses/VariadicClass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/RedirectableUrlMatcher.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/annotated.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/bad_format.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/bar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/import__controller.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/import__controller.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/import_controller.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/import_controller.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/import_override_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/import_override_defaults.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/override_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/override_defaults.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/routing.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/controller/routing.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/directory/recurse/routes1.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/directory/recurse/routes2.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/directory/routes3.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/directory_import/import.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher0.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher1.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher2.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher3.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher4.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher5.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher6.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/dumper/url_matcher7.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/empty.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/file_resource.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/foo.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/foo1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/incomplete.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/list_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/list_in_list_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/list_in_map_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/list_null_values.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/map_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/map_in_list_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/map_in_map_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/map_null_values.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/missing_id.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/missing_path.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/namespaceprefix.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonesense_resource_plus_path.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonesense_type_without_resource.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonvalid.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonvalid.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonvalid2.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonvalidkeys.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonvalidnode.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/nonvalidroute.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/null_values.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/php_dsl.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/php_dsl_sub.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/scalar_defaults.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/special_route_name.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/validpattern.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/validpattern.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/validpattern.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/validresource.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/validresource.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/validresource.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/with_define_path_variable.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Fixtures/withdoctype.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Generator/Dumper/PhpGeneratorDumperTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Generator/UrlGeneratorTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/AbstractAnnotationLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/AnnotationClassLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/AnnotationDirectoryLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/AnnotationFileLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/ClosureLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/DirectoryLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/ObjectRouteLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/PhpFileLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/XmlFileLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Loader/YamlFileLoaderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Matcher/Dumper/DumperCollectionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Matcher/Dumper/PhpMatcherDumperTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Matcher/Dumper/StaticPrefixCollectionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Matcher/RedirectableUrlMatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Matcher/TraceableUrlMatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/Matcher/UrlMatcherTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/RequestContextTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/RouteCollectionBuilderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/RouteCollectionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/RouteCompilerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/RouteTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/Tests/RouterTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/vendor/symfony/routing/phpunit.xml.dist" />
       <change beforePath="$PROJECT_DIR$/.idea/learn.iml" afterPath="$PROJECT_DIR$/.idea/learn.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" afterPath="$PROJECT_DIR$/backend/composer.json" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" afterPath="$PROJECT_DIR$/backend/composer.lock" />
+      <change beforePath="$PROJECT_DIR$/backend/src/config/migration.php" afterPath="$PROJECT_DIR$/backend/src/config/migration.php" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/ParcoursController.php" afterPath="$PROJECT_DIR$/backend/src/controllers/ParcoursController.php" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/Parcours.php" afterPath="$PROJECT_DIR$/backend/src/models/Parcours.php" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/User.php" afterPath="$PROJECT_DIR$/backend/src/models/User.php" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/routes.php" afterPath="$PROJECT_DIR$/backend/src/services/routes.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/ClassLoader.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/ClassLoader.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_namespaces.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_namespaces.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.json" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/contracts/Mail/MailQueue.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/contracts/Mail/MailQueue.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/contracts/Mail/Mailer.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/contracts/Mail/Mailer.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Connectors/ConnectionFactory.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Connectors/ConnectionFactory.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/DatabaseManager.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/DatabaseManager.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Eloquent/Builder.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Eloquent/Builder.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Eloquent/Model.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Eloquent/Model.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Query/Builder.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Query/Builder.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Query/JsonExpression.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Query/JsonExpression.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Schema/Blueprint.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Schema/Blueprint.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/support/Collection.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/Collection.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/support/Manager.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/Manager.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/support/Optional.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/Optional.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/support/Testing/Fakes/QueueFake.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/Testing/Fakes/QueueFake.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/support/Traits/Macroable.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/Traits/Macroable.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/support/composer.json" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/composer.json" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/ClassCodeGenerator.php" afterPath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/ClassCodeGenerator.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/Node/MethodNode.php" afterPath="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/Node/MethodNode.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/.stickler.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/ChangeLog-6.5.md" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/ChangeLog-6.5.md" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/build.xml" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/build.xml" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Runner/Version.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Runner/Version.php" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Util/Log/JUnit.php" afterPath="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/src/Util/Log/JUnit.php" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" afterPath="$PROJECT_DIR$/frontend/src/App.vue" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Connexion.vue" afterPath="$PROJECT_DIR$/frontend/src/components/Connexion.vue" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Parcours.vue" afterPath="$PROJECT_DIR$/frontend/src/components/Parcours.vue" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ParcoursListe.vue" afterPath="$PROJECT_DIR$/frontend/src/components/ParcoursListe.vue" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,81 +794,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
+      <file leaf-file-name="Chat.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/Chat.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <marker date="1519663110000" expanded="false" signature="0:139" ph="//..." />
-                <marker date="1519663110000" expanded="true" signature="147:267" ph="..." />
-                <marker date="1519663110000" expanded="true" signature="268:348" ph="/*...*/" />
-                <marker date="1519663110000" expanded="true" signature="499:587" ph="{&quot;el&quot;: '##app'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2685">
-              <caret line="179" column="9" lean-forward="false" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="9" />
-              <folding>
-                <marker date="1519663110000" expanded="true" signature="6545:6573" ph="{...}" />
-                <marker date="1519663110000" expanded="true" signature="6587:6617" ph="{...}" />
-                <marker date="1519663110000" expanded="true" signature="6631:6639" ph="{...}" />
-                <marker date="1519663110000" expanded="true" signature="6654:6700" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connexion.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/Connexion.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="63" column="39" lean-forward="false" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
-              <folding>
-                <element signature="e#959#1013#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="805">
+              <caret line="109" column="8" lean-forward="false" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-38">
-              <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/store/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="14" />
-              <folding>
-                <marker date="1519663110000" expanded="true" signature="37:130" ph="..." />
-                <marker date="1519663110000" expanded="true" signature="209:376" ph="{...}" />
-                <marker date="1519663110000" expanded="true" signature="222:272" ph="{...}" />
-                <marker date="1519663110000" expanded="true" signature="287:353" ph="{...}" />
-                <marker date="1519663110000" expanded="true" signature="393:520" ph="{...}" />
-                <marker date="1519663110000" expanded="true" signature="438:514" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -103,6 +810,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -115,6 +823,9 @@
       <find>isC</find>
       <find>onnecte</find>
       <find>name</find>
+      <find>v-for</find>
+      <find>author</find>
+      <find>items</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,13 +843,11 @@
         <option value="$PROJECT_DIR$/backend/src/middleware/checkJwt.php" />
         <option value="$PROJECT_DIR$/backend/src/controllers/Writer.php" />
         <option value="$PROJECT_DIR$/backend/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/backend/src/models/User.php" />
         <option value="$PROJECT_DIR$/backend/src/config/database.php" />
         <option value="$PROJECT_DIR$/backend/api/app.php" />
         <option value="$PROJECT_DIR$/backend/src/services/connectDb.php" />
         <option value="$PROJECT_DIR$/backend/src/middleware/CheckJwt.php" />
         <option value="$PROJECT_DIR$/backend/src/middleware/CheckForm.php" />
-        <option value="$PROJECT_DIR$/backend/composer.json" />
         <option value="$PROJECT_DIR$/backend/src/controllers/BaseController.php" />
         <option value="$PROJECT_DIR$/backend/src/config/settings.php" />
         <option value="$PROJECT_DIR$/backend/src/models/Courses.php" />
@@ -152,14 +861,27 @@
         <option value="$PROJECT_DIR$/frontend/src/store/services.js" />
         <option value="$PROJECT_DIR$/frontend/src/services/config.js" />
         <option value="$PROJECT_DIR$/frontend/src/services/localStorage.js" />
-        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
-        <option value="$PROJECT_DIR$/backend/src/services/routes.php" />
-        <option value="$PROJECT_DIR$/backend/src/config/migration.php" />
         <option value="$PROJECT_DIR$/frontend/src/components/Inscription.vue" />
         <option value="$PROJECT_DIR$/backend/src/controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/store/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/main.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/ParcoursListe.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/router/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Connexion.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
+        <option value="$PROJECT_DIR$/backend/chat/Chat.php" />
+        <option value="$PROJECT_DIR$/backend/chat/serveur.php" />
+        <option value="$PROJECT_DIR$/backend/chat/Pusher.php" />
+        <option value="$PROJECT_DIR$/backend/composer.json" />
+        <option value="$PROJECT_DIR$/backend/chat/server.php" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Parcours.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/store/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/services/routes.php" />
+        <option value="$PROJECT_DIR$/backend/src/models/Posts.php" />
+        <option value="$PROJECT_DIR$/backend/src/config/migration.php" />
+        <option value="$PROJECT_DIR$/backend/src/models/User.php" />
+        <option value="$PROJECT_DIR$/backend/src/models/Parcours.php" />
+        <option value="$PROJECT_DIR$/backend/src/controllers/ParcoursController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Chat.vue" />
       </list>
     </option>
   </component>
@@ -228,11 +950,28 @@
       <path value="$PROJECT_DIR$/backend/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/resource-operations" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/backend/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/backend/vendor/pmill/php-chat" />
+      <path value="$PROJECT_DIR$/backend/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/backend/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/backend/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/backend/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/backend/vendor/cboden/ratchet" />
+      <path value="$PROJECT_DIR$/backend/vendor/guzzle/common" />
+      <path value="$PROJECT_DIR$/backend/vendor/guzzle/parser" />
+      <path value="$PROJECT_DIR$/backend/vendor/guzzle/stream" />
+      <path value="$PROJECT_DIR$/backend/vendor/guzzle/http" />
+      <path value="$PROJECT_DIR$/backend/vendor/evenement/evenement" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="237" />
     <option name="y" value="23" />
-    <option name="width" value="1920" />
+    <option name="width" value="1490" />
     <option name="height" value="977" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -251,8 +990,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,18 +1005,73 @@
             <path>
               <item name="learn" type="b2602c69:ProjectViewProjectNode" />
               <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="chat" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="store" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -327,17 +1119,22 @@
       <workItem from="1519218151934" duration="691000" />
       <workItem from="1519218921210" duration="8750000" />
       <workItem from="1519663349871" duration="456000" />
-      <workItem from="1519738036696" duration="781000" />
+      <workItem from="1519738036696" duration="4236000" />
+      <workItem from="1519743670592" duration="7961000" />
+      <workItem from="1519824769304" duration="10788000" />
+      <workItem from="1519839535002" duration="9110000" />
+      <workItem from="1519998836058" duration="225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59875000" />
+    <option name="totallyTimeSpent" value="91414000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="977" extended-state="0" />
+    <frame x="237" y="23" width="1490" height="977" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22257721" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941988" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -345,7 +1142,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37641722" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -368,73 +1165,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2024">
-          <caret line="88" column="23" lean-forward="true" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/services/connectDb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/config/migration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="39" column="51" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/config/database.php" />
-    <entry file="file://$PROJECT_DIR$/backend/src/services/services.php" />
-    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/config/database.php" />
-    <entry file="file://$PROJECT_DIR$/backend/src/services/services.php" />
-    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" column="59" lean-forward="true" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator/src/Facade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -504,13 +1234,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/controllers/CoursesController.php" />
-    <entry file="file://$PROJECT_DIR$/backend/src/models/Exercices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/controllers/XpController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -522,13 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="24" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -556,26 +1272,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/services/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/services/localStorage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -583,17 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="63" column="48" lean-forward="false" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
-          <folding>
-            <element signature="e#1173#1223#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -604,69 +1293,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/config/migration.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/services/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="80" column="59" lean-forward="false" selection-start-line="80" selection-start-column="59" selection-end-line="80" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/store/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <marker date="1519663110000" expanded="true" signature="37:130" ph="..." />
-            <marker date="1519663110000" expanded="true" signature="209:376" ph="{...}" />
-            <marker date="1519663110000" expanded="true" signature="222:272" ph="{...}" />
-            <marker date="1519663110000" expanded="true" signature="287:353" ph="{...}" />
-            <marker date="1519663110000" expanded="true" signature="393:520" ph="{...}" />
-            <marker date="1519663110000" expanded="true" signature="438:514" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <marker date="1519663110000" expanded="false" signature="0:139" ph="//..." />
-            <marker date="1519663110000" expanded="true" signature="147:267" ph="..." />
-            <marker date="1519663110000" expanded="true" signature="268:348" ph="/*...*/" />
-            <marker date="1519663110000" expanded="true" signature="499:587" ph="{&quot;el&quot;: '##app'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2685">
-          <caret line="179" column="9" lean-forward="false" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="9" />
-          <folding>
-            <marker date="1519663110000" expanded="true" signature="6545:6573" ph="{...}" />
-            <marker date="1519663110000" expanded="true" signature="6587:6617" ph="{...}" />
-            <marker date="1519663110000" expanded="true" signature="6631:6639" ph="{...}" />
-            <marker date="1519663110000" expanded="true" signature="6654:6700" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Connexion.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="39" lean-forward="false" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
-          <folding>
-            <element signature="e#959#1013#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -674,6 +1305,157 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-38">
           <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/ParcoursListe.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="75" column="27" lean-forward="false" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
+          <folding>
+            <element signature="e#262#308#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ratchet/src/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/chat/serveur.php" />
+    <entry file="file://$PROJECT_DIR$/backend/chat/Chat.php" />
+    <entry file="file://$PROJECT_DIR$/backend/chat/Pusher.php" />
+    <entry file="file://$PROJECT_DIR$/backend/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/AbstractMultiRoomServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2910">
+          <caret line="202" column="23" lean-forward="false" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/BasicMultiRoomServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="44" column="1" lean-forward="false" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/chat/server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="58" lean-forward="false" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Parcours.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <folding>
+            <element signature="e#196#234#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/store/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/models/Exercices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/models/Posts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="57" lean-forward="false" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/config/migration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="123" column="52" lean-forward="false" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="30" column="80" lean-forward="false" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/models/Parcours.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/controllers/ParcoursController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="95" column="68" lean-forward="false" selection-start-line="95" selection-start-column="68" selection-end-line="95" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Connexion.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="50" column="6" lean-forward="false" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Chat.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="109" column="8" lean-forward="false" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
           <folding />
         </state>
       </provider>
