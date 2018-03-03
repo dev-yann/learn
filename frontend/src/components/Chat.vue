@@ -1,37 +1,65 @@
 <template>
     <v-layout row>
         <v-flex xs12 sm6>
-            <v-card>
-                <v-toolbar color="pink" dark>
-                    <v-toolbar-title>Chat</v-toolbar-title>
-                    <v-spacer></v-spacer>
+           <div class="conteneurGeneral" id="conteneurGeneral">
+             <v-card>
+               <v-toolbar class="conteneurChat" color="light-blue darken-1" @click="quitChat">
+                  <v-toolbar-title><span class="titleChat">Chat</span></v-toolbar-title>
+               </v-toolbar>
 
-                </v-toolbar>
-                <v-list two-line>
-                    <template v-for="(item, index) in items">
-                        <v-list-tile avatar ripple :key="index" @click="">
-                            <v-list-tile-content>
-                                <v-list-tile-title>{{ item.username}}</v-list-tile-title>
-                                <v-list-tile-sub-title class="text--primary">{{ item.message }}</v-list-tile-sub-title>
-                            </v-list-tile-content>
-                            <v-list-tile-action>
-                                <v-list-tile-action-text>{{ item.action }}</v-list-tile-action-text>
-                                <v-icon color="grey lighten-1">star_border</v-icon>
-                            </v-list-tile-action>
-                        </v-list-tile>
-                        <v-divider v-if="index + 1 < items.length" :key="`divider-${index}`"></v-divider>
-                    </template>
-                    <v-list-tile-content>
-                        <v-btn color="info" @click="connection">connect</v-btn>
-                    </v-list-tile-content>
-                </v-list>
+                 <div class="conteneurMessages">
+                   <v-list two-line>
+                       <template v-for="(item, index) in items">
+                           <div avatar ripple :key="index">
+
+                              <!-- Si le message précédent est du même auteur-->
+                              <div class="leMess plsMess"  v-if="index!=0 && items[index-1].username==item.username ">
+                                 <span class="contenuTxt">{{ item.message }}</span>
+                              </div>
+
+                              <!-- Sinon -->
+                              <div v-else>
+                                 <!-- Si c'est la premier message pas de marge au dessus du nom de l'auteur -->
+                                 <div v-if="index!==0" class="conteneurAuteur">
+                                    <span class="auteur">{{ item.username }}</span>
+                                 </div>
+                                 <!-- Si c'est pas le premier message, marge au dessus-->
+                                 <div v-else>
+                                    <span class="auteur">{{ item.username }}</span>
+                                 </div>
+
+                                 <div class="leMess">
+                                    <span class="contenuTxt">{{ item.message }}</span>
+                                 </div>
+                              </div>
+
+                              <!-- Qu'est ce "action" et la petite étoile ? -->
+
+                              <!-- <v-list-tile-action>
+                                   <v-list-tile-action-text>{{ item.action }}</v-list-tile-action-text>
+                                   <v-icon small color="grey lighten-1">star_border</v-icon>
+                               </v-list-tile-action> -->
+                           </div>
+                        </template>
+
+                       <!-- Qu'est ce bouton ? Il sert à envoyer un premier message pour établir une connexion avec le chat ? Tu peux le rajouter si tu veux c'est juste que je savais pas comment le mettre en forme -->
+
+                       <!-- <v-list-tile-content>
+                           <v-btn color="light-blue darken-1" @click="connection">connect</v-btn>
+                       </v-list-tile-content> -->
+                   </v-list>
+                </div>
+               <div class="conteneurInput" @keyup.enter="sendMessage">
+                  <v-text-field class="inputEcrire" color="grey" style="padding:0" name="input-1" v-model="messChat" multi-line></v-text-field>
+               </div>
             </v-card>
+           </div>
+           <div class="chatCache" id="btnOpenChat" @click="openChat">Chat</div>
         </v-flex>
     </v-layout>
 </template>
 
 <script>
-
     import { mapGetters } from 'vuex'
     import Url from './../services/config'
 
@@ -39,11 +67,30 @@
         name: "Chat",
         data () {
             return {
+                messChat :'',
                 items: []
             }
         },
         methods: {
-            connection () {
+           sendMessage(){
+             console.log('envoyer message');
+             this.messChat="";
+           },
+           quitChat(){
+             /* Cache le chat quand clique sur chat */
+             document.querySelector("#conteneurGeneral").className= "chatCache";
+
+             /* Affiche le bouton pour ouvrir le chat*/
+             document.querySelector("#btnOpenChat").className= "btnOpen";
+           },
+           openChat(){
+             /* Affiche le chat quand clique sur le bouton */
+            document.querySelector("#conteneurGeneral").className= "conteneurGeneral";
+
+            /* Cache le bouton pour ouvrir le chat*/
+            document.querySelector("#btnOpenChat").className= "chatCache";
+         },
+           connection () {
 
                 // je perd la reference de this a partir de then response
                 let dataThis = this;
@@ -105,6 +152,69 @@
     }
 </script>
 
-<style scoped>
+<style>
+.conteneurGeneral{
+   position: fixed;
+   bottom: 0px;
+   right: 20px;
+   z-index: 10;
+}
+.conteneurChat{
+   height :30px;
+}
+.conteneurMessages{
+   height: 350px;
+   position: relative;
+   overflow-y:scroll;
+   padding: 0px 13px;
+}
+.conteneurAuteur{
+   margin-top: 10px;
+}
+.contenuTxt{
+   color:black;
+}
+.conteneurInput{
+   max-height:50px;
+   background-color:#595959;
+   padding:0px 13px;
+   position:relative;
+   overflow-y: scroll;
+   overflow-x: hidden;
+}
+.titleChat{
+   font-size : 12pt;
+   position :absolute;
+   top :4px;
+}
+.auteur{
+   font-size : 0.8em;
+   color : #DDD;
+   margin-bottom: 0px;
+}
+.leMess{
+   background-color: #EEE;
+   padding : 10px;
+   border-radius: 13pt;
+   max-width: 300px;
+   height: auto;
+}
+.plsMess{
+   margin-top : 5px;
+}
+.chatCache{
+   display: none;
+}
+.btnOpen{
+ background-color : #039BE5;
+ margin-right: 10px;
+ padding: 6px 70px;
 
+ position: fixed;
+ right:10px;
+ bottom: 0px;
+ z-index: 1000;
+ font-size: 12pt;
+ font-weight : 500;
+}
 </style>
