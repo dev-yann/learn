@@ -41,15 +41,10 @@
                                </v-list-tile-action> -->
                            </div>
                         </template>
-
-                       <!-- Qu'est ce bouton ? Il sert à envoyer un premier message pour établir une connexion avec le chat ? Tu peux le rajouter si tu veux c'est juste que je savais pas comment le mettre en forme -->
-
-                       <!-- <v-list-tile-content>
-                           <v-btn color="light-blue darken-1" @click="connection">connect</v-btn>
-                       </v-list-tile-content> -->
                    </v-list>
                 </div>
                <div class="conteneurInput" @keyup.enter="sendMessage">
+                   <!-- Mettre comme fb la c'est degeulasse -->
                   <v-text-field class="inputEcrire" color="grey" style="padding:0" name="input-1" v-model="messChat" multi-line></v-text-field>
                </div>
             </v-card>
@@ -68,36 +63,56 @@
         data () {
             return {
                 messChat :'',
-                items: []
+                items: [],
+                myConnection: {}
             }
         },
         methods: {
            sendMessage(){
-             console.log('envoyer message');
-             this.messChat="";
+
+               let d = new Date()
+
+               let params = {
+                 'message' : this.messChat,
+                 'action' : 'message',
+                 'timestamp' : d.getTime()/1000,
+                   'roomId' : this.getParcours.id
+
+               };
+
+               this.myConnection.send(JSON.stringify(params));
+
+               this.messChat="";
+
            },
+
            quitChat(){
              /* Cache le chat quand clique sur chat */
-             document.querySelector("#conteneurGeneral").className= "chatCache";
+             document.querySelector("#conteneurGeneral").className = "chatCache";
 
              /* Affiche le bouton pour ouvrir le chat*/
-             document.querySelector("#btnOpenChat").className= "btnOpen";
+             document.querySelector("#btnOpenChat").className = "btnOpen";
            },
            openChat(){
              /* Affiche le chat quand clique sur le bouton */
-            document.querySelector("#conteneurGeneral").className= "conteneurGeneral";
+            document.querySelector("#conteneurGeneral").className = "conteneurGeneral";
 
             /* Cache le bouton pour ouvrir le chat*/
-            document.querySelector("#btnOpenChat").className= "chatCache";
-         },
-           connection () {
+            document.querySelector("#btnOpenChat").className = "chatCache";
+            },
+
+            connection () {
 
                 // je perd la reference de this a partir de then response
                 let dataThis = this;
                 // connection au serveur chat en websocket
                 let conn = new WebSocket('ws://localhost:9090');
+                this.myConnection = conn;
+
                 let username = this.getUser.username;
+
                 let parcours = this.getParcours.id;
+
 
                 conn.onopen = function(e) {
 
@@ -117,8 +132,6 @@
                     // Pour le début oui, le truc c'est qu'après les mess doivent etre push automatiquement
 
                     Url.get('/parcours/'+ parcours + '/posts').then(function (response){
-
-                        console.log(response)
 
                         // Réorganisation des données recues
 
@@ -141,13 +154,28 @@
                         console.log(error)
                     })
                 };
-                conn.onmessage = function(e) {
-                    console.log(e.data);
+
+               /**
+                * Quand on recoit un message
+                * on l'ajoute au tableau item
+                * @param e
+                */
+               conn.onmessage = function(e) {
+                    let message = JSON.parse(e.data);
+                    dataThis.items.push({
+                        username: message.from.name,
+                        message: message.message
+                    })
+
                 };
+
             }
         },
         computed: {
-            ...mapGetters(['getUser','getParcours']),
+            ...mapGetters(['getUser','getParcours'])
+        },
+        mounted () {
+            this.connection()
         }
     }
 </script>
