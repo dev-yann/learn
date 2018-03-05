@@ -146,6 +146,8 @@
     </router-link>
 
       </v-list>
+
+
     </v-navigation-drawer>
 
 
@@ -161,7 +163,7 @@
 
   <v-content>
       <v-container fluid fill-height>
-        <v-layout justify-center align-center>
+        <v-layout>
           <router-view></router-view>
         </v-layout>
       </v-container>

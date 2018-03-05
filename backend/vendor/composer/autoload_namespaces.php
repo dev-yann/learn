@@ -6,6 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'pmill\\Chat' => array($vendorDir . '/pmill/php-chat/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
+    'Guzzle\\Stream' => array($vendorDir . '/guzzle/stream'),
+    'Guzzle\\Parser' => array($vendorDir . '/guzzle/parser'),
+    'Guzzle\\Http' => array($vendorDir . '/guzzle/http'),
+    'Guzzle\\Common' => array($vendorDir . '/guzzle/common'),
+    'Evenement' => array($vendorDir . '/evenement/evenement/src'),
 );

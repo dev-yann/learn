@@ -9,16 +9,22 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         connected: false,
-        user: {}
+        user: {},
+        parcours: {}
     },
     getters: {
         // Retourne l'état connecté
-        isConnected: state => state.connected
+        isConnected: state => state.connected,
+        getUser: state => state.user,
+        getParcours: state => state.parcours
     },
     mutations: {
         setConnectedUser: (state, user) => {
             state.connected = true
             state.user = user
+        },
+        setParcours: (state,parcours) => {
+            state.parcours = parcours
         }
     }
 })

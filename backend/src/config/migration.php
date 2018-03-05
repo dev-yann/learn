@@ -62,6 +62,7 @@ class Migrator {
                 $table->integer('temps');
                 $table->integer('level');
                 $table->string('title')->default('');
+                $table->string('description')->default('');
                 $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
 
@@ -92,6 +93,51 @@ class Migrator {
 
             });
         }
+
+        /**
+         * create table for posts
+         */
+        if (!Capsule::schema()->hasTable('posts')) {
+            Capsule::schema()->create('posts', function($table)
+            {
+
+                $table->integer('id', true);
+                $table->string('message')->default('');
+
+                //FK
+                $table->integer('parcours_id');
+                $table->integer('user_id');
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('parcours_id')->references('id')->on('parcours')->onDelete('cascade');
+                $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+
+
+            });
+        }
+        /**
+         * create table for parcours to users
+         */
+        if (!Capsule::schema()->hasTable('parcours2users')) {
+            Capsule::schema()->create('parcours2users', function($table)
+            {
+
+                //FK
+                $table->integer('parcours_id');
+                $table->integer('user_id');
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('parcours_id')->references('id')->on('parcours')->onDelete('cascade');
+                $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+
+
+            });
+        }
+
            if (!Capsule::schema()->hasTable('groupes')) {
             Capsule::schema()->create('groupes', function($table)
             {

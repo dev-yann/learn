@@ -16,8 +16,14 @@ class Parcours extends Model
     public function exercices (){
     	return $this->hasMany(Exercices::class,'parcours_id');
     }
+    public function posts () {
+        return $this->hasMany(Posts::class, 'parcours_id');
+    }
     public function author() {
     	return $this->belongsTo(User::class,'author_id')->select("id","username");
+    }
+    public function users () {
+        return $this->belongsToMany(User::class, 'parcours2users','parcours_id','user_id');
     }
 
 }

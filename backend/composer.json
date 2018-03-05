@@ -6,7 +6,8 @@
         "illuminate/database": "^5.5",
         "slim/slim": "^3.9",
         "phpunit/phpunit": "^6.5",
-        "corveda/php-sandbox": "^2.0"
+        "corveda/php-sandbox": "^2.0",
+        "pmill/php-chat": "^0.2.0"
     },
     "authors": [
         {
@@ -16,7 +17,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\":"src"
+            "App\\":"src",
+            "AppChat\\":"chat"
         }
     }
 }

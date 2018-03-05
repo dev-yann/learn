@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Inscription from '@/components/Inscription.vue'
-import Dashboard from '@/components/Dashboard.vue'
+import Inscription from '@/components/Inscription'
+import Dashboard from '@/components/Dashboard'
 import url from './../services/config'
 import ls from './../services/localStorage'
 import { mapMutations } from 'vuex'
@@ -54,11 +54,13 @@ export default {
      log(){
 
              return url.post('/user',[], {
+                 // Envoie du header base 68
                  headers: {
                      'Authorization': 'Basic ' + window.btoa(this.name + ':' + this.password)
                  }
              }).then(response => {
 
+                 // L'api nous renvoie un token que l'on enregistre dans le ls
                  console.log(response);
                  ls.set('token',response.data.token);
 
