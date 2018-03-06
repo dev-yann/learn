@@ -103,7 +103,8 @@ class Migrator {
 
                 $table->integer('id', true);
                 $table->string('message')->default('');
-
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
                 //FK
                 $table->integer('parcours_id');
                 $table->integer('user_id');
