@@ -40,15 +40,17 @@ class BasicMultiRoomServer extends AbstractMultiRoomServer
          *  si je change l'id du parcours / si l'id du parcours existe ?
          *  si je ne suis pas connecté ?
          *
+         *
          *  d'autres idées ?
          */
 
         // La table comprend id - message - parcours_id - user_id
 
         $posts = new Posts();
-        $posts->message = $message;
-        $posts->parcours_id = $roomId;
-        $posts->user_id = $from->getId();
+
+        $posts->message = filter_var($message, FILTER_SANITIZE_SPECIAL_CHARS);
+        $posts->parcours_id = filter_var($roomId, FILTER_SANITIZE_NUMBER_INT);
+        $posts->user_id = filter_var($from->getId(),FILTER_SANITIZE_NUMBER_INT);
 
         try {
             $posts->save();

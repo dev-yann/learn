@@ -127,13 +127,20 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
 
         switch ($msg['action']) {
             case self::ACTION_USER_CONNECTED:
+
                 $userName = $msg['userName'];
                 $userId = $msg['userID'];
+
                 $client = $this->createClient($conn, $userName, $userId);
                 $this->connectUserToRoom($client, $roomId);
                 //$this->sendUserConnectedMessage($client, $roomId);
                 //$this->sendUserWelcomeMessage($client, $roomId);
                 //$this->sendListUsersMessage($client, $roomId);
+
+
+            //checker ici le jsonwebtoken
+            //checker aussi avec csrf
+
                 break;
             case self::ACTION_LIST_USERS:
                 $client = $this->findClient($conn);
@@ -143,7 +150,9 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
                 $msg['timestamp'] = isset($msg['timestamp']) ? $msg['timestamp'] : time();
                 $client = $this->findClient($conn);
                 $this->logMessageReceived($client, $roomId, $msg['message'], $msg['timestamp']);
+
                 $this->sendMessage($client, $roomId, $msg['message'], $msg['timestamp']);
+
                 break;
             default: throw new InvalidActionException('Invalid action: '.$msg['action']);
         }
