@@ -110,4 +110,3 @@ services:
           - learn_network
       links :
           - mysql:learn
-          -
