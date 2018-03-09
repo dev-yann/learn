@@ -71,18 +71,27 @@ public function deleteParcours (Request $request,Response $response,$args) {
 }
 public function createParcours (Request $request,Response $response) {
     $tab = $request->getParsedBody();
-    
+
+
+    /**
+     * etant donné que la bdd n'est pas construite avec des valeurs par défault,
+     * si un champs est envoyé vide cela provoquera une erreur
+     */
     try {
         $parcours = new Parcours();
-        $parcours->title = $tab["title"];
-        $parcours->author_id = $tab["author_id"] ;
-        $parcours->level = $tab["level"] ;
-        $parcours->temps =$tab["temps"];
-        $parcours->description = $tab["description"];
+
+        $parcours->title = filter_var($tab["title"],FILTER_SANITIZE_SPECIAL_CHARS);
+        $parcours->author_id = filter_var( $tab["author_id"],FILTER_SANITIZE_NUMBER_INT) ;
+        $parcours->level = filter_var($tab["level"],FILTER_SANITIZE_NUMBER_INT) ;
+        $parcours->temps = filter_var($tab["temps"], FILTER_SANITIZE_NUMBER_INT);
+        $parcours->description = filter_var($tab["description"], FILTER_SANITIZE_SPECIAL_CHARS);
         $parcours->save();
+
+        unset($parcours->author_id);
         return Writer::json_output($response,201,$parcours);
-    } catch (Exception $e) {
-        return Writer::json_output($response,500,['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
+
+    } catch (\Exception $e) {
+        return Writer::json_output($response,500,['type' => 'error', 'error' => 500, 'message' => "Bad request: empty or bad type"]);
     }
 }
 

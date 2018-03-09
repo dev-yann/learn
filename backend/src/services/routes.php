@@ -17,7 +17,7 @@ $app->get('/parcours/{id: [0-9]+}/posts', "ParcoursController:getPostsOfParcours
 $app->patch('/parcours/{id:[0-9]+}/edit[/]', "ParcoursController:editParcours");
 $app->delete('/parcours/{id:[0-9]+}/delete[/]', "ParcoursController:deleteParcours");
 
-$app->post('/parcours/',"ParcoursController:createParcours");
+$app->post('/parcours[/]',"ParcoursController:createParcours");
 $app->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
 
 $app->get('/groupes[/]',"GroupeController:getGroupes");
