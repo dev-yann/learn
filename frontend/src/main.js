@@ -12,6 +12,13 @@ import store from './store'
 import Vuetify from 'vuetify'
 import('../node_modules/vuetify/dist/vuetify.min.css');
 
+// require lib
+import VueCodemirror from 'vue-codemirror'
+
+// require styles
+import 'codemirror/lib/codemirror.css'
+import showhhint from 'codemirror/addon/hint/show-hint.css'
+
 Vue.use(Vuetify);
 
 
