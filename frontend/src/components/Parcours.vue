@@ -114,6 +114,6 @@ h1{
 .autocomplete{
    font-size : 10pt;
    font-weight: 300;
-   color:grey;
+   color: #BBB;
 }
 </style>
