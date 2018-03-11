@@ -62,19 +62,20 @@ export default new Router({
       name: 'Cours',
       component: Cours
     },
-    {
+     /* route /chat devra être supprimé mais pas maintenant */
+   /* {
       path: '/parcours',
       name: 'Parcours',
       component: Parcours
-    },
-   /*{
+   }, */
+   {
       path: '/parcours/:id/:name',
       name: 'parcours',
       components: {
         default : Parcours,
           chat : Chat
       },
-   },*/
+   },
     {
       path: '/forumsujet',
       name: 'ForumSujet',
@@ -94,12 +95,6 @@ export default new Router({
       path: '/groupeedit',
       name: 'GroupeEdit',
       component: GroupeEdit
-   },
-   /* route /chat qui devra être supprimer */
-   {
-     path: '/chat',
-     name: 'Chat',
-     component: Chat
-  }
+   }
   ]
 })

@@ -4,10 +4,10 @@
         <h1>{{parcours.title}}</h1>
       </v-flex>
       <v-flex xs12 lg7>
-         <!-- CodeMirror --> 
+         <!-- CodeMirror -->
          <form id="preview-form" method="post">
             <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea"/>
-            <input type="submit" value="Tester le code" />
+            <!--<input type="submit" value="Tester le code" />-->
          </form>
 
           <p class="autocomplete"><i>Click to Ctrl for the autocomplete</i></p>
