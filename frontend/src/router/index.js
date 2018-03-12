@@ -13,7 +13,7 @@ import Parcours from '@/components/Parcours'
 import Chat from '@/components/Chat'
 
 /* Routes uniquement pour les profs */
-import Cours from '@/components/Cours'
+import Exercice from '@/components/Exercice'
 import Groupes from '@/components/Groupes'
 import GroupeAdd from '@/components/GroupeAdd'
 import GroupeEdit from '@/components/GroupeEdit'
@@ -58,24 +58,24 @@ export default new Router({
       component: Groupes
     },
     {
-      path: '/cours',
-      name: 'Cours',
-      component: Cours
+      path: '/exercice',
+      name: 'Exercice',
+      component: Exercice
     },
      /* route /chat devra être supprimé mais pas maintenant */
-   /* {
+    {
       path: '/parcours',
       name: 'Parcours',
       component: Parcours
-   }, */
-   {
+   },
+/*   {
       path: '/parcours/:id/:name',
       name: 'parcours',
       components: {
         default : Parcours,
           chat : Chat
       },
-   },
+   },*/
     {
       path: '/forumsujet',
       name: 'ForumSujet',

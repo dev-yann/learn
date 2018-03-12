@@ -85,6 +85,8 @@
           </v-list-tile>
         </router-link>
 
+<!-- ça c'est du back Office
+
         <router-link to ="/cours">
           <v-list-tile>
             <v-list-tile-action>
@@ -99,6 +101,7 @@
             </v-list-tile-content>
           </v-list-tile>
         </router-link>
+   -->
 
 
         <!-- Routes différentes si connecté ou non -->
