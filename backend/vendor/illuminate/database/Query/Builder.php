@@ -279,6 +279,8 @@ class Builder
     protected function parseSubSelect($query)
     {
         if ($query instanceof self) {
+            $query->columns = [$query->columns[0]];
+
             return [$query->toSql(), $query->getBindings()];
         } elseif (is_string($query)) {
             return [$query, []];
@@ -999,16 +1001,12 @@ class Builder
      *
      * @param  string  $column
      * @param  string   $operator
-     * @param  mixed   $value
+     * @param  int   $value
      * @param  string   $boolean
      * @return \Illuminate\Database\Query\Builder|static
      */
-    public function whereTime($column, $operator, $value = null, $boolean = 'and')
+    public function whereTime($column, $operator, $value, $boolean = 'and')
     {
-        list($value, $operator) = $this->prepareValueAndOperator(
-            $value, $operator, func_num_args() == 2
-        );
-
         return $this->addDateBasedWhere('Time', $column, $operator, $value, $boolean);
     }
 
@@ -1017,10 +1015,10 @@ class Builder
      *
      * @param  string  $column
      * @param  string   $operator
-     * @param  mixed   $value
+     * @param  int   $value
      * @return \Illuminate\Database\Query\Builder|static
      */
-    public function orWhereTime($column, $operator, $value = null)
+    public function orWhereTime($column, $operator, $value)
     {
         list($value, $operator) = $this->prepareValueAndOperator(
             $value, $operator, func_num_args() == 2
@@ -1048,23 +1046,6 @@ class Builder
     }
 
     /**
-     * Add an "or where day" statement to the query.
-     *
-     * @param  string  $column
-     * @param  string  $operator
-     * @param  mixed  $value
-     * @return \Illuminate\Database\Query\Builder|static
-     */
-    public function orWhereDay($column, $operator, $value = null)
-    {
-        list($value, $operator) = $this->prepareValueAndOperator(
-            $value, $operator, func_num_args() == 2
-        );
-
-        return $this->addDateBasedWhere('Day', $column, $operator, $value, 'or');
-    }
-
-    /**
      * Add a "where month" statement to the query.
      *
      * @param  string  $column
@@ -1080,23 +1061,6 @@ class Builder
         );
 
         return $this->addDateBasedWhere('Month', $column, $operator, $value, $boolean);
-    }
-
-    /**
-     * Add an "or where month" statement to the query.
-     *
-     * @param  string  $column
-     * @param  string  $operator
-     * @param  mixed  $value
-     * @return \Illuminate\Database\Query\Builder|static
-     */
-    public function orWhereMonth($column, $operator, $value = null)
-    {
-        list($value, $operator) = $this->prepareValueAndOperator(
-            $value, $operator, func_num_args() == 2
-        );
-
-        return $this->addDateBasedWhere('Month', $column, $operator, $value, 'or');
     }
 
     /**
@@ -1118,29 +1082,12 @@ class Builder
     }
 
     /**
-     * Add an "or where year" statement to the query.
-     *
-     * @param  string  $column
-     * @param  string  $operator
-     * @param  mixed  $value
-     * @return \Illuminate\Database\Query\Builder|static
-     */
-    public function orWhereYear($column, $operator, $value = null)
-    {
-        list($value, $operator) = $this->prepareValueAndOperator(
-            $value, $operator, func_num_args() == 2
-        );
-
-        return $this->addDateBasedWhere('Year', $column, $operator, $value, 'or');
-    }
-
-    /**
      * Add a date based (year, month, day, time) statement to the query.
      *
      * @param  string  $type
      * @param  string  $column
      * @param  string  $operator
-     * @param  mixed  $value
+     * @param  int  $value
      * @param  string  $boolean
      * @return $this
      */
@@ -1301,43 +1248,6 @@ class Builder
     }
 
     /**
-     * Adds a where condition using row values.
-     *
-     * @param  array   $columns
-     * @param  string  $operator
-     * @param  array   $values
-     * @param  string  $boolean
-     * @return $this
-     */
-    public function whereRowValues($columns, $operator, $values, $boolean = 'and')
-    {
-        if (count($columns) != count($values)) {
-            throw new InvalidArgumentException('The number of columns must match the number of values');
-        }
-
-        $type = 'RowValues';
-
-        $this->wheres[] = compact('type', 'columns', 'operator', 'values', 'boolean');
-
-        $this->addBinding($values);
-
-        return $this;
-    }
-
-    /**
-     * Adds a or where condition using row values.
-     *
-     * @param  array   $columns
-     * @param  string  $operator
-     * @param  array   $values
-     * @return $this
-     */
-    public function orWhereRowValues($columns, $operator, $values)
-    {
-        return $this->whereRowValues($columns, $operator, $values, 'or');
-    }
-
-    /**
      * Handles dynamic "where" clauses to the query.
      *
      * @param  string  $method
@@ -1463,10 +1373,6 @@ class Builder
      */
     public function orHaving($column, $operator = null, $value = null)
     {
-        list($value, $operator) = $this->prepareValueAndOperator(
-            $value, $operator, func_num_args() == 2
-        );
-
         return $this->having($column, $operator, $value, 'or');
     }
 
@@ -2572,8 +2478,8 @@ class Builder
             return $this->dynamicWhere($method, $parameters);
         }
 
-        throw new BadMethodCallException(sprintf(
-            'Method %s::%s does not exist.', static::class, $method
-        ));
+        $className = static::class;
+
+        throw new BadMethodCallException("Call to undefined method {$className}::{$method}()");
     }
 }
