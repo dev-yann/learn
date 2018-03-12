@@ -14,9 +14,11 @@ try {
 
     $app = new Slim\App($container);
 
-    // Register with container
+    // Fichier d'upload dans le container
     $container = $app->getContainer();
+    $container['upload_directory'] = __DIR__ . '/../uploads';
 
+    
     $app->add(function($request, $response, callable $next){
         $response = $response->withHeader('Content-type', 'application/json; charset=utf-8');
         $response = $response->withHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");

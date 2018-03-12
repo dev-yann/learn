@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38412368-d933-4255-a949-18dfbddb742d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/backoffice/src/components/Exercices.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backoffice/src/components/Parcours.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backoffice/src/components/addExercice.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/backend/api/app.php" afterPath="$PROJECT_DIR$/backend/api/app.php" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" afterPath="$PROJECT_DIR$/backend/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/dependencies.php" afterPath="$PROJECT_DIR$/backend/src/services/dependencies.php" />
+      <change beforePath="$PROJECT_DIR$/backend/docker-compose.yml" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/ExerciceController.php" afterPath="$PROJECT_DIR$/backend/src/controllers/ExerciceController.php" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/routes.php" afterPath="$PROJECT_DIR$/backend/src/services/routes.php" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.json" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Query/Builder.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Query/Builder.php" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/database/Schema/Blueprint.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/database/Schema/Blueprint.php" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/illuminate/support/Carbon.php" afterPath="$PROJECT_DIR$/backend/vendor/illuminate/support/Carbon.php" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/nesbot/carbon/composer.json" afterPath="$PROJECT_DIR$/backend/vendor/nesbot/carbon/composer.json" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/nesbot/carbon/src/Carbon/Carbon.php" afterPath="$PROJECT_DIR$/backend/vendor/nesbot/carbon/src/Carbon/Carbon.php" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/nesbot/carbon/src/Carbon/CarbonInterval.php" afterPath="$PROJECT_DIR$/backend/vendor/nesbot/carbon/src/Carbon/CarbonInterval.php" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/nesbot/carbon/trigger" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/backoffice/src/App.vue" afterPath="$PROJECT_DIR$/backoffice/src/App.vue" />
-      <change beforePath="$PROJECT_DIR$/backoffice/src/router/index.js" afterPath="$PROJECT_DIR$/backoffice/src/router/index.js" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Connexion.vue" afterPath="$PROJECT_DIR$/frontend/src/components/Connexion.vue" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/slim/slim/Slim/Http/UploadedFile.php" afterPath="$PROJECT_DIR$/backend/vendor/slim/slim/Slim/Http/UploadedFile.php" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/components/addExercice.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/addExercice.vue" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,64 +34,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="addExercice.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backoffice/src/components/addExercice.vue">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+            <state relative-caret-position="210">
+              <caret line="19" column="75" lean-forward="false" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addCourses.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/src/components/addCourses.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parcours.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/src/components/Parcours.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="15" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="15" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Exercices.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/src/components/Exercices.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-16">
-              <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/src/router/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -111,11 +47,65 @@
       <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="32" />
               <folding>
                 <element signature="e#85#141#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addExercice.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/src/components/addExercice.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="61" column="50" lean-forward="false" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExerciceController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/controllers/ExerciceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="939">
+              <caret line="91" column="38" lean-forward="false" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
+              <folding>
+                <element signature="e#34#59#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2f4111ba9556a378.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/uploads/2f4111ba9556a378.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+              <folding>
+                <element signature="e#103#134#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadedFile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/vendor/slim/slim/Slim/Http/UploadedFile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="340" column="62" lean-forward="false" selection-start-line="340" selection-start-column="62" selection-end-line="340" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,6 +141,8 @@
       <find>message.from</find>
       <find>posts</find>
       <find>router</find>
+      <find>draw</find>
+      <find>create</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,9 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/src/controllers/ExerciceController.php" />
-        <option value="$PROJECT_DIR$/backend/src/models/Exercices.php" />
-        <option value="$PROJECT_DIR$/backend/src/controllers/XpController.php" />
         <option value="$PROJECT_DIR$/frontend/src/components/ExoListe.vue" />
         <option value="$PROJECT_DIR$/frontend/src/store/modules/auth.js" />
         <option value="$PROJECT_DIR$/frontend/src/store/services.js" />
@@ -190,7 +179,6 @@
         <option value="$PROJECT_DIR$/backend/chat/connectDb.php" />
         <option value="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/BasicMultiRoomServer.php" />
         <option value="$PROJECT_DIR$/backend/vendor/pmill/php-chat/src/pmill/Chat/AbstractMultiRoomServer.php" />
-        <option value="$PROJECT_DIR$/backend/docker-compose.yml" />
         <option value="$PROJECT_DIR$/backoffice/src/main.js" />
         <option value="$PROJECT_DIR$/backoffice/index.html" />
         <option value="$PROJECT_DIR$/backoffice/src/services/config.js" />
@@ -203,13 +191,17 @@
         <option value="$PROJECT_DIR$/backend/composer.json" />
         <option value="$PROJECT_DIR$/backend/src/services/dependencies.php" />
         <option value="$PROJECT_DIR$/frontend/src/components/Connexion.vue" />
-        <option value="$PROJECT_DIR$/backend/api/app.php" />
-        <option value="$PROJECT_DIR$/backend/src/services/routes.php" />
         <option value="$PROJECT_DIR$/backoffice/src/App.vue" />
         <option value="$PROJECT_DIR$/backoffice/src/components/Parcours.vue" />
         <option value="$PROJECT_DIR$/backoffice/src/components/Exercices.vue" />
         <option value="$PROJECT_DIR$/backoffice/src/router/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/services/routes.php" />
         <option value="$PROJECT_DIR$/backoffice/src/components/addExercice.vue" />
+        <option value="$PROJECT_DIR$/backend/src/config/settings.php" />
+        <option value="$PROJECT_DIR$/backend/api/app.php" />
+        <option value="$PROJECT_DIR$/backend/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/backend/vendor/slim/slim/Slim/Http/UploadedFile.php" />
+        <option value="$PROJECT_DIR$/backend/src/controllers/ExerciceController.php" />
       </list>
     </option>
   </component>
@@ -298,10 +290,11 @@
       <path value="$PROJECT_DIR$/backend/vendor/symfony/routing" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="962" />
-    <option name="width" value="958" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="648" />
+    <option name="y" value="73" />
+    <option name="width" value="1405" />
+    <option name="height" value="887" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -330,27 +323,19 @@
             <path>
               <item name="learn" type="b2602c69:ProjectViewProjectNode" />
               <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="learn" type="b2602c69:ProjectViewProjectNode" />
               <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="learn" type="b2602c69:ProjectViewProjectNode" />
               <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="learn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="router" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -432,18 +417,18 @@
       <workItem from="1520441896809" duration="1036000" />
       <workItem from="1520588255417" duration="5952000" />
       <workItem from="1520699499401" duration="11629000" />
-      <workItem from="1520768140972" duration="3576000" />
+      <workItem from="1520768140972" duration="12443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153139000" />
+    <option name="totallyTimeSpent" value="162006000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="879" y="0" width="1041" height="1080" extended-state="6" />
+    <frame x="648" y="73" width="1405" height="887" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3123123" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20176083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -476,17 +461,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/ParcoursListe.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ratchet/src/index.php" />
-    <entry file="file://$PROJECT_DIR$/backend/chat/serveur.php" />
-    <entry file="file://$PROJECT_DIR$/backend/chat/Chat.php" />
-    <entry file="file://$PROJECT_DIR$/backend/chat/Pusher.php" />
     <entry file="file://$PROJECT_DIR$/backend/src/models/Exercices.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -634,6 +608,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -676,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/controllers/ExerciceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/controllers/Writer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -696,14 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
           <caret line="72" column="4" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="91" column="25" lean-forward="false" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -750,16 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#85#141#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1619">
@@ -768,42 +717,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/src/App.vue">
+    <entry file="file://$PROJECT_DIR$/backoffice/src/components/Exercices.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/src/components/addCourses.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
+        <state relative-caret-position="135">
+          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/src/components/Parcours.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="225">
           <caret line="15" column="15" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="15" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/src/components/Exercices.vue">
+    <entry file="file://$PROJECT_DIR$/backoffice/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        <state relative-caret-position="138">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/src/components/addCourses.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -811,18 +752,96 @@
     <entry file="file://$PROJECT_DIR$/backoffice/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
-          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/config/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="75" lean-forward="false" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#85#141#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/src/components/addExercice.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        <state relative-caret-position="621">
+          <caret line="61" column="50" lean-forward="false" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12390">
+          <caret line="825" column="9" lean-forward="false" selection-start-line="825" selection-start-column="9" selection-end-line="825" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_defines.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="269" column="9" lean-forward="false" selection-start-line="269" selection-start-column="9" selection-end-line="269" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/vendor/slim/slim/Slim/Http/UploadedFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="340" column="62" lean-forward="false" selection-start-line="340" selection-start-column="62" selection-end-line="340" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/controllers/ExerciceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="939">
+          <caret line="91" column="38" lean-forward="false" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
+          <folding>
+            <element signature="e#34#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/uploads/2f4111ba9556a378.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <element signature="e#103#134#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

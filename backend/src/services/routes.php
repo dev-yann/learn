@@ -8,9 +8,7 @@
 
 
 $app->post("/adduser[/]","UserController:createUser");
-
 $app->post('/user[/]',"UserController:connectUser");
-
 $app->get('/parcours[/]', "ParcoursController:getParcours");
 // Parcours avec la liste des exercices
 $app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");
