@@ -15,3 +15,6 @@ $container['GroupeController'] = function ($c){
 $container['ParcoursController'] = function ($c){
     return new \App\controllers\ParcoursController($c);
 };
+$container['SandboxController'] = function ($c){
+    return new \App\controllers\SandboxController($c);
+};
