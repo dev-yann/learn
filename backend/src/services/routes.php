@@ -29,4 +29,4 @@ $app->delete('/groupes/{id:[0-9]+}/delete[/]',"GroupeController:deleteGroupe");
 $app->delete('/exercices/{id:[0-9]+}/delete[/]',"ExerciceController:deleteExercice");
 $app->patch('/exercices/{id:[0-9]+}/edit[/]',"ExerciceController:editExercice");
 
-$app->post('/sandbox,"SandboxController:Execute');
+$app->post('/sandbox',"SandboxController:Execute");

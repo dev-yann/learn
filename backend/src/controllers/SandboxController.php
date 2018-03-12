@@ -8,15 +8,16 @@ use Slim\Http\UploadedFile;
 use PHPSandbox\PHPSandbox;
 
 
-class Sandbox extends BaseController
+class SandboxController extends BaseController
 {
  public function Execute(Request $req,Response $resp) {
-  $code = $req->getParsedBody("code");
+  $code = $req->getParsedBody();
   $sandbox = new PHPSandbox();
   $sandbox->setOption('Error Level',true);
   try {
-    $t=$sandbox->execute($code);
-    return Writer::json_output($resp,201,array("message"=>$t));
+    $sandbox->execute($code["code"]);
+    $t=$sandbox->getPreparedCode();
+    return Writer::json_output($resp,200,$t);
   }
   catch (\PHPSandbox\Error $e) {
     $error_parser = $e->getPrevious();
@@ -29,4 +30,5 @@ class Sandbox extends BaseController
     }  
  }
 
+}
 }
