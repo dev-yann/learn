@@ -110,7 +110,7 @@
                 this.myConnection = conn;
 
                 let username = this.getUser.username;
-
+                let userId = this.getUser.id;
                 let parcours = this.getParcours.id;
 
 
@@ -122,7 +122,9 @@
 
                         'roomId': parcours,
                         'userName': username,
+                        'userID' : userId,
                         'action': 'connect'
+
                     };
 
                     // envoie des données utilisateur au serveur
@@ -162,13 +164,24 @@
                 */
                conn.onmessage = function(e) {
                     let message = JSON.parse(e.data);
-                    dataThis.items.push({
-                        username: message.from.name,
-                        message: message.message
-                    })
+
+                    console.log(message)
+                   if (message.type === "user-disconnected"){
+
+                       dataThis.items.push({
+                           username: 'admin',
+                           message: message.message
+                       })
+
+                   } else if(message.from !== 'undefined'){
+                        dataThis.items.push({
+                            username: message.from.name,
+                            message: message.message
+                        })
+                    }
+
 
                 };
-
             }
         },
         computed: {
@@ -176,6 +189,18 @@
         },
         mounted () {
             this.connection()
+        },
+        beforeDestroy () {
+            console.log('hello')
+
+            let test = () => {
+                this.myConnection.close();
+            }
+
+            test()
+
+            console.log('connection fermé')
+
         }
     }
 </script>

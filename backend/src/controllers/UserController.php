@@ -103,7 +103,6 @@ class UserController extends BaseController
 
         // Pour renvoyer de bonnes informations user
         unset($user->password);
-        unset($user->id);
 
         return Writer::json_output($response,201,["user" => $user,"token" => $token]);
     }

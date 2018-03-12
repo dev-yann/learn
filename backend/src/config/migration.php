@@ -44,6 +44,7 @@ class Migrator {
                 $table->string('username');
                 $table->string('password');
                 $table->bigInteger('exp')->default(0);
+                $table->boolean('author')->default(0);
 
                 $table->engine = 'InnoDB';
             });
@@ -58,7 +59,7 @@ class Migrator {
             {
 
                 $table->integer('id', true);
-                $table->string('author')->default('');
+                $table->string('author_id');
                 $table->integer('temps');
                 $table->integer('level');
                 $table->string('title')->default('');
@@ -67,7 +68,11 @@ class Migrator {
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
 
                 $table->engine = 'InnoDB';
+                //Foreign keys declaration
+                $table->foreign('author_id')->references('id')->on('user')->onDelete('cascade');
             });
+
+
         }
 
         /**
@@ -103,7 +108,8 @@ class Migrator {
 
                 $table->integer('id', true);
                 $table->string('message')->default('');
-
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
                 //FK
                 $table->integer('parcours_id');
                 $table->integer('user_id');

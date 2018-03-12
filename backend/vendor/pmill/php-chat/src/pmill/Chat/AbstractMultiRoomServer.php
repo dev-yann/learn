@@ -83,14 +83,14 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
      * @param int $timestamp
      * @return string
      */
-    abstract protected function logMessageReceived(ConnectedClientInterface $from, $message, $timestamp);
+    abstract protected function logMessageReceived(ConnectedClientInterface $from, $roomId, $message, $timestamp);
 
     /**
      * @param ConnectionInterface $conn
      * @param $name
      * @return ConnectedClientInterface
      */
-    abstract protected function createClient(ConnectionInterface $conn, $name);
+    abstract protected function createClient(ConnectionInterface $conn, $name, $id);
 
     public function __construct()
     {
@@ -115,7 +115,9 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
      */
     public function onMessage(ConnectionInterface $conn, $msg)
     {
+
         echo "Packet received: ".$msg.PHP_EOL;
+
         $msg = json_decode($msg, true);
         $roomId = $this->makeRoom($msg['roomId']);
 
@@ -125,12 +127,20 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
 
         switch ($msg['action']) {
             case self::ACTION_USER_CONNECTED:
+
                 $userName = $msg['userName'];
-                $client = $this->createClient($conn, $userName);
+                $userId = $msg['userID'];
+
+                $client = $this->createClient($conn, $userName, $userId);
                 $this->connectUserToRoom($client, $roomId);
-                $this->sendUserConnectedMessage($client, $roomId);
-                $this->sendUserWelcomeMessage($client, $roomId);
-                $this->sendListUsersMessage($client, $roomId);
+                //$this->sendUserConnectedMessage($client, $roomId);
+                //$this->sendUserWelcomeMessage($client, $roomId);
+                //$this->sendListUsersMessage($client, $roomId);
+
+
+            //checker ici le jsonwebtoken
+            //checker aussi avec csrf
+
                 break;
             case self::ACTION_LIST_USERS:
                 $client = $this->findClient($conn);
@@ -140,7 +150,9 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
                 $msg['timestamp'] = isset($msg['timestamp']) ? $msg['timestamp'] : time();
                 $client = $this->findClient($conn);
                 $this->logMessageReceived($client, $roomId, $msg['message'], $msg['timestamp']);
+
                 $this->sendMessage($client, $roomId, $msg['message'], $msg['timestamp']);
+
                 break;
             default: throw new InvalidActionException('Invalid action: '.$msg['action']);
         }

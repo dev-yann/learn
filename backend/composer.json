@@ -8,6 +8,7 @@
         "phpunit/phpunit": "^6.5",
         "corveda/php-sandbox": "^2.0",
         "pmill/php-chat": "^0.2.0"
+
     },
     "authors": [
         {
