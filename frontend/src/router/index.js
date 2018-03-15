@@ -18,10 +18,18 @@ import Groupes from '@/components/Groupes'
 import GroupeAdd from '@/components/GroupeAdd'
 import GroupeEdit from '@/components/GroupeEdit'
 
+import store from '@/store'
+import ls from '@/services/localStorage'
+
 Vue.use(Router)
 
+/**
+ * Si un route nécessite une authorisation,
+ * ajouter l'objet meta ( voir exemple sur parcours-liste )
+ * @type {VueRouter}
+ */
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -30,7 +38,10 @@ export default new Router({
     {
       path: '/connexion',
       name: 'Connexion',
-      component: Connexion
+      component: Connexion,
+        meta : {
+          requireAuth : false
+        }
     },
     {
       path: '/inscription',
@@ -45,7 +56,10 @@ export default new Router({
     {
       path: '/parcoursliste',
       name: 'ParcoursListe',
-      component: ParcoursListe
+      component: ParcoursListe,
+        meta: {
+          requireAuth : true
+        }
     },
     {
       path: '/forum',
@@ -98,3 +112,27 @@ export default new Router({
    }
   ]
 })
+
+export default router;
+
+
+// Interception globale de navigation
+// Permet de rediriger en cas d'authorisation necessaire
+
+router.beforeEach((to, from, next) => {
+
+    console.log(to.matched)
+    if(to.matched.some(record => record.meta.requireAuth)){
+
+        if(store.getters['isConnected'] && ls.get('token')){
+            next()
+        } else {
+
+            next({path: '/connexion', query: { redirect: to.path}})
+        }
+
+    } else {
+        next();
+    }
+
+});
