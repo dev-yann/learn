@@ -21,7 +21,6 @@ import showhhint from 'codemirror/addon/hint/show-hint.css'
 
 Vue.use(Vuetify);
 
-
 Vue.config.productionTip = false
 
 new Vue({
