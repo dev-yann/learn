@@ -10,15 +10,46 @@
         <!-- Conteneur CodeMirror -->
         <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea"/>
 
-        <!-- Consigne -->
-        <v-card-text style="height: 100px; position: relative">
-            <v-fab-transition>
-              <v-btn color="light-green lighten-1" class="btnConsigne" dark absolute top left fab v-show="!hidden">
-                <v-icon>format_align_center</v-icon>
-              </v-btn>
-            </v-fab-transition>
-      </v-card-text>
+        <!-- Consignes -->
+     <v-card-text style="height: 100px; position: relative">
 
+
+      <div>
+         <v-layout row justify-center>
+           <v-btn color="light-green lighten-1" dark absolute top left fab  v-show="!hidden" @click.stop="dialog = true"><v-icon>format_align_center</v-icon></v-btn>
+           <v-dialog v-model="dialog" fullscreen transition="dialog-bottom-transition" :overlay="false" scrollable>
+             <v-card tile>
+               <v-toolbar card dark color="light-green lighten-1">
+                 <v-btn icon>
+                   <v-icon>format_align_center</v-icon>
+                 </v-btn>
+                 <v-toolbar-title color>Consignes</v-toolbar-title>
+                 <v-spacer></v-spacer>
+                 <v-toolbar-items>
+                   <v-btn dark flat @click.native="dialog = false"><v-icon>close</v-icon></v-btn>
+                 </v-toolbar-items>
+               </v-toolbar>
+               <v-card-text>
+                 <v-list three-line subheader>
+                      <v-layout row wrap>
+                        <v-flex xs6 offset-xs3>
+                           <v-list-tile-content>
+                             <v-list-tile-title>Nom de l'exercice</v-list-tile-title>
+                             <p class="consigne">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Require password for purchase or use password to restrict purchase Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                             </p>
+                           </v-list-tile-content>
+                        </v-flex>
+                     </v-layout>
+                 </v-list>
+               </v-card-text>
+
+               <div style="flex: 1 1 auto;"/>
+             </v-card>
+           </v-dialog>
+        </v-layout>
+
+        </div>
+        </v-card-text>
      </v-flex>
 
 
@@ -39,69 +70,6 @@
 
       </v-flex>
 
-      <!-- <v-layout row justify-center>
-    <v-dialog v-model="dialog" fullscreen transition="dialog-bottom-transition" :overlay="false">
-      <v-btn color="primary" dark slot="activator">Open Dialog</v-btn>
-      <v-card>
-        <v-toolbar dark color="primary">
-          <v-btn icon @click.native="dialog = false" dark>
-            <v-icon>close</v-icon>
-          </v-btn>
-          <v-toolbar-title>Settings</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn dark flat @click.native="dialog = false">Save</v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-list three-line subheader>
-          <v-subheader>User Controls</v-subheader>
-          <v-list-tile avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>Content filtering</v-list-tile-title>
-              <v-list-tile-sub-title>Set the content filtering level to restrict apps that can be downloaded</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>Password</v-list-tile-title>
-              <v-list-tile-sub-title>Require password for purchase or use password to restrict purchase</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-        <v-divider></v-divider>
-        <v-list three-line subheader>
-          <v-subheader>General</v-subheader>
-          <v-list-tile avatar>
-            <v-list-tile-action>
-              <v-checkbox v-model="notifications"></v-checkbox>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>Notifications</v-list-tile-title>
-              <v-list-tile-sub-title>Notify me about updates to apps or games that I downloaded</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile avatar>
-            <v-list-tile-action>
-              <v-checkbox v-model="sound"></v-checkbox>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>Sound</v-list-tile-title>
-              <v-list-tile-sub-title>Auto-update apps at any time. Data charges may apply</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile avatar>
-            <v-list-tile-action>
-              <v-checkbox v-model="widgets"></v-checkbox>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>Auto-add widgets</v-list-tile-title>
-              <v-list-tile-sub-title>Automatically add home screen widgets</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-card>
-    </v-dialog>
-  </v-layout>-->
    </v-layout>
 </template>
 
@@ -134,10 +102,16 @@ export default{
   name : 'Exercice',
   data () {
       return {
+          /* CodeMirror */
           code:'',
           editor: '',
           codePhp : "<?php ",
-          resultCode :''
+          resultCode :'',
+          /* dialogue pour les consignes */
+          dialog: false,
+          notifications: false,
+          sound: true,
+          widgets: false
       }
   },
   methods:{
@@ -175,5 +149,13 @@ export default{
    background-color: #E0E0E0;
    height: 75vh;
    width : 100%;
+}
+.consigne{
+   color: #CCC;
+   text-align: justify;
+}
+.CodeMirror-gutters{
+   position: relative;
+   z-index: 10000;
 }
 </style>

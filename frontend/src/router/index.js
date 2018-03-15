@@ -62,20 +62,14 @@ export default new Router({
       name: 'Exercice',
       component: Exercice
     },
-     /* route /chat devra être supprimé mais pas maintenant */
-    {
-      path: '/parcours',
-      name: 'Parcours',
-      component: Parcours
-   },
-/*   {
+  {
       path: '/parcours/:id/:name',
       name: 'parcours',
       components: {
         default : Parcours,
           chat : Chat
       },
-   },*/
+   },
     {
       path: '/forumsujet',
       name: 'ForumSujet',
