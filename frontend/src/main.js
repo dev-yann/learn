@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 import store from './store'
+import interceptor from './services/interceptor'
 /*
  * Chargement du framework css vuetify
  * Ensure you are using css-loader
@@ -20,6 +21,7 @@ import 'codemirror/lib/codemirror.css'
 import showhhint from 'codemirror/addon/hint/show-hint.css'
 
 Vue.use(Vuetify);
+Vue.use(interceptor, {router})
 
 Vue.config.productionTip = false
 

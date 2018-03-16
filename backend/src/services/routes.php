@@ -11,7 +11,7 @@ $app->post("/adduser[/]","UserController:createUser");
 $app->post('/user[/]',"UserController:connectUser");
 $app->get('/parcours[/]', "ParcoursController:getParcours");
 // Parcours avec la liste des exercices
-$app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");
+$app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour")->add('GetUser');
 $app->get('/parcours/{id: [0-9]+}/posts', "ParcoursController:getPostsOfParcours");
 $app->patch('/parcours/{id:[0-9]+}/edit[/]', "ParcoursController:editParcours");
 $app->delete('/parcours/{id:[0-9]+}/delete[/]', "ParcoursController:deleteParcours");
@@ -30,3 +30,11 @@ $app->delete('/exercices/{id:[0-9]+}/delete[/]',"ExerciceController:deleteExerci
 $app->patch('/exercices/{id:[0-9]+}/edit[/]',"ExerciceController:editExercice");
 
 $app->post('/sandbox',"SandboxController:Execute");
+
+
+$app->group('/connect',function () {
+
+    $this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
+
+})->add('CheckJwt');
+

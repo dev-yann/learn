@@ -15,6 +15,7 @@ class ParcoursController extends BaseController
         // REGEX AU NIVEAU DE L'URL, CE NE PEUT ETRE QU'UNE SUITE DE CHIFFRES ( args id )
         $parcours = Parcours::select()->with("author")->get();
 
+
         return  Writer::json_output($response,200,["parcours" => $parcours]);
     }
     
@@ -30,9 +31,22 @@ class ParcoursController extends BaseController
     	try {
     		$parcour = Parcours::where('id',$args["id"])->with("author")->firstOrFail();
     		$exercices  = $parcour->exercices()->get();
-    		$result = ["parcours" => $parcour,'exercices' => $exercices];
 
-    		return Writer::json_output($response,200,$result);
+    		if($request->getAttribute('user')){
+
+                // savoir si l'user est associé au parcours
+                $user = $request->getAttribute('user');
+
+
+                if($user->parcours()->wherePivot('parcours_id','=',$args["id"])->first()){
+
+                    $parcour->subscribe = true;
+
+                }
+            }
+
+            $result = ["parcours" => $parcour,'exercices' => $exercices];
+            return Writer::json_output($response,200,$result);
 
     	} catch (ModelNotFoundException $exception){
          $notFoundHandler = $this->container->get('notFoundHandler');

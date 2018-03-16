@@ -35,7 +35,7 @@ try {
 } catch (RuntimeException $e){
     header('Content-type: application/json');
     header('status: 500');
-    echo json_encode(array('error' => 'Internal Server Error'));
+    echo json_encode(array('error' => $e->getMessage()));
 } catch (\Exception $e){
     echo $e->getMessage();
 }

@@ -18,3 +18,9 @@ $container['ParcoursController'] = function ($c){
 $container['SandboxController'] = function ($c){
     return new \App\controllers\SandboxController($c);
 };
+$container['CheckJwt'] = function () {
+    return new \App\middleware\CheckJwt();
+};
+$container['GetUser'] = function () {
+    return new \App\middleware\GetUser();
+};

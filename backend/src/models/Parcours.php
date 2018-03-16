@@ -23,7 +23,7 @@ class Parcours extends Model
     	return $this->belongsTo(User::class,'author_id')->select("id","username");
     }
     public function users () {
-        return $this->belongsToMany(User::class, 'parcours2users','parcours_id','user_id');
+        return $this->belongsToMany(User::class, 'parcours2users','parcours_id','user_id')->withPivot(['parcours_id', 'user_id']);
     }
 
 }

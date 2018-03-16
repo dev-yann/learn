@@ -24,14 +24,14 @@ class User extends Model
      */
     public $timestamps = false;
 
-    protected $hidden =["password","pivot"];
+    protected $hidden =["password"];
 
     public function posts () {
         return $this->hasMany(Posts::class, 'user_id');
     }
 
     public function parcours () {
-        return $this->belongsToMany(Parcours::class, 'parcours2users','user_id','parcours_id');
+        return $this->belongsToMany(Parcours::class, 'parcours2users','user_id','parcours_id')->withPivot(['parcours_id', 'user_id']);
     }
 
       public function groupes() {

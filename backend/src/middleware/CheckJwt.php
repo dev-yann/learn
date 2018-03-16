@@ -52,6 +52,7 @@ class CheckJwt
             // Si l'utilisateur existe
             try{
                 $user = User::where('id','=',$token->uid)->firstOrFail();
+
             } catch (ModelNotFoundException $e){
                 return Writer::json_output($resp,401,['error' => "wrong token"]);
             }
