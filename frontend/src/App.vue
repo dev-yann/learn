@@ -1,114 +1,114 @@
 <template>
   <v-app id="inspire" dark>
 
+      <!-- Side Bar -->
+      <v-navigation-drawer clipped fixed v-model="drawer" app>
+         <v-toolbar flat class="transparent">
+            <router-link to ="/dashboard">
+               <v-list class="pa-0">
+                  <v-list-tile avatar>
+                     <v-list-tile-avatar>
+                        <img class="profil" src="https://randomuser.me/api/portraits/men/85.jpg" >
+                     </v-list-tile-avatar>
+                     <v-list-tile-content>
+                        <v-list-tile-title class="nbXp">3600 XP</v-list-tile-title>
+                     </v-list-tile-content>
+                  </v-list-tile>
+               </v-list>
+            </router-link>
+         </v-toolbar>
+         <v-divider></v-divider>
 
-    <!-- Side Bar -->
-    <v-navigation-drawer clipped fixed v-model="drawer" app>
-    <v-toolbar flat class="transparent">
-        <v-list class="pa-0">
-          <v-list-tile avatar>
-            <v-list-tile-avatar>
-              <img class="profil" src="https://randomuser.me/api/portraits/men/85.jpg" >
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title class="nbXp">3600 XP</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-toolbar>
-      <v-divider></v-divider>
-      <v-list dense>
+            <v-list dense>
+            <router-link to ="/dashboard">
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon v-if="this.$router.currentRoute.fullPath==='/dashboard'" color="light-green lighten-1">dashboard</v-icon>
+                  <v-icon v-else>dashboard</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title>
+                    <span v-if="this.$router.currentRoute.fullPath==='/dashboard'" class="navCurrent">Dashboard</span>
+                    <span v-else>Dashboard</span>
+                  </v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </router-link>
 
-      <router-link to ="/dashboard">
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon v-if="this.$router.currentRoute.fullPath==='/dashboard'" color="light-green lighten-1">dashboard</v-icon>
-            <v-icon v-else>dashboard</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>
-              <span v-if="this.$router.currentRoute.fullPath==='/dashboard'" class="navCurrent">Dashboard</span>
-              <span v-else>Dashboard</span>
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </router-link>
+            <router-link to ="/parcoursliste">
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" color="light-green lighten-1">code</v-icon>
+                  <v-icon v-else>code</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title>
+                    <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" class="navCurrent">Parcours</span>
+                    <span v-else>Parcours</span>
+                  </v-list-tile-title>
+                </v-list-tile-content>
+                </v-list-tile>
+              </router-link>
 
-      <router-link to ="/parcoursliste">
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" color="light-green lighten-1">code</v-icon>
-            <v-icon v-else>code</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>
-              <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" class="navCurrent">Parcours</span>
-              <span v-else>Parcours</span>
-            </v-list-tile-title>
-          </v-list-tile-content>
-          </v-list-tile>
-        </router-link>
+              <router-link to ="/forum">
+                <v-list-tile>
+                  <v-list-tile-action>
+                    <v-icon v-if="this.$router.currentRoute.fullPath==='/forum'" color="light-green lighten-1">forum</v-icon>
+                    <v-icon v-else>forum</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title>
+                      <span v-if="this.$router.currentRoute.fullPath==='/forum'" class="navCurrent">Forum</span>
+                      <span v-else>Forum</span>
+                    </v-list-tile-title>
+                  </v-list-tile-content>
+                  </v-list-tile>
+              </router-link>
 
-        <router-link to ="/forum">
-          <v-list-tile>
-            <v-list-tile-action>
-              <v-icon v-if="this.$router.currentRoute.fullPath==='/forum'" color="light-green lighten-1">forum</v-icon>
-              <v-icon v-else>forum</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                <span v-if="this.$router.currentRoute.fullPath==='/forum'" class="navCurrent">Forum</span>
-                <span v-else>Forum</span>
-              </v-list-tile-title>
-            </v-list-tile-content>
+
+              <!-- Routes différentes si connecté ou non -->
+
+             <v-list-tile>
+                  <v-list-tile-content><v-list-tile-title></v-list-tile-title></v-list-tile-content>
+              </v-list-tile>
+
+
+            <router-link to ="/connexion">
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon v-if="this.$router.currentRoute.fullPath==='/connexion'" color="light-green lighten-1">lock_open</v-icon>
+                  <v-icon v-else>lock_open</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title>
+                    <span v-if="this.$router.currentRoute.fullPath==='/connexion'" class="navCurrent">Sign in</span>
+                    <span v-else>Sign in</span>
+                  </v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+          </router-link>
+
+              <router-link to ="/inscription">
+                <v-list-tile>
+                  <v-list-tile-action>
+                    <v-icon v-if="this.$router.currentRoute.fullPath==='/inscription'" color="light-green lighten-1">lock_open</v-icon>
+                    <v-icon v-else>lock_open</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title>
+                      <span v-if="this.$router.currentRoute.fullPath==='/inscription'" class="navCurrent">Sign up</span>
+                      <span v-else>Sign up</span>
+                    </v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+            </router-link>
+
+            <router-link to ="/connexion">
+              <v-list-tile>
+                <v-list-tile-action><v-icon>lock</v-icon></v-list-tile-action>
+                <v-list-tile-content><v-list-tile-title>Log out</v-list-tile-title></v-list-tile-content>
             </v-list-tile>
-        </router-link>
-
-
-        <!-- Routes différentes si connecté ou non -->
-        
-       <v-list-tile>
-            <v-list-tile-content><v-list-tile-title></v-list-tile-title></v-list-tile-content>
-        </v-list-tile>
-
-
-      <router-link to ="/connexion">
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon v-if="this.$router.currentRoute.fullPath==='/connexion'" color="light-green lighten-1">lock_open</v-icon>
-            <v-icon v-else>lock_open</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>
-              <span v-if="this.$router.currentRoute.fullPath==='/connexion'" class="navCurrent">Sign in</span>
-              <span v-else>Sign in</span>
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-    </router-link>
-
-        <router-link to ="/inscription">
-          <v-list-tile>
-            <v-list-tile-action>
-              <v-icon v-if="this.$router.currentRoute.fullPath==='/inscription'" color="light-green lighten-1">lock_open</v-icon>
-              <v-icon v-else>lock_open</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                <span v-if="this.$router.currentRoute.fullPath==='/inscription'" class="navCurrent">Sign up</span>
-                <span v-else>Sign up</span>
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-      </router-link>
-
-      <router-link to ="#">
-        <v-list-tile>
-          <v-list-tile-action><v-icon>lock</v-icon></v-list-tile-action>
-          <v-list-tile-content><v-list-tile-title>Log out</v-list-tile-title></v-list-tile-content>
-      </v-list-tile>
-    </router-link>
-
+          </router-link>
       </v-list>
 
 
@@ -119,7 +119,7 @@
 
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Thomas Richard</v-toolbar-title>
+      <router-link to ="/dashboard"><v-toolbar-title class="nom">Thomas Richard</v-toolbar-title></router-link>
     </v-toolbar>
 
 
@@ -164,28 +164,25 @@ export default {
 </script>
 
 <style>
-
 .contenuFooter{
   color: grey;
   margin:auto;
 }
-
 a, .list__tile__content{
   text-decoration:none;
   color:white;
 }
-
 .nbXp{
   font-size : 1.1em;
   margin : auto;
 }
-
 .avatar{
   width : 5px;
 }
-
 .navCurrent{
   color:#9CCC65;
 }
-
+.nom{
+   color:white;
+}
 </style>
