@@ -4,24 +4,23 @@
 
         <v-flex xs8>
 
+            <v-flex xs6>
+                <v-subheader>Choisissez un type d'exercice</v-subheader>
+            </v-flex>
 
-                <v-text-field v-model="title"
-                              name="title"
-                              label="titre"
-                ></v-text-field>
+            <v-flex xs6>
+                <v-select
+                        :items="items"
+                        v-model="e2"
+                        label="Select"
+                        class="input-group--focused"
+                        item-value="text"
+                ></v-select>
+            </v-flex>
 
-                <v-text-field v-model="description"
-                              name="level"
-                              label="description"
-                              multi-line= "true"
-                ></v-text-field>
 
-                <label>File
-                    <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-                </label>
-
-                <v-btn color="success" @click="submitFile()">Ajouter l'exercice au parcours</v-btn>
-
+            <fill-in v-show="fill"></fill-in>
+            <test-out-put v-show="out"></test-out-put>
 
         </v-flex>
     </v-container>
@@ -29,13 +28,21 @@
 
 <script>
     import url from './../services/config';
+    import fillIn from './FillInTheBlankForm';
+    import testOutPut from './OutPutForm';
     export default {
         name: "add-exercice",
+        components: {fillIn, testOutPut},
         data () {
             return {
                 title : '',
                 description: '',
-                file : ''
+                file : '',
+                items: [
+                    { text: 'Fill in the blank' },
+                    { text: 'Test output' }
+                ],
+                e2: null
             }
         },
         methods: {
@@ -70,6 +77,14 @@
                     console.log(error)
                 })
 
+            }
+        },
+        computed: {
+            fill: function () {
+                return this.e2 === 'Fill in the blank';
+            },
+            out: function () {
+                return this.e2 === 'Test output';
             }
         }
     }

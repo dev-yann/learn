@@ -6,6 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Slim\Http\UploadedFile;
+use App\models\Fill;
 
 class ExerciceController extends BaseController
 {
@@ -37,23 +38,64 @@ class ExerciceController extends BaseController
 
    public function createExercice (Request $request,Response $response,$args) {
 
-    /*    $tab = $request->getParsedBody();
-    
-    try {
-        $exercice = new Exercices();
-        $exercice->title = $tab["title"];
-        $exercice->parcours_id = $args["id"];
-        $exercice->description = $tab["description"];
-        $exercice->save();
-        return Writer::json_output($response,201,$exercice);
-    } catch (\Exception $e) {
-        return Writer::json_output($response,500,['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
-    }*/
+
+        $params = $request->getParsedBody();
+
+
+        if($params['type'] == 'fill'){
+
+            try {
+
+                $exercice = new Exercices();
+                $exercice->title = $params["title"];
+                $exercice->parcours_id = $args["id"];
+                $exercice->description = $params["description"];
+                $exercice->save();
+
+                $fillEntity = new Fill();
+                $fillEntity->codeTrue = str_replace(' ','', $params['codeTrue']);
+
+                $withoutSpace = str_replace(' ','', $params['codeFalse']);
+                $withoutBlank = str_replace('[blank]', '_***_', $withoutSpace);
+
+                $fillEntity->codeFalse = $withoutBlank;
+                $fillEntity->exercices_id = $exercice->id;
+                $fillEntity->save();
+
+                $exercice->fillEntity = $fillEntity;
+
+                return Writer::json_output($response,201,['exercice' => $exercice]);
+
+
+
+            } catch (\Exception $e){
+
+                return Writer::json_output($response,500,['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
+            }
+
+        }
+
+       //return Writer::json_output($response,200,[$test]);
+
+
+
+       /*    $tab = $request->getParsedBody();
+
+       try {
+           $exercice = new Exercices();
+           $exercice->title = $tab["title"];
+           $exercice->parcours_id = $args["id"];
+           $exercice->description = $tab["description"];
+           $exercice->save();
+           return Writer::json_output($response,201,$exercice);
+       } catch (\Exception $e) {
+           return Writer::json_output($response,500,['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
+       }*/
 
 
 
 
-
+/*
         $directory = $this->container['upload_directory'];
 
 
@@ -84,7 +126,7 @@ class ExerciceController extends BaseController
 
             return Writer::json_output($response,201,['if marche pas']);
 
-        }
+        }*/
 
 
 

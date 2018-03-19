@@ -17,4 +17,9 @@ class Exercices extends Model
     	 return $this->belongsToMany(User::class, 'user2exercice', 'excercice_id', 'user_id');
     }
 
+    public function fillin()
+    {
+        return $this->hasOne(Fill::class);
+    }
+
 }

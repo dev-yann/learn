@@ -179,6 +179,31 @@ class Migrator {
 
             });
         }
+
+        /**
+         * create table for sous-exercice
+         */
+        if (!Capsule::schema()->hasTable('fill')) {
+             Capsule::schema()->create('fill', function($table)
+             {
+
+                 $table->integer('id', true);
+                 $table->string('codeTrue');
+                 $table->string('codeFalse');
+
+                 //FK
+                 $table->integer('exercices_id');
+
+                 $table->engine = 'InnoDB';
+
+                 //Foreign keys declaration
+                 $table->foreign('exercices_id')->references('id')->on('exercices')->onDelete('cascade');
+                 // We'll need to ensure that MySQL uses the InnoDB engine to
+                 // support the indexes, other engines aren't affected.
+                 $table->engine = 'InnoDB';
+             });
+         }
+
         /**
          * create table for series
          */
