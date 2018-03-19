@@ -1,14 +1,24 @@
 <template>
-    <v-layout row wrap  v-if="isload">
-      <v-flex xs12 lg7 offset-xs1 offset-lg3>
-          <h1>Dis bonjour</h1>
-        <h1>{{parcours.title}}</h1>
-          <p>{{parcours.description}}</p>
-          <p>proposez par {{parcours.author.username}}</p>
+    <v-layout row wrap v-if="isload">
+      <v-flex xs12 sm8 md6 offset-sm2 offset-md3 class="conteneurCard">
+      <v-card>
 
-          <p v-if="!abonne"><v-btn color="success" @click="subscribe">S'incrire à se cours pour faire les exercices</v-btn></p>
-          <p v-else>Vous êtes inscrit à ce parcours</p>
-      </v-flex>
+        <v-card-title primary-title>
+          <div>
+            <h1 class="headline mb-0">{{parcours.title}}</h1>
+            <div class="auteur"><i>{{parcours.author.username}}</i></div>
+            <v-divider></v-divider>
+            <div class="description">{{parcours.description}}</div>
+          </div>
+        </v-card-title>
+
+        <v-card-actions>
+          <p v-if="!abonne"><v-btn flat color="light-green lighten-1" @click="subscribe">S'incrire à ce cours</v-btn></p>
+          <div v-else class="inscrit">Vous êtes inscrit à ce cours</div>
+        </v-card-actions>
+
+      </v-card>
+    </v-flex>
 
       <!-- Chat -->
        <Chat></Chat>
@@ -93,5 +103,23 @@
 h1{
   margin:auto;
   text-align: center;
+}
+.description{
+   text-align: justify;
+   margin-top : 15px;
+   text-indent : 10px;
+}
+.auteur{
+   text-align: center;
+   color : #DDD;
+}
+.inscrit{
+   color : #DDD;
+   text-indent : 10px;
+   margin-bottom: 5px;
+}
+.conteneurCard{
+   display: flex;
+   align-items: center;
 }
 </style>
