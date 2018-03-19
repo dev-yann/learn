@@ -56,9 +56,9 @@ const router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
-      meta: {
+   /*   meta: {
          requireAuth: true
-      }
+      }*/
     },
     {
       path: '/parcoursliste',
@@ -84,11 +84,11 @@ const router = new Router({
       path: '/exercice',
       name: 'Exercice',
       component: Exercice,
-   /*   meta: {
+      meta: {
         requireAuth: true
-     }*/
+     }
     },
-  {
+    {
       path: '/parcours/:id/:name',
       name: 'parcours',
       components: {
@@ -98,7 +98,7 @@ const router = new Router({
       meta: {
         requireAuth: true
       }
-   },
+     },
     {
       path: '/forumsujet',
       name: 'ForumSujet',
