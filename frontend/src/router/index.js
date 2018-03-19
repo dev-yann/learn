@@ -89,11 +89,6 @@ const router = new Router({
      }
     },
     {
-      path: '/parcours',
-      name: 'Parcours',
-      component: Parcours
-    },
-  /*{
       path: '/parcours/:id/:name',
       name: 'parcours',
       components: {
@@ -103,7 +98,7 @@ const router = new Router({
       meta: {
         requireAuth: true
       }
-   },*/
+     },
     {
       path: '/forumsujet',
       name: 'ForumSujet',
