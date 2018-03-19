@@ -38,12 +38,12 @@
             <router-link to ="/parcoursliste">
               <v-list-tile>
                 <v-list-tile-action>
-                  <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" color="light-green lighten-1">code</v-icon>
+                  <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste' || this.$router.currentRoute.fullPath==='/parcours' || this.$router.currentRoute.fullPath==='/exercice/'" color="light-green lighten-1">code</v-icon>
                   <v-icon v-else>code</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
                   <v-list-tile-title>
-                    <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" class="navCurrent">Parcours</span>
+                    <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste' || this.$router.currentRoute.fullPath==='/parcours' || this.$router.currentRoute.fullPath==='/exercice/'" class="navCurrent">Parcours</span>
                     <span v-else>Parcours</span>
                   </v-list-tile-title>
                 </v-list-tile-content>
