@@ -56,9 +56,9 @@ const router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
-   /*   meta: {
+       meta: {
          requireAuth: true
-      }*/
+      }
     },
     {
       path: '/parcoursliste',
