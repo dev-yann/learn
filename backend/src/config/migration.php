@@ -87,6 +87,7 @@ class Migrator {
                 $table->string('description')->default('');
                 $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+                $table->boolean('fillin')->default(false);
                 //FK
                 $table->integer('parcours_id');
 

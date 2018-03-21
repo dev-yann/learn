@@ -20,20 +20,38 @@ class ExerciceController extends BaseController
 
     public function getExercice (Request $request,Response $response,$args)
     {
+
     	try {
-    		$exercice = Exercices::where('id',"=",$args["id"])->firstOrFail();
-    		$parcours=$exercice->parcours()->first();
-    		$result = ["exercice" => $exercice,'parcours' => $parcours];
 
-    		return Writer::json_output($response,201,$result);
+            $exercice = Exercices::where('id',"=",$args["ide"])->firstOrFail();
+            // si l'exercice est de type FillIn
+            if($exercice->fillinType == 1){
+
+                try{
+
+                    $myFill = $exercice->fillin()->firstOrFail();
+                    unset($myFill->codeTrue);
+                    unset($myFill->exercices_id);
+                    unset($exercice->fillin);
+                    $exercice->myFill = $myFill;
+                    return Writer::json_output($response,201,["exercice" => $exercice]);
+
+
+                } catch (ModelNotFoundException $e){
+
+                    $notFoundHandler = $this->container->get('notFoundHandler');
+                    return $notFoundHandler($request,$response);
+                }
+            }
+
+
+    		return Writer::json_output($response,201,["exercice" => $exercice]);
+
     	} catch (ModelNotFoundException $exception){
-
 
            $notFoundHandler = $this->container->get('notFoundHandler');
            return $notFoundHandler($request,$response);
        }
-
-
    }
 
    public function createExercice (Request $request,Response $response,$args) {
@@ -50,12 +68,13 @@ class ExerciceController extends BaseController
                 $exercice->title = $params["title"];
                 $exercice->parcours_id = $args["id"];
                 $exercice->description = $params["description"];
+                $exercice->fillin = true;
                 $exercice->save();
 
                 $fillEntity = new Fill();
                 $fillEntity->codeTrue = str_replace(' ','', $params['codeTrue']);
 
-                $withoutSpace = str_replace(' ','', $params['codeFalse']);
+                $withoutSpace = trim($params['codeFalse']);
                 $withoutBlank = str_replace('[blank]', '_***_', $withoutSpace);
 
                 $fillEntity->codeFalse = $withoutBlank;
@@ -164,18 +183,61 @@ class ExerciceController extends BaseController
             }
     }
 
-public function editExercice (Request $request,Response $response,$args) {
-    $tab = $request->getParsedBody();
-    try {
-        $exercice = Exercices::where("id",$args["id"])->firstOrFail();
-        $exercice->description = $tab["description"];
-        $exercice->title = $tab["title"];
-        $exercice->save();
-        return Writer::json_output($response,200,$exercice);
-    } catch (ModelNotFoundException $exception){
+    public function editExercice (Request $request,Response $response,$args) {
 
-        $notFoundHandler = $this->container->get('notFoundHandler');
-        return $notFoundHandler($request,$response);
+        $tab = $request->getParsedBody();
+        try {
+            $exercice = Exercices::where("id",$args["id"])->firstOrFail();
+            $exercice->description = $tab["description"];
+            $exercice->title = $tab["title"];
+            $exercice->save();
+            return Writer::json_output($response,200,$exercice);
+        } catch (ModelNotFoundException $exception){
+
+            $notFoundHandler = $this->container->get('notFoundHandler');
+            return $notFoundHandler($request,$response);
+        }
     }
-}
+
+    public function testExercice (Request $request,Response $response,$args) {
+
+
+       $props = $request->getParsedBody();
+
+        if (isset($props['fillin']) && isset($props['userCode'])){
+
+            try {
+
+                $exercice = Exercices::where('id',$args['ide'])->with('fillin')->firstOrFail();
+
+                // J'enleve "php" du code utilisateur
+                $withoutPhp = str_replace('<?php','', $props['userCode']);
+                // Et aussi les retours à la ligne
+                $withoutn = str_replace("\n",'', $withoutPhp);
+                // Et enfin les espaces
+                $withoutSpace = str_replace(' ','', $withoutn);
+
+
+                // Et on enleve les retour à la ligne du prof
+                $codeProf = str_replace("\n",'',$exercice->fillin->codeTrue);
+                if ($codeProf === $withoutSpace) {
+
+                    return Writer::json_output($response,200,"Ok great !");
+
+                }
+
+                return Writer::json_output($response,200,["true" => $codeProf, "false" => $withoutSpace]);
+
+
+            } catch (ModelNotFoundException $e){
+
+                $notFoundHandler = $this->container->get('notFoundHandler');
+                return $notFoundHandler($request,$response);
+            }
+        }
+
+        // je dois compoarer la string de l'user et celle du prof
+
+
+    }
 }

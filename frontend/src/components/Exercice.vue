@@ -1,20 +1,20 @@
 <template>
-   <v-layout row wrap>
+   <v-layout row wrap v-if="isload">
       <v-flex xs12>
          <p class="autocomplete"><i>Click to Ctrl to autocomplete</i></p>
       </v-flex>
 
       <!-- CodeMirror -->
-      <v-flex xs12 lg6>
+      <v-flex xs12 lg6 >
 
          <!-- Conteneur CodeMirror -->
-         <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea"/>
-
+         <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea">
+         </textarea>
          <!-- Pop up consignes -->
          <v-card-text class="btnConsigne">
             <div>
                <v-layout row justify-center>
-                  <v-btn color="light-green lighten-1" dark absolute top left fab  v-show="!hidden" @click.stop="dialog = true"><v-icon>format_align_center</v-icon></v-btn>
+                  <v-btn color="light-green lighten-1" dark absolute top left fab  :v-show="!hidden" @click.stop="dialog = true"><v-icon>format_align_center</v-icon></v-btn>
                   <v-dialog v-model="dialog" fullscreen transition="dialog-bottom-transition" :overlay="false" scrollable>
                      <v-card tile>
                         <v-toolbar card dark color="light-green lighten-1">
@@ -32,8 +32,8 @@
                               <v-layout row wrap>
                                  <v-flex xs6 offset-xs3>
                                     <v-list-tile-content>
-                                       <v-list-tile-title>Nom de l'exercice</v-list-tile-title>
-                                       <p class="consigne">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Require password for purchase or use password to restrict purchase Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                       <v-list-tile-title>{{exercice.title}}</v-list-tile-title>
+                                       <p class="consigne">{{exercice.description}}</p>
                                     </v-list-tile-content>
                                  </v-flex>
                               </v-layout>
@@ -46,6 +46,8 @@
                </v-layout>
             </div>
          </v-card-text>
+
+         <v-btn @click="test">test</v-btn>
       </v-flex>
 
 
@@ -53,7 +55,9 @@
       <v-flex xs12 lg6>
 
          <!-- Conteneur Prévisualisation -->
-         <div class="resultCode" v-model="resultCode"/>
+         <div class="resultCode" >
+            <p v-model="resultCode"></p>
+         </div>
 
          <!-- Tester le code -->
          <v-card-text class="btnTester">
@@ -71,8 +75,6 @@
 <script>
 
 import Url from './../services/config'
-import Chat from './Chat.vue'
-import { mapMutations } from 'vuex'
 
 import $ from "jquery"
 import CodeMirror from "codemirror"
@@ -101,31 +103,77 @@ export default{
           code:'',
           editor: '',
           codePhp : "<?php ",
-          resultCode :'',
+          resultCode :"haha",
           /* dialogue pour les consignes */
           dialog: false,
           notifications: false,
           sound: true,
-          widgets: false
+          widgets: false,
+          loadingTest: false,
+          exercice: {},
+
       }
   },
   methods:{
-     // Map Getter ...
+
+      test () {
+          Url.post('/connect/parcours/1/exercice/'+this.$route.params.ide,{
+              fillin: "yes",
+              //
+              // UN PEU SPECIAL, ON DOIT PASSER PAR LA FONCTION DE CODE MIRROR
+              // POUR RECUPERER LE BON TXT !!!!!!!!
+              userCode: this.editor.getValue()
+
+          }).then(response => {
+
+              console.log(response)
+
+          }).catch(error => {
+
+              console.log(error)
+          })
+      }
 
   },
   mounted(){
-    this.code = $(".codemirror-textarea")[0];
-    this.editor = CodeMirror.fromTextArea(this.code, {
-          // Numerotation des lignes
-          lineNumbers : true,
-          // coloration syntaxique PHP
-          mode : "application/x-httpd-php",
-          // autocompletion : ctrl
-          extraKeys : {"Ctrl" : "autocomplete"},
-          // theme noir
-          theme : "pastel-on-dark",
+
+
+
+    Url.get('/connect/parcours/'+ this.$route.params.id +'/exercice/'+ this.$route.params.ide).then(response => {
+
+        console.log(response);
+        this.codePhp = "<?php " + response.data.exercice.myFill.codeFalse;
+        this.exercice = response.data.exercice;
+        this.loadingTest = true;
+
+
+    }).then(() => {
+
+        this.code = $(".codemirror-textarea")[0];
+        this.editor = CodeMirror.fromTextArea(this.code, {
+            // Numerotation des lignes
+            lineNumbers : true,
+            // coloration syntaxique PHP
+            mode : "application/x-httpd-php",
+            // autocompletion : ctrl
+            extraKeys : {"Ctrl" : "autocomplete"},
+            // theme noir
+            theme : "pastel-on-dark",
+        });
+
+        console.log(this.editor.getValue());
+
+    }).catch(error => {
+
+        console.log(error)
     })
- }
+  },
+   computed: {
+       // Permet la verification dynamiques de loadtesting
+       isload: function () {
+           return this.loadingTest
+       }
+   }
 }
 </script>
 
@@ -141,6 +189,7 @@ export default{
    background-color: #E0E0E0;
    height: 75vh;
    width : 100%;
+   color: black;
 }
 .consigne{
    color: #CCC;

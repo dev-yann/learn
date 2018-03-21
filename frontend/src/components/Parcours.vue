@@ -29,7 +29,8 @@
                     </div>
                 </v-card-title>
                 <v-card-actions>
-                    <v-btn flat color="orange">Share</v-btn>
+                    <router-link :to="{ name: 'exercice', params: { id : parcours.id, ide : exercice.id }}"><v-btn flat color="orange">Allez à l'exercice</v-btn></router-link>
+
                     <v-btn flat color="orange">Explore</v-btn>
                 </v-card-actions>
             </v-card>

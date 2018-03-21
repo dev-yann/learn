@@ -81,8 +81,8 @@ const router = new Router({
    }, */
 
     {
-      path: '/exercice',
-      name: 'Exercice',
+      path: '/parcours/:id/exercice/:ide',
+      name: 'exercice',
       component: Exercice,
       meta: {
         requireAuth: true
