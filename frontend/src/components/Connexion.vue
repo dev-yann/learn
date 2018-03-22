@@ -68,11 +68,13 @@ export default {
              }).then(response => {
 
                  // L'api nous renvoie un token que l'on enregistre dans le ls
-                 alert(response);
+
                  ls.set('token',response.data.token);
 
                  // Méthode de mutation su store
                  this.setConnectedUser(response.data.user);
+
+                 this.$router.push('/connexion')
 
              }).catch(error => {
                  console.log(error)

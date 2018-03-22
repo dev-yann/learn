@@ -166,6 +166,7 @@ export default {
         ...mapGetters(['isConnected']),
 
         islog(){
+          this.$router.push('/connexion')
           return this.$store.getters['isConnected'];
         }
     }
