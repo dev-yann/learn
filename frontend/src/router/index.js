@@ -42,6 +42,8 @@ const router = new Router({
 
             if(store.getters['isConnected'] && ls.get('token')) {
                 next({path: '/dashboard'})
+            } else {
+                next();
             }
       }
     },
@@ -56,6 +58,8 @@ const router = new Router({
 
             if(store.getters['isConnected'] && ls.get('token')) {
                 next({path: '/dashboard'})
+            } else {
+                next();
             }
         }
     },
