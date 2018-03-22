@@ -32,13 +32,6 @@
                                     <span class="contenuTxt">{{ item.message }}</span>
                                  </div>
                               </div>
-
-                              <!-- Qu'est ce "action" et la petite étoile ? -->
-
-                              <!-- <v-list-tile-action>
-                                   <v-list-tile-action-text>{{ item.action }}</v-list-tile-action-text>
-                                   <v-icon small color="grey lighten-1">star_border</v-icon>
-                               </v-list-tile-action> -->
                            </div>
                         </template>
                    </v-list>
