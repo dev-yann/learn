@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import addCourses from '@/components/addCourses'
-import Parcours from '@/components/parcours'
-import Exercices from '@/components/exercices'
+import Parcours from '@/components/Parcours'
+import Exercices from '@/components/Exercices'
 import addExercice from '@/components/addExercice'
 
 Vue.use(Router);
