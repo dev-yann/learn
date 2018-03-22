@@ -81,20 +81,20 @@ const router = new Router({
       name: 'Forum',
       component: Forum
     },
-    
+
     {
       path: '/exercice',
       name: 'Exercice',
       component: Exercice
     },
-  /*  {
+    {
       path: '/parcours/:id/exercice/:ide',
       name: 'exercice',
       component: Exercice,
      meta: {
         requireAuth: true
      }
-   },*/
+   },
     {
       path: '/parcours/:id/:name',
       name: 'parcours',
