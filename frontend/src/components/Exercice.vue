@@ -47,7 +47,8 @@
             </div>
          </v-card-text>
 
-         <v-btn @click="test">test</v-btn>
+
+         <!--<v-btn @click="test">test</v-btn>-->
       </v-flex>
 
 
@@ -62,7 +63,7 @@
          <!-- Tester le code -->
          <v-card-text class="btnTester">
             <v-fab-transition>
-               <v-btn color="light-blue lighten-1" class="btnRafraiche" dark absolute top left fab v-show="!hidden">
+               <v-btn color="light-blue lighten-1" class="btnRafraiche" dark absolute top left fab v-show="!hidden" @click="test">
                   <v-icon>cached</v-icon>
                </v-btn>
             </v-fab-transition>
@@ -99,12 +100,12 @@ export default{
   name : 'Exercice',
   data () {
       return {
-          /* CodeMirror */
+          // CodeMirror
           code:'',
           editor: '',
           codePhp : "<?php ",
           resultCode :"haha",
-          /* dialogue pour les consignes */
+          // dialogue pour les consignes
           dialog: false,
           notifications: false,
           sound: true,

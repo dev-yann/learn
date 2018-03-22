@@ -14,7 +14,7 @@
               <router-link to="/forumsujet">
                 <v-card>
                   <v-card-title>
-                    <h2>{{ props.item.name }}</h2> <span class="resolu" v-if=" props.item.resolu"><v-icon color="light-green lighten-1">check</v-icon></span>
+                    <h2>{{props.item.name}}</h2> <span class="resolu" v-if=" props.item.resolu"><v-icon color="light-green lighten-1">check</v-icon></span>
                   </v-card-title>
                   <v-list dense>
                     <v-list-tile>
