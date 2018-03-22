@@ -41,4 +41,9 @@ interface ConnectedClientInterface
      */
     public function asArray();
 
+
+    public function getId();
+
+    public function setId($id);
+
 }

@@ -11,6 +11,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use App\models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Firebase\JWT\JWT;
+use App\models\Parcours;
 
 class UserController extends BaseController
 {
@@ -103,8 +104,28 @@ class UserController extends BaseController
 
         // Pour renvoyer de bonnes informations user
         unset($user->password);
-        unset($user->id);
 
         return Writer::json_output($response,201,["user" => $user,"token" => $token]);
+    }
+
+    // inscription a un  parcours
+    public function subscribeParcoursUser (Request $request, Response $response) {
+
+        $tab = $request->getParsedBody();
+        // on recoit parcours id et user id
+        try {
+
+            // Association dans la table parcours2users
+            $user = User::where('id',$tab['userId'])->firstOrFail();
+            $user->parcours()->sync($tab['parcoursId']);
+
+            return Writer::json_output($response, 201, ['message' => 'Inscription effectuée']);
+
+        } catch (ModelNotFoundException $e) {
+
+            return Writer::json_output($response,400,['error' => "Ce compte n'éxiste pas"]);
+
+        }
+
     }
 }

@@ -44,6 +44,7 @@ class Migrator {
                 $table->string('username');
                 $table->string('password');
                 $table->bigInteger('exp')->default(0);
+                $table->boolean('author')->default(0);
 
                 $table->engine = 'InnoDB';
             });
@@ -58,7 +59,7 @@ class Migrator {
             {
 
                 $table->integer('id', true);
-                $table->string('author')->default('');
+                $table->string('author_id');
                 $table->integer('temps');
                 $table->integer('level');
                 $table->string('title')->default('');
@@ -67,7 +68,11 @@ class Migrator {
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
 
                 $table->engine = 'InnoDB';
+                //Foreign keys declaration
+                $table->foreign('author_id')->references('id')->on('user')->onDelete('cascade');
             });
+
+
         }
 
         /**
@@ -82,6 +87,7 @@ class Migrator {
                 $table->string('description')->default('');
                 $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+                $table->boolean('fillin')->default(false);
                 //FK
                 $table->integer('parcours_id');
 
@@ -103,7 +109,8 @@ class Migrator {
 
                 $table->integer('id', true);
                 $table->string('message')->default('');
-
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
                 //FK
                 $table->integer('parcours_id');
                 $table->integer('user_id');
@@ -173,6 +180,31 @@ class Migrator {
 
             });
         }
+
+        /**
+         * create table for sous-exercice
+         */
+        if (!Capsule::schema()->hasTable('fill')) {
+             Capsule::schema()->create('fill', function($table)
+             {
+
+                 $table->integer('id', true);
+                 $table->string('codeTrue');
+                 $table->string('codeFalse');
+
+                 //FK
+                 $table->integer('exercices_id');
+
+                 $table->engine = 'InnoDB';
+
+                 //Foreign keys declaration
+                 $table->foreign('exercices_id')->references('id')->on('exercices')->onDelete('cascade');
+                 // We'll need to ensure that MySQL uses the InnoDB engine to
+                 // support the indexes, other engines aren't affected.
+                 $table->engine = 'InnoDB';
+             });
+         }
+
         /**
          * create table for series
          */

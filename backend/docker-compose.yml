@@ -32,6 +32,7 @@ services:
         - ./api:/var/www/api
         - ./src:/var/www/src
         - ./vendor:/var/www/vendor
+        - ./uploads:/var/www/uploads
     networks:
         - learn_network
     links :
@@ -87,3 +88,28 @@ services:
           - learn_network
       links :
           - mysql:learn
+
+
+######################
+############ Chat service
+######################
+  api.chat:
+      image: canals/php
+      container_name: chat.learn.local
+      environment:
+          - VHOST_HOSTNAME=chat.learn
+          - VHOST_DOCROOT=/var/www/chat
+  #       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
+  #       - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
+      ports:
+          - "10084:80"
+          - "10445:443"
+      volumes :
+          - ./chat:/var/www/chat
+          - ./src:/var/www/src
+          - ./vendor:/var/www/vendor
+      networks:
+          - learn_network
+      links :
+          - mysql:learn
+

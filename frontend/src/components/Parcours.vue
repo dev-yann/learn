@@ -1,13 +1,45 @@
 <template>
+    <v-layout row wrap v-if="isload">
+      <v-flex xs12 sm8 md6 offset-sm2 offset-md3 class="conteneurCard">
+      <v-card>
 
+        <v-card-title primary-title>
+          <div>
+            <h1 class="headline mb-0">{{parcours.title}}</h1>
+            <div class="auteur"><i>{{parcours.author.username}}</i></div>
+            <v-divider></v-divider>
+            <div class="description">{{parcours.description}}</div>
+          </div>
+        </v-card-title>
 
-    <v-layout row wrap>
-      <v-flex xs12 lg7 offset-xs1 offset-lg3>
-        <h1>{{parcours.title}}</h1>
-      </v-flex>
-      <Chat v-if="isload"></Chat>
+        <v-card-actions>
+          <p v-if="!abonne"><v-btn flat color="light-green lighten-1" @click="subscribe">S'incrire à ce cours</v-btn></p>
+          <div v-else class="inscrit">Vous êtes inscrit à ce cours</div>
+        </v-card-actions>
+
+      </v-card>
+    </v-flex>
+
+        <v-flex xs12 sm6 offset-sm3 v-for="exercice in ex">
+            <v-card>
+                <v-card-title primary-title>
+                    <div>
+                        <h1 class="headline mb-0">{{exercice.title}}</h1>
+                        <div>{{exercice.description}}</div>
+                    </div>
+                </v-card-title>
+                <v-card-actions>
+                    <router-link :to="{ name: 'exercice', params: { id : parcours.id, ide : exercice.id }}"><v-btn flat color="orange">Allez à l'exercice</v-btn></router-link>
+
+                    <v-btn flat color="orange">Explore</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-flex>
+
+      <!-- Chat -->
+       <Chat></Chat>
+
     </v-layout>
-
 </template>
 
 <script>
@@ -16,12 +48,9 @@
   import { mapMutations } from 'vuex'
 
 
-
   export default{
     name : 'Parcours',
-      components: {
-        Chat
-      },
+    components: {Chat},
     data () {
         return {
             ex : [],
@@ -31,14 +60,30 @@
     },
     methods:{
 
+        // Ajouter le plugin interceptor pour envoyer le jwt automatiquement
+        // https://github.com/martalexa/GeoQuizz_backoffice/blob/master/src/main.js
+
+
         // Permet la modification du parcours dans le state de vuex
-        ...mapMutations(['setParcours'])
+        ...mapMutations(['setParcours']),
+        subscribe () {
+            Url.post('/connect/subscribe',{
+                parcoursId : this.parcours.id,
+                userId : this.$store.getters.getUser.id
+            }).then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.log(error)
+            })
+        }
 
     },
-      beforeMount () {
+      mounted () {
 
         // récupérer le parcours en question avec les exercices
           Url.get('/parcours/'+ this.$route.params.id ).then(response => {
+
+              console.log(response);
 
               this.ex = response.data.exercices
               this.parcours = response.data.parcours
@@ -58,13 +103,13 @@
 
       },
       computed: {
-
         // Permet la verification dynamiques de loadtesting
         isload: function () {
-
             return this.loadingTest
-
-        }
+        },
+          abonne: function () {
+              return this.parcours.subscribe;
+          }
       }
   }
 </script>
@@ -74,5 +119,23 @@
 h1{
   margin:auto;
   text-align: center;
+}
+.description{
+   text-align: justify;
+   margin-top : 15px;
+   text-indent : 10px;
+}
+.auteur{
+   text-align: center;
+   color : #DDD;
+}
+.inscrit{
+   color : #DDD;
+   text-indent : 10px;
+   margin-bottom: 5px;
+}
+.conteneurCard{
+   display: flex;
+   align-items: center;
 }
 </style>

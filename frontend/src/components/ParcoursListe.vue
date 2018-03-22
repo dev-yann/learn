@@ -15,7 +15,6 @@
                       <v-card class="unCours">
                         <v-card-title>
                           <v-list-tile-content><h2>{{ props.item.title }}</h2></v-list-tile-content>
-                          <v-list-tile-content><router-link class="redacteur" to="#">{{ props.item.author }}</router-link></v-list-tile-content>
                         </v-card-title>
                         <div class="timeNdiff">
                           <v-divider></v-divider>

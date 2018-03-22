@@ -10,18 +10,27 @@ import Forum from '@/components/Forum'
 import ForumSujet from '@/components/ForumSujet'
 import ForumAdd from '@/components/ForumAdd'
 import Parcours from '@/components/Parcours'
-import Chat from '@/components/Chat' 
+import Chat from '@/components/Chat'
 
 /* Routes uniquement pour les profs */
-import Cours from '@/components/Cours'
-import Groupes from '@/components/Groupes'
-import GroupeAdd from '@/components/GroupeAdd'
-import GroupeEdit from '@/components/GroupeEdit'
+import Exercice from '@/components/Exercice'
+// On est d'accord c'est du back end, c'est a supprimer
+// import Groupes from '@/components/Groupes'
+// import GroupeAdd from '@/components/GroupeAdd'
+// import GroupeEdit from '@/components/GroupeEdit'
+
+import store from '@/store'
+import ls from '@/services/localStorage'
 
 Vue.use(Router)
 
+/**
+ * Si un route nécessite une authorisation,
+ * ajouter l'objet meta (voir exemple sur parcours-liste)
+ * @type {VueRouter}
+ */
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -30,46 +39,66 @@ export default new Router({
     {
       path: '/connexion',
       name: 'Connexion',
-      component: Connexion
+      component: Connexion,
+      meta : {
+         requireAuth : false
+      }
     },
     {
       path: '/inscription',
       name: 'Inscription',
-      component: Inscription
+      component: Inscription,
+      meta : {
+        requireAuth : false
+      }
     },
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: Dashboard
+      component: Dashboard,
+       meta: {
+         requireAuth: true
+      }
     },
     {
       path: '/parcoursliste',
       name: 'ParcoursListe',
-      component: ParcoursListe
+      component: ParcoursListe,
+      meta: {
+          requireAuth : true
+       }
     },
     {
       path: '/forum',
       name: 'Forum',
       component: Forum
     },
-    {
+    // On est d'accord c'est du back end, c'est a supprimer
+/*    {
       path: '/groupes',
       name: 'Groupes',
       component: Groupes
+   }, */
+
+    {
+      path: '/parcours/:id/exercice/:ide',
+      name: 'exercice',
+      component: Exercice,
+      meta: {
+        requireAuth: true
+     }
     },
     {
-      path: '/cours',
-      name: 'Cours',
-      component: Cours
-    },
-   {
       path: '/parcours/:id/:name',
       name: 'parcours',
       components: {
         default : Parcours,
-          chat : Chat
+        chat : Chat
       },
-   },
+      meta: {
+        requireAuth: true
+      }
+     },
     {
       path: '/forumsujet',
       name: 'ForumSujet',
@@ -80,7 +109,8 @@ export default new Router({
       name: 'ForumAdd',
       component: ForumAdd
     },
-    {
+    // On est d'accord c'est du back end, c'est a supprimer
+/*{
       path: '/groupeadd',
       name: 'GroupeAdd',
       component: GroupeAdd
@@ -89,12 +119,26 @@ export default new Router({
       path: '/groupeedit',
       name: 'GroupeEdit',
       component: GroupeEdit
-   },
-   /* route /chat qui devra être supprimer */
-   {
-     path: '/chat',
-     name: 'Chat',
-     component: Chat
-  }
+   }*/
   ]
 })
+
+export default router;
+
+
+// Interception globale de navigation
+// Permet de rediriger en cas d'authorisation necessaire
+
+router.beforeEach((to, from, next) => {
+
+    if(to.matched.some(record => record.meta.requireAuth)){
+
+        if(store.getters['isConnected'] && ls.get('token')){
+            next()
+        } else {
+            next({path: '/connexion', query: { redirect: to.path}})
+        }
+    } else {
+        next();
+    }
+});

@@ -47,17 +47,26 @@ export default {
      nameRules: [
        v => !!v || 'name is required',
        v => v.length <= 30 || 'name must be less than 30 characters'
-     ]
+     ],
+       csrf_name : '',
+       csrf_value : ''
    }),
    methods :{
        ...mapMutations(['setConnectedUser']),
      log(){
 
-             return url.post('/user',[], {
+
+             url.post('/user',{
+
+                 csrf_name : this.csrf_name,
+                 csrf_value : this.csrf_value
+
+             }, {
                  // Envoie du header base 68
                  headers: {
                      'Authorization': 'Basic ' + window.btoa(this.name + ':' + this.password)
                  }
+
              }).then(response => {
 
                  // L'api nous renvoie un token que l'on enregistre dans le ls
@@ -70,10 +79,11 @@ export default {
              }).catch(error => {
                  console.log(error)
              })
-
-            //this.$router.push('/dashboard')
       }
-   }
+   },
+    mounted () {
+       console.log(this.$router)
+    }
  }
 </script>
 

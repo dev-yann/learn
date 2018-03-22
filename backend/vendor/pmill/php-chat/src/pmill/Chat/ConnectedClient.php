@@ -23,6 +23,11 @@ class ConnectedClient implements ConnectedClientInterface
     protected $name;
 
     /**
+     * @var integer
+     */
+    protected $id;
+
+    /**
      * @return mixed
      */
     public function getResourceId()
@@ -78,6 +83,22 @@ class ConnectedClient implements ConnectedClientInterface
         return array(
             'name'=>$this->name,
         );
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
 }
