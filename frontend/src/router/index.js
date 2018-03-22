@@ -42,6 +42,12 @@ const router = new Router({
       component: Connexion,
       meta : {
          requireAuth : false
+      },
+        beforeEnter: (to, from, next) => {
+
+            if(store.getters['isConnected'] && ls.get('token')) {
+                next({path: '/dashboard'})
+            }
       }
     },
     {
@@ -50,7 +56,13 @@ const router = new Router({
       component: Inscription,
       meta : {
         requireAuth : false
-      }
+      },
+        beforeEnter: (to, from, next) => {
+
+            if(store.getters['isConnected'] && ls.get('token')) {
+                next({path: '/dashboard'})
+            }
+        }
     },
     {
       path: '/dashboard',
@@ -134,6 +146,9 @@ router.beforeEach((to, from, next) => {
     if(to.matched.some(record => record.meta.requireAuth)){
 
         if(store.getters['isConnected'] && ls.get('token')){
+          if(to.path === '/inscription' || to.path === "/connexion"){
+              next({path: '/dashboard'})
+          }
             next()
         } else {
             next({path: '/connexion', query: { redirect: to.path}})
