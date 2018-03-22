@@ -25,33 +25,32 @@ class UserController extends BaseController
     public function createUser(Request $request, Response $response){
 
         // checkformulaire en amont
+            $tab = $request->getParsedBody();
 
-        $tab = $request->getParsedBody();
+             $user = new User();
+             $user->username = filter_var($tab["username"],FILTER_SANITIZE_STRING);
 
-        $user = new User();
-        $user->username = filter_var($tab["username"],FILTER_SANITIZE_STRING);
+             // verification auprès de la base
+             $test = User::select('id')->where('username','=',$user->username)->first();
 
-        // verification auprès de la base
-        $test = User::select('id')->where('username','=',$user->username)->first();
+             if(empty($test)){
+                 $pass = filter_var($tab["password"],FILTER_SANITIZE_STRING);
+                 $pass = password_hash($pass, PASSWORD_DEFAULT);
+                 $user->password = $pass;
 
-        if(empty($test)){
-            $pass = filter_var($tab["password"],FILTER_SANITIZE_STRING);
-            $pass = password_hash($pass, PASSWORD_DEFAULT);
-            $user->password = $pass;
+                 try{
+                     $user->save();
+                     unset($user->password);
+                     unset($user->id);
+                     return Writer::json_output($response,201,$user);
 
-            try{
-                $user->save();
-                unset($user->password);
-                unset($user->id);
-                return Writer::json_output($response,201,$user);
-
-            } catch (\Exception $e){
-                // revoyer erreur format json
-                return Writer::json_output($response,500,['error' => $e->getMessage()]);
-            }
-        } else {
-            return Writer::json_output($response,401,['error' => "Bad credentials"]);
-        }
+                 } catch (\Exception $e){
+                     // revoyer erreur format json
+                     return Writer::json_output($response,500,['error' => $e->getMessage()]);
+                 }
+             } else {
+                 return Writer::json_output($response,401,['error' => "Bad credentials"]);
+             }
     }
 
     public function connectUser(Request $request, Response $response){

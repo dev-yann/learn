@@ -35,6 +35,7 @@ $app->post('/sandbox/verify',"SandboxController:verify");
 /**
  * ATTENTION, ON AJOUTE CONNECT DEVANT TOUTES LES ROUTES ICI
  */
+
 $app->group('/connect',function () {
 
     $this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
