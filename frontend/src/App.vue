@@ -157,8 +157,8 @@ export default {
         ...mapMutations(['setDisconnectedUser']),
 
         logout(){
-          
-          this.setDisconnectedUser('coucou');
+
+          this.setDisconnectedUser({});
         }
 
     },
