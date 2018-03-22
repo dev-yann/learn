@@ -61,7 +61,6 @@ export default {
          if (this.passwordBis === this.user.password) {
 
              url.post('/adduser',this.user).then(response => {
-                 console.log(response);
                  this.$router.push('/connexion')
              }).catch(error => {
                  console.log(error.response)

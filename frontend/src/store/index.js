@@ -25,6 +25,10 @@ export default new Vuex.Store({
             state.connected = true
             state.user = user
         },
+        setDisconnectedUser: (state, user) => {
+            state.connected = false
+            state.user = ''
+        },
         setParcours: (state,parcours) => {
             state.parcours = parcours
         }

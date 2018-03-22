@@ -100,12 +100,12 @@
                 </v-list-tile>
             </router-link>
 
-            <router-link to ="/connexion" v-if="islog">
+            <a @click="logout" v-if="islog">
               <v-list-tile>
                 <v-list-tile-action><v-icon>lock</v-icon></v-list-tile-action>
                 <v-list-tile-content><v-list-tile-title>Log out</v-list-tile-title></v-list-tile-content>
             </v-list-tile>
-          </router-link>
+          </a>
       </v-list>
 
 
@@ -141,6 +141,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
+  import { mapMutations } from 'vuex'
   import url from './services/config'
 
 export default {
@@ -151,11 +152,21 @@ export default {
     props: {
         source: String
     },
+    methods:{
+
+        ...mapMutations(['setDisconnectedUser']),
+
+        logout(){
+          
+          this.setDisconnectedUser('coucou');
+        }
+
+    },
     computed:{
         ...mapGetters(['isConnected']),
 
         islog(){
-          return this.$store.getters['isConnected'];;
+          return this.$store.getters['isConnected'];
         }
     }
 }
