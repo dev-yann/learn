@@ -53,11 +53,9 @@ export default {
    }),
    methods :{
        ...mapMutations(['setConnectedUser']),
+
      log(){
-
-
              url.post('/user',{
-
                  csrf_name : this.csrf_name,
                  csrf_value : this.csrf_value
 
@@ -70,7 +68,7 @@ export default {
              }).then(response => {
 
                  // L'api nous renvoie un token que l'on enregistre dans le ls
-                 console.log(response);
+                 alert(response);
                  ls.set('token',response.data.token);
 
                  // Méthode de mutation su store
@@ -86,7 +84,6 @@ export default {
     }
  }
 </script>
-
 
 <style scoped>
 

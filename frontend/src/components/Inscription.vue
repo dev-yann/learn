@@ -63,7 +63,7 @@ export default {
              return url.post('/adduser',this.user).then(response => {
                  this.$router.push('/connexion')
              }).catch(error => {
-                 alert(error.response.data.error)
+                 console.log(error.response)
              })
 
          } else {

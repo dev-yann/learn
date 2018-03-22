@@ -11,13 +11,8 @@ import ForumSujet from '@/components/ForumSujet'
 import ForumAdd from '@/components/ForumAdd'
 import Parcours from '@/components/Parcours'
 import Chat from '@/components/Chat'
-
-/* Routes uniquement pour les profs */
 import Exercice from '@/components/Exercice'
-// On est d'accord c'est du back end, c'est a supprimer
-// import Groupes from '@/components/Groupes'
-// import GroupeAdd from '@/components/GroupeAdd'
-// import GroupeEdit from '@/components/GroupeEdit'
+
 
 import store from '@/store'
 import ls from '@/services/localStorage'
@@ -64,27 +59,18 @@ const router = new Router({
       path: '/parcoursliste',
       name: 'ParcoursListe',
       component: ParcoursListe,
-      meta: {
-          requireAuth : true
-       }
     },
     {
       path: '/forum',
       name: 'Forum',
       component: Forum
     },
-    // On est d'accord c'est du back end, c'est a supprimer
-/*    {
-      path: '/groupes',
-      name: 'Groupes',
-      component: Groupes
-   }, */
 
     {
       path: '/parcours/:id/exercice/:ide',
       name: 'exercice',
       component: Exercice,
-      meta: {
+     meta: {
         requireAuth: true
      }
     },
@@ -109,17 +95,6 @@ const router = new Router({
       name: 'ForumAdd',
       component: ForumAdd
     },
-    // On est d'accord c'est du back end, c'est a supprimer
-/*{
-      path: '/groupeadd',
-      name: 'GroupeAdd',
-      component: GroupeAdd
-    },
-    {
-      path: '/groupeedit',
-      name: 'GroupeEdit',
-      component: GroupeEdit
-   }*/
   ]
 })
 

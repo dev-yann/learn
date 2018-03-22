@@ -10,6 +10,7 @@ export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
         connected: false,
+        member:true,
         user: {},
         parcours: {}
     },

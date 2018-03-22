@@ -20,7 +20,7 @@
       </v-card>
     </v-flex>
 
-        <v-flex xs12 sm6 offset-sm3 v-for="exercice in ex">
+        <v-flex xs12 sm6 offset-sm3 v-for="exercice in ex" :key="exercice.id">
             <v-card>
                 <v-card-title primary-title>
                     <div>
