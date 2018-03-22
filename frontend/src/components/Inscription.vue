@@ -57,10 +57,11 @@ export default {
      ]
    }),
    methods :{
-     log(){
-         if(this.passwordBis===this.user.password){
+     log () {
+         if (this.passwordBis === this.user.password) {
 
-             return url.post('/adduser',this.user).then(response => {
+             url.post('/adduser',this.user).then(response => {
+                 console.log(response);
                  this.$router.push('/connexion')
              }).catch(error => {
                  console.log(error.response)
