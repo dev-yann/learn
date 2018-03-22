@@ -3,7 +3,7 @@
 
       <!-- Side Bar -->
       <v-navigation-drawer clipped fixed v-model="drawer" app>
-         <v-toolbar flat class="transparent">
+         <v-toolbar flat class="transparent" v-if="islog">
             <router-link to ="/dashboard">
                <v-list class="pa-0">
                   <v-list-tile avatar>
@@ -20,7 +20,7 @@
          <v-divider></v-divider>
 
             <v-list dense>
-            <router-link to ="/dashboard">
+            <router-link to ="/dashboard" v-if="islog">
               <v-list-tile>
                 <v-list-tile-action>
                   <v-icon v-if="this.$router.currentRoute.fullPath==='/dashboard'" color="light-green lighten-1">dashboard</v-icon>
@@ -66,14 +66,11 @@
               </router-link>
 
 
-              <!-- Routes différentes si connecté ou non -->
+              <!-- Routes de connexion -->
 
-             <v-list-tile>
-                  <v-list-tile-content><v-list-tile-title></v-list-tile-title></v-list-tile-content>
-              </v-list-tile>
+              <v-divider></v-divider>
 
-
-            <router-link to ="/connexion">
+            <router-link to ="/connexion" v-if="!islog">
               <v-list-tile>
                 <v-list-tile-action>
                   <v-icon v-if="this.$router.currentRoute.fullPath==='/connexion'" color="light-green lighten-1">lock_open</v-icon>
@@ -88,11 +85,11 @@
               </v-list-tile>
           </router-link>
 
-              <router-link to ="/inscription">
+              <router-link to ="/inscription" v-if="!islog">
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon v-if="this.$router.currentRoute.fullPath==='/inscription'" color="light-green lighten-1">lock_open</v-icon>
-                    <v-icon v-else>lock_open</v-icon>
+                    <v-icon v-if="this.$router.currentRoute.fullPath==='/inscription'" color="light-green lighten-1">lock</v-icon>
+                    <v-icon v-else>lock</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title>
@@ -103,12 +100,12 @@
                 </v-list-tile>
             </router-link>
 
-            <router-link to ="/connexion">
+            <a @click="logout" v-if="islog">
               <v-list-tile>
                 <v-list-tile-action><v-icon>lock</v-icon></v-list-tile-action>
                 <v-list-tile-content><v-list-tile-title>Log out</v-list-tile-title></v-list-tile-content>
             </v-list-tile>
-          </router-link>
+          </a>
       </v-list>
 
 
@@ -119,7 +116,7 @@
 
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link to ="/dashboard"><v-toolbar-title class="nom">Thomas Richard</v-toolbar-title></router-link>
+      <router-link to ="/dashboard"><v-toolbar-title class="nom" v-if="islog">Thomas Richard</v-toolbar-title></router-link>
     </v-toolbar>
 
 
@@ -144,6 +141,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
+  import { mapMutations } from 'vuex'
   import url from './services/config'
 
 export default {
@@ -156,9 +154,20 @@ export default {
     },
     methods:{
 
+        ...mapMutations(['setDisconnectedUser']),
+
+        logout(){
+
+          this.setDisconnectedUser({});
+        }
+
     },
     computed:{
-        ...mapGetters(['isConnected'])
+        ...mapGetters(['isConnected']),
+
+        islog(){
+          return this.$store.getters['isConnected'];
+        }
     }
 }
 </script>

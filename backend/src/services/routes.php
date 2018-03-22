@@ -43,4 +43,3 @@ $app->group('/connect',function () {
     $this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" );
 
 })->add('CheckJwt');
-

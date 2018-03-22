@@ -19,9 +19,9 @@ networks:
 services:
   api.public:
     image: canals/php
-    container_name: api.learn
+    container_name: api.learn.local
     environment:
-        - VHOST_HOSTNAME=api.learn
+        - VHOST_HOSTNAME=api.learn.local
         - VHOST_DOCROOT=/var/www/api
 #       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
 #       - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
@@ -43,7 +43,7 @@ services:
 #############################
   mysql:
     image: mariadb:latest
-    container_name: db.learn
+    container_name: db.learn.local
     environment:
           - MYSQL_ROOT_PASSWORD=root
           - MYSQL_USER=admin
@@ -73,9 +73,9 @@ services:
       image: canals/php
       container_name: migrate.learn.local
       environment:
-          - VHOST_HOSTNAME=migrate.learn
+          - VHOST_HOSTNAME=migrate.learn.local
           - VHOST_DOCROOT=/var/www/data
-  #       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
+  #      - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
   #       - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
       ports:
           - "10083:80"
@@ -89,6 +89,7 @@ services:
       links :
           - mysql:learn
 
+
 ######################
 ############ Chat service
 ######################
@@ -96,7 +97,7 @@ services:
       image: canals/php
       container_name: chat.learn.local
       environment:
-          - VHOST_HOSTNAME=chat.learn
+          - VHOST_HOSTNAME=chat.learn.local
           - VHOST_DOCROOT=/var/www/chat
   #       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
   #       - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
@@ -111,3 +112,4 @@ services:
           - learn_network
       links :
           - mysql:learn
+
