@@ -125,8 +125,7 @@ class ExerciceController extends BaseController
                 $uploadFile = $request->getUploadedFiles();
 
                 // on s'occupe du php
-
-                $myUploadPhp = $uploadFile['file'];
+                $myUploadPhp = $uploadFile['myfile'];
 
                 if ($myUploadPhp->getError() === UPLOAD_ERR_OK) {
 
@@ -134,6 +133,10 @@ class ExerciceController extends BaseController
                     $filename = UploadedFile::moveUploadedFile($directory, $myUploadPhp);
 
                     return Writer::json_output($response, 201, ['SUCCESS UPLOAD' => $filename, "exercice" => $exercice]);
+
+                } else {
+
+                    return Writer::json_output($response, 201, ['get error marche pas']);
 
                 }
 

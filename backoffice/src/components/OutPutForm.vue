@@ -46,10 +46,11 @@
 
 
             let formData = new FormData();
-            formData.append('file',this.file);
+            formData.append('myfile',this.file);
             formData.append('title',this.title);
             formData.append('description',this.description);
 
+            console.log(formData.getAll('myfile'));
 
             // axios
             // todo : recuperer l'id du bon parcours
@@ -59,7 +60,7 @@
                 }
             }).then(response => {
                 console.log(response)
-                this.file = ''
+
             }).catch(error => {
                 console.log(error)
             })
