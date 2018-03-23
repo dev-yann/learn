@@ -71,10 +71,10 @@ export default {
 
                  ls.set('token',response.data.token);
 
-                 // Méthode de mutation su store
+                 // Méthode de mutation du store
                  this.setConnectedUser(response.data.user);
 
-                 this.$router.push('/connexion')
+                 this.$router.push('/dashboard')
 
              }).catch(error => {
                  console.log(error)

@@ -75,7 +75,7 @@
 
 <script>
 
-import Url from './../services/config'
+import Url from './../services/configJwt'
 
 import $ from "jquery"
 import CodeMirror from "codemirror"
@@ -111,7 +111,7 @@ export default{
           sound: true,
           widgets: false,
           loadingTest: false,
-          exercice: {},
+          exercice: {}
 
       }
   },

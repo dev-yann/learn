@@ -1,83 +1,200 @@
 <template>
   <v-app id="inspire" dark>
-    <v-navigation-drawer
-            clipped
-            fixed
-            v-model="drawer"
-            app
-    >
+
+    <!-- Side Bar -->
+    <v-navigation-drawer clipped fixed v-model="drawer" app>
+      <v-toolbar flat class="transparent" v-if="islog">
+        <router-link to ="/dashboard">
+          <v-list class="pa-0">
+            <v-list-tile avatar>
+              <v-list-tile-avatar>
+                <img class="profil" src="https://randomuser.me/api/portraits/men/85.jpg" >
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title class="nbXp">3600 XP</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </router-link>
+      </v-toolbar>
+      <v-divider></v-divider>
+
       <v-list dense>
-
-        <router-link to="/add">
-
+        <router-link to ="/dashboard" v-if="islog">
           <v-list-tile>
             <v-list-tile-action>
-              <v-icon>dashboard</v-icon>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/dashboard'" color="light-green lighten-1">dashboard</v-icon>
+              <v-icon v-else>dashboard</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>Ajouter un cours</v-list-tile-title>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/dashboard'" class="navCurrent">Dashboard</span>
+                <span v-else>Dashboard</span>
+              </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-
         </router-link>
 
-        <router-link to="/parcours">
-
+        <router-link to ="/parcours">
           <v-list-tile>
             <v-list-tile-action>
-              <v-icon>dashboard</v-icon>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" color="light-green lighten-1">code</v-icon>
+              <v-icon v-else>code</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>Mes parcours</v-list-tile-title>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" class="navCurrent"> Mes parcours</span>
+                <span v-else>Mes Parcours</span>
+              </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
+        </router-link>
 
+        <router-link to ="/forum">
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/forum'" color="light-green lighten-1">forum</v-icon>
+              <v-icon v-else>forum</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/forum'" class="navCurrent">Forum</span>
+                <span v-else>Forum</span>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
         </router-link>
 
 
+        <!-- Routes de connexion -->
 
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>settings</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Settings</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+        <v-divider></v-divider>
+
+        <router-link to ="/connexion">
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/connexion'" color="light-green lighten-1">lock_open</v-icon>
+              <v-icon v-else>lock_open</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/connexion'" class="navCurrent">Sign in</span>
+                <span v-else>Sign in</span>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </router-link>
+
+        <router-link to ="/inscription">
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/inscription'" color="light-green lighten-1">lock</v-icon>
+              <v-icon v-else>lock</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <span v-if="this.$router.currentRoute.fullPath==='/inscription'" class="navCurrent">Sign up</span>
+                <span v-else>Sign up</span>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </router-link>
+
+        <a @click="logout" v-if="islog">
+          <v-list-tile>
+            <v-list-tile-action><v-icon>lock</v-icon></v-list-tile-action>
+            <v-list-tile-content><v-list-tile-title>Log out</v-list-tile-title></v-list-tile-content>
+          </v-list-tile>
+        </a>
       </v-list>
+
+
     </v-navigation-drawer>
+
+
+    <!-- Nav Bar -->
+
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-
-      <v-toolbar-title>Partie professeur</v-toolbar-title>
-
+      <router-link to ="/dashboard"><v-toolbar-title class="nom" v-if="islog">Thomas Richard</v-toolbar-title></router-link>
     </v-toolbar>
+
+
+    <!-- Contenu Application -->
+
     <v-content>
       <v-container fluid fill-height>
-      <v-layout>
-        <router-view></router-view>
-      </v-layout>
-    </v-container>
+        <v-layout>
+          <router-view></router-view>
+        </v-layout>
+      </v-container>
     </v-content>
+
+    <!-- Footer -->
+
     <v-footer app fixed>
-      <span>&copy; 2017</span>
+      <span class="contenuFooter">&copy; Environnement d'apprentissage 2018</span>
     </v-footer>
   </v-app>
 </template>
 
+
 <script>
-export default {
-  name: 'App'
-}
+    import { mapGetters } from 'vuex'
+    import { mapMutations } from 'vuex'
+    export default {
+        name: 'App',
+        data: () => ({
+            drawer: null
+        }),
+        props: {
+            source: String
+        },
+        methods:{
+
+            ...mapMutations(['setDisconnectedUser']),
+
+            logout(){
+
+                this.setDisconnectedUser({});
+            }
+
+
+        },
+
+        computed:{
+
+            ...mapGetters(['isConnected']),
+
+                  islog(){
+                  this.$router.push('/connexion')
+                  return this.$store.getters['isConnected'];
+            }
+        }
+    }
+
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .contenuFooter{
+    color: grey;
+    margin:auto;
+  }
+  a, .list__tile__content{
+    text-decoration:none;
+    color:white;
+  }
+  .nbXp{
+    font-size : 1.1em;
+    margin : auto;
+  }
+  .avatar{
+    width : 5px;
+  }
+  .navCurrent{
+    color:#9CCC65;
+  }
+  .nom{
+    color:white;
+  }
 </style>

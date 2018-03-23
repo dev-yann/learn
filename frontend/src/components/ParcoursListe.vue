@@ -11,7 +11,10 @@
                     <router-link :to="{ name : 'parcours', params : { id : props.item.id, name : props.item.title}}">
                       <v-card class="unCours">
                         <v-card-title>
-                          <v-list-tile-content><h2>{{ props.item.title }}</h2></v-list-tile-content>
+                          <v-list-tile-content>
+                            <h2>{{ props.item.title }}</h2>
+                            <p>{{ props.item.description}}</p>
+                          </v-list-tile-content>
                         </v-card-title>
                         <div class="timeNdiff">
                           <v-divider></v-divider>

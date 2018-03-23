@@ -17,7 +17,14 @@ $app->patch('/parcours/{id:[0-9]+}/edit[/]', "ParcoursController:editParcours");
 $app->delete('/parcours/{id:[0-9]+}/delete[/]', "ParcoursController:deleteParcours");
 
 $app->post('/parcours[/]',"ParcoursController:createParcours");
+
+// on va couper en deux la création d'exercice
+
+// une route pour les test unitaire
 $app->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
+// une route pour les fill in the blank
+$app->post('/parcours/{id:[0-9]+}/add/fill', "ExerciceController:createExerciceFill")->add("CheckForm")->setArgument('fields',["title","description","codeTrue","codeFalse"]);
+
 
 $app->get('/groupes[/]',"GroupeController:getGroupes");
 $app->post('/groupes[/]',"GroupeController:createGroupe");

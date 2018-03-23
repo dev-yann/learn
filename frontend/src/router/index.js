@@ -12,7 +12,7 @@ import ForumAdd from '@/components/ForumAdd'
 import Parcours from '@/components/Parcours'
 import Chat from '@/components/Chat'
 import Exercice from '@/components/Exercice'
-
+import NotFound from '@/components/Notfound'
 
 import store from '@/store'
 import ls from '@/services/localStorage'
@@ -27,9 +27,23 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
+      {
+        path: '*',
+        component: NotFound
+      },
     {
       path: '/',
-      component: Connexion
+      component: Connexion,
+
+        beforeEnter: (to, from, next) => {
+
+            if(store.getters['isConnected'] && ls.get('token')) {
+                next({path: '/dashboard'})
+            } else {
+                next();
+            }
+        }
+
     },
     {
       path: '/connexion',
@@ -75,6 +89,9 @@ const router = new Router({
       path: '/parcoursliste',
       name: 'ParcoursListe',
       component: ParcoursListe,
+        meta : {
+          requireAuth : false
+        }
     },
     {
       path: '/forum',
@@ -103,7 +120,7 @@ const router = new Router({
         chat : Chat
       },
       meta: {
-        requireAuth: true
+        requireAuth: false
       }
      },
     {
@@ -125,19 +142,4 @@ export default router;
 // Interception globale de navigation
 // Permet de rediriger en cas d'authorisation necessaire
 
-router.beforeEach((to, from, next) => {
 
-    if(to.matched.some(record => record.meta.requireAuth)){
-
-        if(store.getters['isConnected'] && ls.get('token')){
-          if(to.path === '/inscription' || to.path === "/connexion"){
-              next({path: '/dashboard'})
-          }
-            next()
-        } else {
-            next({path: '/connexion', query: { redirect: to.path}})
-        }
-    } else {
-        next();
-    }
-});

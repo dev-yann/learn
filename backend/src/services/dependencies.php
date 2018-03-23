@@ -21,6 +21,9 @@ $container['SandboxController'] = function ($c){
 $container['CheckJwt'] = function () {
     return new \App\middleware\CheckJwt();
 };
+$container['CheckForm'] = function ($c){
+    return new \App\middleware\CheckForm();
+};
 $container['GetUser'] = function () {
     return new \App\middleware\GetUser();
 };
