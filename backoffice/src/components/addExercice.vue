@@ -9,13 +9,7 @@
             </v-flex>
 
             <v-flex xs6>
-                <v-select
-                        :items="items"
-                        v-model="e2"
-                        label="Select"
-                        class="input-group--focused"
-                        item-value="text"
-                ></v-select>
+                <v-select :items="items" v-model="e2" label="Select" class="input-group--focused" item-value="text" ></v-select>
             </v-flex>
 
 
