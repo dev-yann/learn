@@ -5,6 +5,8 @@
 
           <v-text-field v-model="description" name="level" label="description" :multi-line="line"></v-text-field>
 
+          <v-text-field v-model="variable_test" name="var_test" label="nom de la variable à tester selon votre test unitaire"></v-text-field>
+
           <label>Upload a file :
               <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
           </label>
@@ -12,17 +14,50 @@
 
       <v-flex xs12>
           <v-btn color="success" @click="submitFile()">Ajouter l'exercice au parcours</v-btn>
+          <!-- <v-btn color="success" @click="testExercice()">Tester votre test unitaire</v-btn> -->
       </v-flex>
     </div>
+
 </template>
 
 <script>
-    import url from './../services/config'
+
+
+import $ from "jquery"
+import CodeMirror from "codemirror"
+import VueCodeMirror from "vue-codemirror"
+
+ /* importation des plugins pour la coloration syntaxique du php */
+ import clike from "./../../node_modules/codemirror/mode/clike/clike.js"
+ import xml from "./../../node_modules/codemirror/mode/xml/xml.js"
+ import javascript from "./../../node_modules/codemirror/mode/javascript/javascript.js"
+ import css from "./../../node_modules/codemirror/mode/css/css.js"
+ import htmlmixed from "./../../node_modules/codemirror/mode/htmlmixed/htmlmixed.js"
+ import php from "./../../node_modules/codemirror/mode/php/php.js"
+
+// Importation des plugins pour l'autocompletion
+import showHint from './../../node_modules/codemirror/addon/hint/show-hint.js'
+import cssHint from './../../node_modules/codemirror/addon/hint/css-hint.js'
+
+// importation du thème /
+import pastelOnDark from "./../../node_modules/codemirror/theme/pastel-on-dark.css"
+import url from './../services/config'
     export default {
         name: "out-put-form",
         data () {
             return {
-
+                       // CodeMirror
+          code:'',
+          editor: '',
+          codePhp : "<?php ",
+          resultCode :"haha",
+          // dialogue pour les consignes
+          dialog: false,
+          notifications: false,
+          sound: true,
+          widgets: false,
+          loadingTest: false,
+                variable_test :'',
                 title:'',
                 line: true,
                 description: ''
@@ -46,6 +81,7 @@
             formData.append('myfile',this.file);
             formData.append('title',this.title);
             formData.append('description',this.description);
+                        formData.append('variable_test',this.variable_test);
 
             console.log(formData.getAll('myfile'));
 
@@ -61,7 +97,20 @@
             }).catch(error => {
                 console.log(error)
             })
-        }
+         },
+        // testExercice() {
+        //    url.post('/sandbox/verify',{
+        //       codePhp : this.codePhp,
+        //         headers: {
+        //             'Content-Type' : 'application/json'
+        //         }
+        //     }).then(response => {
+        //         console.log(response)
+
+        //     }).catch(error => {
+        //         console.log(error)
+        //     })
+        // }
         }
     }
 </script>

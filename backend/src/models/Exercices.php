@@ -21,5 +21,9 @@ class Exercices extends Model
     {
         return $this->hasOne(Fill::class);
     }
+     public function unittest()
+    {
+        return $this->hasOne(UnitTest::class);
+    }
 
 }
