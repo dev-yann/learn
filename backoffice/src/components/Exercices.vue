@@ -22,14 +22,44 @@
 </template>
 
 <script>
+  import Url from './../services/configJwt'
+
     export default {
         name: "exercices",
         data () {
             return {
+              exercice: {}
             }
         },
-        computed: {
+        mounted(){
+        /*  Url.get('/connect/parcours/'+ this.$route.params.id +'/exercice/'+ this.$route.params.ide).then(response => {
 
+              console.log(response);
+              this.codePhp = "<?php " + response.data.exercice.myFill.codeFalse;
+              this.exercice = response.data.exercice;
+              this.loadingTest = true;
+
+
+          }).then(() => {
+
+              this.code = $(".codemirror-textarea")[0];
+              this.editor = CodeMirror.fromTextArea(this.code, {
+                  // Numerotation des lignes
+                  lineNumbers : true,
+                  // coloration syntaxique PHP
+                  mode : "application/x-httpd-php",
+                  // autocompletion : ctrl
+                  extraKeys : {"Ctrl" : "autocomplete"},
+                  // theme noir
+                  theme : "pastel-on-dark",
+              });
+
+              console.log(this.editor.getValue());
+
+          }).catch(error => {
+
+              console.log(error)
+          })*/
         }
     }
 </script>

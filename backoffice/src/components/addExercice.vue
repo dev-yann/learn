@@ -1,22 +1,17 @@
 <template>
-    <v-container fluid>
+  <v-container fluid>
+    <v-layout row wrap>
+      <v-flex xs12 md6 offset-md3>
         <h1>Ajouter un exercice</h1>
 
-        <v-flex xs8>
+          <v-subheader>Choisissez un type d'exercice :</v-subheader>
 
-            <v-flex xs6>
-                <v-subheader>Choisissez un type d'exercice</v-subheader>
-            </v-flex>
-
-            <v-flex xs6>
-                <v-select :items="items" v-model="e2" label="Select" class="input-group--focused" item-value="text" ></v-select>
-            </v-flex>
-
-
+          <v-select :items="items" v-model="e2" label="Select" class="input-group--focused" item-value="text" ></v-select>
             <fill-in v-show="fill"></fill-in>
             <test-out-put v-show="out"></test-out-put>
 
         </v-flex>
+      </v-layout>
     </v-container>
 </template>
 

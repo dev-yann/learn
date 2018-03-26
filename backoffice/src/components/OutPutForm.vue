@@ -1,22 +1,19 @@
 <template>
-    <v-flex xs6>
-        <v-text-field v-model="title"
-                      name="title"
-                      label="titre"
-        ></v-text-field>
+  <div>
+      <v-flex xs12>
+          <v-text-field v-model="title" name="title" label="titre" ></v-text-field>
 
-        <v-text-field v-model="description"
-                      name="level"
-                      label="description"
-                      :multi-line="line"
-        ></v-text-field>
+          <v-text-field v-model="description" name="level" label="description" :multi-line="line"></v-text-field>
 
-        <label>File
-            <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-        </label>
+          <label>Upload a file :
+              <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+          </label>
+      </v-flex>
 
-        <v-btn color="success" @click="submitFile()">Ajouter l'exercice au parcours</v-btn>
-    </v-flex>
+      <v-flex xs12>
+          <v-btn color="success" @click="submitFile()">Ajouter l'exercice au parcours</v-btn>
+      </v-flex>
+    </div>
 </template>
 
 <script>
@@ -64,13 +61,13 @@
             }).catch(error => {
                 console.log(error)
             })
-
         }
-
         }
     }
 </script>
 
 <style scoped>
-
+label{
+font-size : 1.2em;
+}
 </style>

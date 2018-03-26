@@ -32,14 +32,13 @@
 
 <script>
 import Inscription from '@/components/Inscription'
-import Dashboard from '@/components/Dashboard'
 import url from './../services/config'
 import ls from './../services/localStorage'
 import { mapMutations } from 'vuex'
 
 export default {
    name: 'Connexion',
-   components:{Inscription, Dashboard},
+   components:{Inscription},
    data: () => ({
      name: '',
      password: '',
@@ -64,7 +63,6 @@ export default {
                  headers: {
                      'Authorization': 'Basic ' + window.btoa(this.name + ':' + this.password)
                  }
-		
 
              }).then(response => {
 
@@ -75,7 +73,7 @@ export default {
                  // Méthode de mutation du store
                  this.setConnectedUser(response.data.user);
 
-
+                 this.$router.push('/parcours')
              }).catch(error => {
                  console.log(error)
              })
