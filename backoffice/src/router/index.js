@@ -17,7 +17,7 @@ export default new Router({
     },
       {
         path: '/add',
-          name: 'Add',
+          name: 'add-courses',
           component: addCourses
       },
       {

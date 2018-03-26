@@ -9,15 +9,15 @@
 
 namespace App\middleware;
 use App\controllers\BaseController;
-use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Firebase\JWT\JWT;
-use App\Controllers\Writer;
 use Firebase\JWT\ExpiredException;
 use Firebase\JWT\SignatureInvalidException;
 use Firebase\JWT\BeforeValidException;
+use App\controllers\Writer;
+use App\models\User;
 
 /**
  * Class CheckJwt

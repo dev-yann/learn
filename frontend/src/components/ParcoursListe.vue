@@ -1,20 +1,20 @@
 <template>
-  <div class="containerGeneral">
-
-        <v-layout row wrap>
-          <v-flex xs10 offset-xs1>
-            <h1 class="text-sm-left">Parcours</h1>
+     <v-layout row wrap>
+          <v-flex xs12>
+            <h1>Parcours</h1>
           </v-flex>
 
-            <v-flex xs12 md11>
-              <v-container fluid grid-list-md>
-                <v-data-iterator content-tag="v-layout" row wrap :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
-                  <v-flex slot="item" slot-scope="props" xs12 sm6 md5 lg3 offset-md1>
+            <v-flex xs12>
+                <v-data-iterator content-tag="v-layout" :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
+                  <v-flex slot="item" slot-scope="props" lg4 offset-lg1>
 
                     <router-link :to="{ name : 'parcours', params : { id : props.item.id, name : props.item.title}}">
                       <v-card class="unCours">
                         <v-card-title>
-                          <v-list-tile-content><h2>{{ props.item.title }}</h2></v-list-tile-content>
+                          <v-list-tile-content>
+                            <h2>{{ props.item.title }}</h2>
+                            <p>{{ props.item.description}}</p>
+                          </v-list-tile-content>
                         </v-card-title>
                         <div class="timeNdiff">
                           <v-divider></v-divider>
@@ -32,11 +32,10 @@
 
                   </v-flex>
                 </v-data-iterator>
-              </v-container>
-            </v-flex>
-        </v-layout>
 
-  </div>
+            </v-flex>
+  </v-layout>
+
 </template>
 
 <script>

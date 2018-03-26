@@ -58,7 +58,7 @@ services:
 
   adminer:
      image: adminer
-     container_name: admin.learn.local
+     container_name: admin.learn
      ports:
           - "8082:8080"
      networks:
@@ -71,11 +71,11 @@ services:
 ######################
   db.migrate:
       image: canals/php
-      container_name: migrate.learn.local
+      container_name: migrate.learn
       environment:
           - VHOST_HOSTNAME=migrate.learn
           - VHOST_DOCROOT=/var/www/data
-  #       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
+  #      - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
   #       - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128/
       ports:
           - "10083:80"
@@ -89,12 +89,13 @@ services:
       links :
           - mysql:learn
 
+
 ######################
 ############ Chat service
 ######################
   api.chat:
       image: canals/php
-      container_name: chat.learn.local
+      container_name: chat.learn
       environment:
           - VHOST_HOSTNAME=chat.learn
           - VHOST_DOCROOT=/var/www/chat
@@ -111,3 +112,4 @@ services:
           - learn_network
       links :
           - mysql:learn
+

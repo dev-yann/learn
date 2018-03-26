@@ -11,13 +11,8 @@ import ForumSujet from '@/components/ForumSujet'
 import ForumAdd from '@/components/ForumAdd'
 import Parcours from '@/components/Parcours'
 import Chat from '@/components/Chat'
-
-/* Routes uniquement pour les profs */
 import Exercice from '@/components/Exercice'
-// On est d'accord c'est du back end, c'est a supprimer
-// import Groupes from '@/components/Groupes'
-// import GroupeAdd from '@/components/GroupeAdd'
-// import GroupeEdit from '@/components/GroupeEdit'
+import NotFound from '@/components/Notfound'
 
 import store from '@/store'
 import ls from '@/services/localStorage'
@@ -32,9 +27,23 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
+      {
+        path: '*',
+        component: NotFound
+      },
     {
       path: '/',
-      component: Connexion
+      component: Connexion,
+
+        beforeEnter: (to, from, next) => {
+
+            if(store.getters['isConnected'] && ls.get('token')) {
+                next({path: '/dashboard'})
+            } else {
+                next();
+            }
+        }
+
     },
     {
       path: '/connexion',
@@ -42,6 +51,14 @@ const router = new Router({
       component: Connexion,
       meta : {
          requireAuth : false
+      },
+        beforeEnter: (to, from, next) => {
+
+            if(store.getters['isConnected'] && ls.get('token')) {
+                next({path: '/dashboard'})
+            } else {
+                next();
+            }
       }
     },
     {
@@ -50,7 +67,15 @@ const router = new Router({
       component: Inscription,
       meta : {
         requireAuth : false
-      }
+      },
+        beforeEnter: (to, from, next) => {
+
+            if(store.getters['isConnected'] && ls.get('token')) {
+                next({path: '/dashboard'})
+            } else {
+                next();
+            }
+        }
     },
     {
       path: '/dashboard',
@@ -64,30 +89,29 @@ const router = new Router({
       path: '/parcoursliste',
       name: 'ParcoursListe',
       component: ParcoursListe,
-      meta: {
-          requireAuth : true
-       }
+        meta : {
+          requireAuth : false
+        }
     },
     {
       path: '/forum',
       name: 'Forum',
       component: Forum
     },
-    // On est d'accord c'est du back end, c'est a supprimer
-/*    {
-      path: '/groupes',
-      name: 'Groupes',
-      component: Groupes
-   }, */
 
+    {
+      path: '/exercice',
+      name: 'Exercice',
+      component: Exercice
+    },
     {
       path: '/parcours/:id/exercice/:ide',
       name: 'exercice',
       component: Exercice,
-      meta: {
+     meta: {
         requireAuth: true
      }
-    },
+   },
     {
       path: '/parcours/:id/:name',
       name: 'parcours',
@@ -96,7 +120,7 @@ const router = new Router({
         chat : Chat
       },
       meta: {
-        requireAuth: true
+        requireAuth: false
       }
      },
     {
@@ -109,17 +133,6 @@ const router = new Router({
       name: 'ForumAdd',
       component: ForumAdd
     },
-    // On est d'accord c'est du back end, c'est a supprimer
-/*{
-      path: '/groupeadd',
-      name: 'GroupeAdd',
-      component: GroupeAdd
-    },
-    {
-      path: '/groupeedit',
-      name: 'GroupeEdit',
-      component: GroupeEdit
-   }*/
   ]
 })
 
@@ -129,16 +142,4 @@ export default router;
 // Interception globale de navigation
 // Permet de rediriger en cas d'authorisation necessaire
 
-router.beforeEach((to, from, next) => {
 
-    if(to.matched.some(record => record.meta.requireAuth)){
-
-        if(store.getters['isConnected'] && ls.get('token')){
-            next()
-        } else {
-            next({path: '/connexion', query: { redirect: to.path}})
-        }
-    } else {
-        next();
-    }
-});

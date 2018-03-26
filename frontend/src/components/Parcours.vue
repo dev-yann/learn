@@ -1,13 +1,12 @@
 <template>
     <v-layout row wrap v-if="isload">
-      <v-flex xs12 sm8 md6 offset-sm2 offset-md3 class="conteneurCard">
-      <v-card>
 
+      <v-flex xs12 sm8 md6 offset-sm2 offset-md3 class="conteneurCard">
+      <v-card class="card">
         <v-card-title primary-title>
           <div>
             <h1 class="headline mb-0">{{parcours.title}}</h1>
-            <div class="auteur"><i>{{parcours.author.username}}</i></div>
-            <v-divider></v-divider>
+            <div class="auteur"><i>{{parcours.author}}</i></div>
             <div class="description">{{parcours.description}}</div>
           </div>
         </v-card-title>
@@ -20,18 +19,20 @@
       </v-card>
     </v-flex>
 
-        <v-flex xs12 sm6 offset-sm3 v-for="exercice in ex" :key="exercice.id">
-            <v-card>
+    <v-flex xs12 sm8 md6 offset-sm2 offset-md3 class="conteneurCard">
+      <v-divider></v-divider>
+    </v-flex>
+
+        <v-flex xs12 sm8 md6 offset-sm2 offset-md3  v-for="exercice in ex" :key="exercice.id" class="conteneurExercice">
+            <v-card class="exercice">
                 <v-card-title primary-title>
                     <div>
-                        <h1 class="headline mb-0">{{exercice.title}}</h1>
+                        <h2 class="headline mb-0">{{exercice.title}}</h2>
                         <div>{{exercice.description}}</div>
                     </div>
                 </v-card-title>
                 <v-card-actions>
-                    <router-link :to="{ name: 'exercice', params: { id : parcours.id, ide : exercice.id }}"><v-btn flat color="orange">Allez à l'exercice</v-btn></router-link>
-
-                    <v-btn flat color="orange">Explore</v-btn>
+                    <router-link :to="{ name: 'exercice', params: { id : parcours.id, ide : exercice.id }}"><v-btn flat color="light-green lighten-1">Allez à l'exercice</v-btn></router-link>
                 </v-card-actions>
             </v-card>
         </v-flex>
@@ -44,6 +45,7 @@
 
 <script>
   import Url from './../services/config'
+  import UrlJwt from './../services/configJwt'
   import Chat from './Chat.vue'
   import { mapMutations } from 'vuex'
 
@@ -67,7 +69,7 @@
         // Permet la modification du parcours dans le state de vuex
         ...mapMutations(['setParcours']),
         subscribe () {
-            Url.post('/connect/subscribe',{
+            UrlJwt.post('/connect/subscribe',{
                 parcoursId : this.parcours.id,
                 userId : this.$store.getters.getUser.id
             }).then(response => {
@@ -137,5 +139,13 @@ h1{
 .conteneurCard{
    display: flex;
    align-items: center;
+   justify-content:center;
+   margin-bottom : 20px;
+}
+.card{
+   width:100%;
+}
+.exercice{
+  margin-bottom:10px;
 }
 </style>

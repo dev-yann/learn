@@ -53,11 +53,9 @@ export default {
    }),
    methods :{
        ...mapMutations(['setConnectedUser']),
+
      log(){
-
-
              url.post('/user',{
-
                  csrf_name : this.csrf_name,
                  csrf_value : this.csrf_value
 
@@ -70,11 +68,13 @@ export default {
              }).then(response => {
 
                  // L'api nous renvoie un token que l'on enregistre dans le ls
-                 console.log(response);
+
                  ls.set('token',response.data.token);
 
-                 // Méthode de mutation su store
+                 // Méthode de mutation du store
                  this.setConnectedUser(response.data.user);
+
+                 this.$router.push('/dashboard')
 
              }).catch(error => {
                  console.log(error)
@@ -86,7 +86,6 @@ export default {
     }
  }
 </script>
-
 
 <style scoped>
 
