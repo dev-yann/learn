@@ -37,7 +37,7 @@ $app->delete('/exercices/{id:[0-9]+}/delete[/]',"ExerciceController:deleteExerci
 $app->patch('/exercices/{id:[0-9]+}/edit[/]',"ExerciceController:editExercice");
 
 $app->post('/sandbox',"SandboxController:execute");
-$app->post('/sandbox/verify',"SandboxController:verify");
+$app->post('/parcours/{p_id}/exercices/{e_id}/verify',"SandboxController:verify");
 
 /**
  * ATTENTION, ON AJOUTE CONNECT DEVANT TOUTES LES ROUTES ICI

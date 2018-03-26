@@ -24,21 +24,23 @@ class SandboxController extends BaseController
   catch (\PHPSandbox\Error $e) {
     $error_parser = $e->getPrevious();
     if (empty ($error_parser)) {
-      return Writer::json_output($resp,500,array("Message d'erreur "=> $e->getMessage()));
+      return Writer::json_output($resp,500,array("Message d'erreur "=> $e->getMessage())); // ERREUR AU NIVEAU DU PARSAGE DU TEXTE PHP
     }
     else  {
-      return Writer::json_output($resp,500,array("Message d'erreur "=> $error_parser->getMessage()));
+      return Writer::json_output($resp,500,array("Message d'erreur "=> $error_parser->getMessage())); // ERREUR AU NIVEAU DE L EXECUTION DU CODE PHP SELON LES OPTIONS DE LA SANDBOX
 
     }  
   }
 
 }
-public function verify( Request $req,Response $resp) {
+public function verify( Request $req,Response $resp,$args) {
   $tab = $req->getParsedBody();
-  $code = $tab["code"];
+  $code = $tab["codePhp"];
+
 
   try {
-      // $exercice = Exercices::where($args["id"],"id")->firstOrFail();
+      $exercice = Exercices::where("id",$args["e_id"])->where("parcours_id",$args["p_id"])->firstOrFail();
+      $filetest = $exercice->unittest()->first();
    $sandbox = new PHPSandbox();
    $sandbox->setOption('sandbox_includes',true);
    $sandbox->setOption('allow_includes',true);
@@ -48,10 +50,10 @@ $sandbox->setOption('allow_classes',true); // ACCEPTE LES CALSSE
 $sandbox->setOption("namespaces",["TestCase"]); // ACCEPTE LE NAME SPACE TEST CASE
 
 $sandbox->whitelistClass("TestCase");
-$sandbox->_include("/var/www/src/controllers/verify.php");
+$sandbox->_include("/var/www/uploads/".$filetest->file."");
 
 $code .= '$verify_test = new Verify();';
-$code .= 'return $verify_test->exec($t);';
+$code .= 'return $verify_test->exec($'.$filetest->variable_test.');';
 
 return Writer::json_output($resp,200,array("Reponse "=> $sandbox->execute($code)))  ;
 

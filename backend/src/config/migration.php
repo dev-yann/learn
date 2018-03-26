@@ -88,6 +88,7 @@ class Migrator {
                 $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
                 $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
                 $table->boolean('fillinType')->default(false);
+                     $table->boolean('unit_test')->default(false);
                 //FK
                 $table->integer('parcours_id');
 
@@ -201,6 +202,26 @@ class Migrator {
                  $table->foreign('exercices_id')->references('id')->on('exercices')->onDelete('cascade');
                  // We'll need to ensure that MySQL uses the InnoDB engine to
                  // support the indexes, other engines aren't affected.
+                 $table->engine = 'InnoDB';
+             });
+         }
+
+                 if (!Capsule::schema()->hasTable('unit_test')) {
+             Capsule::schema()->create('unit_test', function($table)
+             {
+
+                 $table->integer('id', true);
+                 $table->string('file');
+                        $table->string('variable_test')->default('');
+
+                 //FK
+                 $table->integer('exercices_id');
+
+                 $table->engine = 'InnoDB';
+
+                 //Foreign keys declaration
+                 $table->foreign('exercices_id')->references('id')->on('exercices')->onDelete('cascade');
+              
                  $table->engine = 'InnoDB';
              });
          }

@@ -104,8 +104,6 @@ export default{
           code:'',
           editor: '',
           codePhp : "<?php ",
-          resultCode :"haha",
-          // dialogue pour les consignes
           dialog: false,
           notifications: false,
           sound: true,
