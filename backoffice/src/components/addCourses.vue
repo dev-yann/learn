@@ -4,28 +4,14 @@
         <h1>Ajouter un parcours</h1>
 
         <v-flex xs8>
+            <v-text-field v-model="name" name="name" label="Nom du parcours"></v-text-field>
 
-            <v-text-field v-model="name"
-                    name="name"
-                    label="Nom du parcours"
-            ></v-text-field>
-
-            <v-text-field v-model="time"
-                    name="time"
-                    label="temps du parcours"
-            ></v-text-field>
+            <v-text-field v-model="time" name="time" label="temps du parcours"></v-text-field>
 
 
-            <v-text-field v-model="level"
-                    name="level"
-                    label="Niveau de difficulté de 1 a 3 "
-            ></v-text-field>
+            <v-text-field v-model="level" name="level" label="Niveau de difficulté de 1 a 3"></v-text-field>
 
-            <v-text-field v-model="description"
-                          name="level"
-                          label="description"
-                          multi-line="true"
-            ></v-text-field>
+            <v-text-field v-model="description" name="level" label="description" :multi-line="line" ></v-text-field>
 
             <v-btn color="success" @click="add">Ajouter le parcours</v-btn>
         </v-flex>
@@ -42,7 +28,8 @@
                 name : '',
                 time : '',
                 level: '',
-                description: ''
+                description: '',
+                line: true,
             }
         },
         methods: {
@@ -57,6 +44,7 @@
                     temps : this.time,
                     description: this.description
                 }).then(response => {
+                  this.$router.push('/parcours')
                     console.log(response)
                 }).catch(error => {
                     console.log(error)
