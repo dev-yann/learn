@@ -173,10 +173,15 @@ class Migrator {
             Capsule::schema()->create('user2exercice', function($table)
             {
 
+                $table->increments('id');
                 $table->integer('user_id');
                 $table->integer('exercice_id');
                 $table->integer('state')->default(0);
                 $table->engine = 'InnoDB';
+
+                // cascade
+                $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+                $table->foreign('exercice_id')->references('id')->on('exercices')->onDelete('cascade');
 
 
             });

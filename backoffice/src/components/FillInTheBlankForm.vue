@@ -36,7 +36,7 @@
             submit() {
                 if (this.$refs.form.validate()) {
                     // Native form submission is not yet supported
-                    url.post('/parcours/1/add/fill', {
+                    url.post('/parcours/3/add/fill', {
 
                         title: this.title,
                         description: this.description,

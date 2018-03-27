@@ -116,7 +116,7 @@ class UserController extends BaseController
 
             // Association dans la table parcours2users
             $user = User::where('id',$tab['userId'])->firstOrFail();
-            $user->parcours()->sync($tab['parcoursId']);
+            $user->parcours()->syncWithoutDetaching($tab['parcoursId']);
 
             return Writer::json_output($response, 201, ['message' => 'Inscription effectuée']);
 
