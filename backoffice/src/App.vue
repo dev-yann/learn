@@ -4,14 +4,14 @@
     <!-- Side Bar -->
     <v-navigation-drawer clipped fixed v-model="drawer" app>
       <v-toolbar flat class="transparent" v-if="islog">
-        <router-link to ="/dashboard">
+        <router-link to ="/parcours">
           <v-list class="pa-0">
             <v-list-tile avatar>
               <v-list-tile-avatar>
                 <img class="profil" src="https://randomuser.me/api/portraits/men/85.jpg" >
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title class="nbXp">3600 XP</v-list-tile-title>
+                <v-list-tile-title class="nbXp">{{getUser.exp}} XP</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
@@ -20,7 +20,6 @@
       <v-divider></v-divider>
 
       <v-list dense>
-
         <router-link to ="/parcours">
           <v-list-tile>
             <v-list-tile-action>
@@ -102,7 +101,7 @@
 
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link to ="/dashboard"><v-toolbar-title class="nom" v-if="islog">Thomas Richard</v-toolbar-title></router-link>
+      <router-link to ="/parcours"><v-toolbar-title class="nom" v-if="islog">{{getUser.username}}</v-toolbar-title></router-link>
     </v-toolbar>
 
 
@@ -143,18 +142,19 @@
             logout(){
 
                 this.setDisconnectedUser({});
-            }
-
-
+            },
         },
 
         computed:{
 
-            ...mapGetters(['isConnected']),
+            ...mapGetters(['isConnected', 'getUser']),
 
                   islog(){
                   this.$router.push('/connexion')
                   return this.$store.getters['isConnected'];
+
+
+
             }
         }
     }
