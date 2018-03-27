@@ -48,5 +48,6 @@ $app->group('/connect',function () {
     $this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
     $this->get('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:getExercice");
     $this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" )->add('CheckSubscribe');
+    $this->get('/dashboard', "UserController:getDashboard");
 
 })->add('CheckJwt');

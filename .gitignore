@@ -13,6 +13,6 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-frontend/src/services/config.js
+./frontend/src/services/config.js
 backend/docker-compose.yml
 backend/uploads

@@ -127,4 +127,18 @@ class UserController extends BaseController
         }
 
     }
+
+    // recupere le contenu de la page dashboard
+    public function getDashboard (Request $request, Response $response) {
+
+        // recupération de l'utilisateur
+        $user = $request->getAttribute('user');
+
+        $parcours = $user->parcours;
+        $user->parcours = $parcours;
+        return Writer::json_output($response,200, ['data' => $user]);
+
+
+
+    }
 }
