@@ -96,6 +96,7 @@ import cssHint from './../../node_modules/codemirror/addon/hint/css-hint.js'
 // importation du thème /
 import pastelOnDark from "./../../node_modules/codemirror/theme/pastel-on-dark.css"
 
+import { mapGetters } from "vuex";
 export default{
   name : 'Exercice',
   data () {
@@ -123,7 +124,10 @@ export default{
               //
               // UN PEU SPECIAL, ON DOIT PASSER PAR LA FONCTION DE CODE MIRROR
               // POUR RECUPERER LE BON TXT !!!!!!!!
-              userCode: this.editor.getValue()
+              userCode: this.editor.getValue(),
+              user : this.getUser,
+              exId : this.$route.params.ide,
+              parcId : this.getParcours.id
 
           }).then(response => {
 
@@ -173,7 +177,8 @@ export default{
        // Permet la verification dynamiques de loadtesting
        isload: function () {
            return this.loadingTest
-       }
+       },
+       ...mapGetters(['getUser', 'getParcours'])
    }
 }
 </script>

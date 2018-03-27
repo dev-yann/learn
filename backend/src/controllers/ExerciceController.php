@@ -3,11 +3,13 @@
 namespace App\controllers;
 
 use App\models\Exercices;
+use App\models\User;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Slim\Http\UploadedFile;
 use App\models\Fill;
+use App\controllers\XpController;
 
 class ExerciceController extends BaseController
 {
@@ -142,7 +144,7 @@ class ExerciceController extends BaseController
 
             } catch (\Exception $e) {
 
-                return Writer::json_output($response, 201, ["message" => $e->getMessage()]);
+                return Writer::json_output($response, 201, ["message" => "Une erreur est survenue pendant l'ajout"]);
 
             }
 
@@ -208,7 +210,6 @@ class ExerciceController extends BaseController
     public function testExercice(Request $request, Response $response, $args)
     {
 
-
         $props = $request->getParsedBody();
 
         if (isset($props['fillin']) && isset($props['userCode'])) {
@@ -223,17 +224,23 @@ class ExerciceController extends BaseController
                 $withoutn = str_replace("\n", '', $withoutPhp);
                 // Et enfin les espaces
                 $withoutSpace = str_replace(' ', '', $withoutn);
-
-
                 // Et on enleve les retour à la ligne du prof
                 $codeProf = str_replace("\n", '', $exercice->fillin->codeTrue);
+
                 if ($codeProf === $withoutSpace) {
 
-                    return Writer::json_output($response, 200, "Ok great !");
+                    // du coup ici c'est juste, l'exo est fini,on appel la methode de validation
+                    // qui va modifier la table user2exercice
+                    // et ajouter les points
 
+                    if($this->validate($request,$response,$props)){
+
+                        return Writer::json_output($response, 200, ["message" => "synchronisé"]);
+
+                    }
                 }
 
-                return Writer::json_output($response, 200, ["true" => $codeProf, "false" => $withoutSpace]);
+                return Writer::json_output($response, 200, ["message" => "No it's false !!!"]);
 
 
             } catch (ModelNotFoundException $e) {
@@ -242,9 +249,42 @@ class ExerciceController extends BaseController
                 return $notFoundHandler($request, $response);
             }
         }
+    }
 
-        // je dois compoarer la string de l'user et celle du prof
+    private function validate ($request,$response, $props) {
 
 
+        $exId = $props['exId'];
+
+        try {
+
+            $user = $request->getAttribute('user');
+
+            // on ajoute les points si l'exo n'a pas encore été
+            // validé par l'utilisateur
+
+            $test = true;
+            foreach ($user->exercices as $exercice){
+
+                if($exercice->pivot->exercice_id === $exId){
+                    $test = false;
+                }
+            }
+
+            if($test){
+                $user->exercices()->syncWithoutDetaching([$exId => ["state" => 1]]);
+
+                $parcours = $request->getAttribute('parcours');
+                $user = XpController::setXp($parcours,$user);
+                $user->save();
+            }
+
+            return true;
+
+
+        } catch (ModelNotFoundException $e){
+
+            return Writer::json_output($response,401,["message" => "synchronisation échouée"]);
+        }
     }
 }
