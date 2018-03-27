@@ -11,7 +11,7 @@
                         <img class="profil" src="https://randomuser.me/api/portraits/men/85.jpg" >
                      </v-list-tile-avatar>
                      <v-list-tile-content>
-                        <v-list-tile-title class="nbXp">{{getUser.exp}} XP</v-list-tile-title>
+                        <v-list-tile-title class="nbXp">{{user.exp}} xp</v-list-tile-title>
                      </v-list-tile-content>
                   </v-list-tile>
                </v-list>
@@ -116,7 +116,8 @@
 
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link to ="/dashboard"><v-toolbar-title class="nom" v-if="islog">{{getUser.username}} XP</v-toolbar-title></router-link>
+      <router-link to ="/dashboard"><v-toolbar-title class="nom" v-if="islog">{{user.username}}</v-toolbar-title></router-link>
+
     </v-toolbar>
 
 
@@ -140,8 +141,8 @@
 
 
 <script>
-  import { mapGetters } from 'vuex'
   import { mapMutations } from 'vuex'
+  import { mapGetters } from 'vuex'
   import url from './services/config'
 
 export default {
@@ -163,11 +164,17 @@ export default {
 
     },
     computed:{
+
         ...mapGetters(['isConnected', 'getUser']),
+
 
         islog(){
           this.$router.push('/connexion')
           return this.$store.getters['isConnected'];
+        },
+
+        user () {
+            return this.$store.getters['getUser'];
         }
     }
 }

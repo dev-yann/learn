@@ -116,7 +116,7 @@ class UserController extends BaseController
 
             // Association dans la table parcours2users
             $user = User::where('id',$tab['userId'])->firstOrFail();
-            $user->parcours()->sync($tab['parcoursId']);
+            $user->parcours()->syncWithoutDetaching($tab['parcoursId']);
 
             return Writer::json_output($response, 201, ['message' => 'Inscription effectuée']);
 
@@ -125,6 +125,20 @@ class UserController extends BaseController
             return Writer::json_output($response,400,['error' => "Ce compte n'éxiste pas"]);
 
         }
+
+    }
+
+    // recupere le contenu de la page dashboard
+    public function getDashboard (Request $request, Response $response) {
+
+        // recupération de l'utilisateur
+        $user = $request->getAttribute('user');
+
+        $parcours = $user->parcours;
+        $user->parcours = $parcours;
+        return Writer::json_output($response,200, ['data' => $user]);
+
+
 
     }
 }

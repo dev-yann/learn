@@ -81,10 +81,14 @@
 </template>
 
 <script>
+
     import Url from './../services/configJwt'
+
     import $ from "jquery"
     import CodeMirror from "codemirror"
     import VueCodeMirror from "vue-codemirror"
+
+
     /* importation des plugins pour la coloration syntaxique du php */
     import clike from "./../../node_modules/codemirror/mode/clike/clike.js"
     import xml from "./../../node_modules/codemirror/mode/xml/xml.js"
@@ -92,12 +96,16 @@
     import css from "./../../node_modules/codemirror/mode/css/css.js"
     import htmlmixed from "./../../node_modules/codemirror/mode/htmlmixed/htmlmixed.js"
     import php from "./../../node_modules/codemirror/mode/php/php.js"
+
     // Importation des plugins pour l'autocompletion
     import showHint from './../../node_modules/codemirror/addon/hint/show-hint.js'
     import cssHint from './../../node_modules/codemirror/addon/hint/css-hint.js'
+
     // importation du thème /
     import pastelOnDark from "./../../node_modules/codemirror/theme/pastel-on-dark.css"
+
     import {mapGetters} from "vuex";
+
     export default {
         name: 'Exercice',
         data() {
@@ -115,6 +123,7 @@
             }
         },
         methods: {
+
             test() {
                 Url.post('/connect/parcours/1/exercice/' + this.$route.params.ide, {
                     fillin: "yes",
@@ -125,20 +134,32 @@
                     user: this.getUser,
                     exId: this.$route.params.ide,
                     parcId: this.getParcours.id
+
+
                 }).then(response => {
+
                     console.log(response)
+
                 }).catch(error => {
+
                     console.log(error)
                 })
             }
+
         },
         mounted() {
+
+
             Url.get('/connect/parcours/' + this.$route.params.id + '/exercice/' + this.$route.params.ide).then(response => {
+
                 console.log(response);
                 this.codePhp = "<?php " + response.data.exercice.myFill.codeFalse;
                 this.exercice = response.data.exercice;
                 this.loadingTest = true;
+
+
             }).then(() => {
+
                 this.code = $(".codemirror-textarea")[0];
                 this.editor = CodeMirror.fromTextArea(this.code, {
                     // Numerotation des lignes
@@ -150,8 +171,11 @@
                     // theme noir
                     theme: "pastel-on-dark"
                 });
+
                 console.log(this.editor.getValue());
+
             }).catch(error => {
+
                 console.log(error)
             })
         },
@@ -173,20 +197,24 @@
         font-size: 10pt;
         margin-bottom: 15px
     }
+
     .resultCode {
         background-color: #E0E0E0;
         height: 75vh;
         width: 100%;
         color: black;
     }
+
     .consigne {
         color: #CCC;
         text-align: justify;
     }
+
     .CodeMirror-gutters {
         position: relative;
         z-index: 10000;
     }
+
     .btnTester, .btnConsigne {
         height: 100px;
         position: relative
