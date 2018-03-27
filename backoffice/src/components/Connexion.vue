@@ -54,7 +54,7 @@ export default {
        ...mapMutations(['setConnectedUser']),
 
      log(){
-             url.post('/user',{
+             url.post('/author',{
                  csrf_name : this.csrf_name,
                  csrf_value : this.csrf_value
 
@@ -68,7 +68,7 @@ export default {
 
                  // L'api nous renvoie un token que l'on enregistre dans le ls
 
-                 ls.set('token',response.data.token);
+                 ls.set('tokenAuthor',response.data.token);
 
                  // Méthode de mutation du store
                  this.setConnectedUser(response.data.user);

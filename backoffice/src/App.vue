@@ -3,24 +3,10 @@
 
     <!-- Side Bar -->
     <v-navigation-drawer clipped fixed v-model="drawer" app>
-      <v-toolbar flat class="transparent" v-if="islog">
-        <router-link to ="/parcours">
-          <v-list class="pa-0">
-            <v-list-tile avatar>
-              <v-list-tile-avatar>
-                <img class="profil" src="https://randomuser.me/api/portraits/men/85.jpg" >
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title class="nbXp">{{getUser.exp}} XP</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </router-link>
-      </v-toolbar>
-      <v-divider></v-divider>
+
 
       <v-list dense>
-        <router-link to ="/parcours">
+        <router-link to ="/parcours" v-if="islog">
           <v-list-tile>
             <v-list-tile-action>
               <v-icon v-if="this.$router.currentRoute.fullPath==='/parcours'" color="light-green lighten-1">code</v-icon>
@@ -35,7 +21,7 @@
           </v-list-tile>
         </router-link>
 
-        <router-link to ="/forum">
+        <router-link to ="/forum" v-if="islog">
           <v-list-tile>
             <v-list-tile-action>
               <v-icon v-if="this.$router.currentRoute.fullPath==='/forum'" color="light-green lighten-1">forum</v-icon>
@@ -43,7 +29,7 @@
             </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title>
-                <span v-if="this.$router.currentRoute.fullPath==='/forum'" class="navCurrent">Forum</span>
+                <span v-if="this.$router.currentRoute.fullPath==='/forum'" class="navCurrent">Mes Forums</span>
                 <span v-else>Forum</span>
               </v-list-tile-title>
             </v-list-tile-content>

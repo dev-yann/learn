@@ -101,6 +101,9 @@ public function createParcours (Request $request,Response $response) {
         $parcours->description = filter_var($tab["description"], FILTER_SANITIZE_SPECIAL_CHARS);
         $parcours->save();
 
+        $user = $request->getAttribute("user");
+        $user->parcours()->syncWithoutDetaching($parcours->id);
+
         unset($parcours->author_id);
         return Writer::json_output($response,201,$parcours);
 
@@ -128,5 +131,12 @@ public function createParcours (Request $request,Response $response) {
             return Writer::json_output($response,500, $e->getMessage());
 
         }
+    }
+
+    public function getAuthorParcours (Request $request,Response $response) {
+
+        $user = $request->getAttribute("user");
+
+        return Writer::json_output($response, 200, $user->parcours);
     }
 }

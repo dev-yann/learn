@@ -29,7 +29,7 @@ export default new Vuex.Store({
         setDisconnectedUser: (state, user) => {
             state.connected = false
             state.user = {}
-            ls.remove('token');
+            ls.remove('tokenAuthor');
         },
         setParcours: (state,parcours) => {
             state.parcours = parcours

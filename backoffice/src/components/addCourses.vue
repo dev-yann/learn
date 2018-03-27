@@ -17,7 +17,8 @@
 </template>
 
 <script>
-    import Url from './../services/config';
+    import Url from './../services/configJwt';
+    import { mapGetters } from 'vuex';
     export default {
         name: "add-courses",
         data () {
@@ -31,22 +32,25 @@
         },
         methods: {
             add () {
-                Url.post('/parcours',{
+                Url.post('/connect/parcours',{
                     title : this.name,
                     /**
                      * todo: ajouter le state sur cette app
                      */
-                    author_id : 1 , // getters de l'auteur,
+                    author_id : this.getUser.id, // getters de l'auteur,
                     level : this.level,
                     temps : this.time,
                     description: this.description
                 }).then(response => {
-                  this.$router.push('/parcours')
+                  this.$router.push('parcours')
                     console.log(response)
                 }).catch(error => {
                     console.log(error)
                 })
             }
+        },
+        computed: {
+            ...mapGetters(['getUser'])
         }
     }
 </script>

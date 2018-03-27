@@ -6,9 +6,16 @@
  * Time: 18:12
  */
 
-
+/**
+ * pour bien controler les abus de connection entre
+ * la partie user et prof, l'api devrait controler le nom de domaine expediteur de la requete
+ */
 $app->post("/adduser[/]","UserController:createUser");
+$app->post("/addAuthor[/]","UserController:createAuthor");
 $app->post('/user[/]',"UserController:connectUser");
+
+$app->post('/author[/]',"UserController:connectAuthor");
+
 $app->get('/parcours[/]', "ParcoursController:getParcours");
 // Parcours avec la liste des exercices
 $app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour")->add('GetUser');
@@ -16,7 +23,7 @@ $app->get('/parcours/{id: [0-9]+}/posts', "ParcoursController:getPostsOfParcours
 $app->patch('/parcours/{id:[0-9]+}/edit[/]', "ParcoursController:editParcours");
 $app->delete('/parcours/{id:[0-9]+}/delete[/]', "ParcoursController:deleteParcours");
 
-$app->post('/parcours[/]',"ParcoursController:createParcours");
+
 
 // on va couper en deux la création d'exercice
 
@@ -49,5 +56,8 @@ $app->group('/connect',function () {
     $this->get('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:getExercice");
     $this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" )->add('CheckSubscribe');
     $this->get('/dashboard', "UserController:getDashboard");
+    $this->get('/author_parcours', "ParcoursController:getAuthorParcours");
+    $this->post('/parcours[/]',"ParcoursController:createParcours");
+
 
 })->add('CheckJwt');
