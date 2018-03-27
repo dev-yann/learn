@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: `http://api.learn:10080`
+    baseURL: `http://api.learn.local:10080`
 })
