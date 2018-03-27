@@ -8,8 +8,8 @@
         <v-flex xs12 lg6>
 
             <!-- Conteneur CodeMirror -->
-            <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea">
-         </textarea>
+            <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea"/>
+
             <!-- Pop up consignes -->
             <v-card-text class="btnConsigne">
                 <div>
@@ -63,7 +63,7 @@
 
             <!-- Conteneur Prévisualisation -->
             <div class="resultCode">
-                <p v-model="resultCode"></p>
+                <p v-model="resultCode" class="prevCode"></p>
             </div>
 
             <!-- Tester le code -->
@@ -218,5 +218,8 @@
     .btnTester, .btnConsigne {
         height: 100px;
         position: relative
+    }
+    .prevCode{
+      margin : 0
     }
 </style>

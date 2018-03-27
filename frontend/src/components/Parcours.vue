@@ -6,7 +6,7 @@
         <v-card-title primary-title>
           <div>
             <h1 class="headline mb-0">{{parcours.title}}</h1>
-            <div class="auteur"><i>{{parcours.author}}</i></div>
+            <div class="auteur"><i>{{parcours.author.username}}</i></div>
             <div class="description">{{parcours.description}}</div>
           </div>
         </v-card-title>
