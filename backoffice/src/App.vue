@@ -20,30 +20,16 @@
       <v-divider></v-divider>
 
       <v-list dense>
-        <router-link to ="/dashboard" v-if="islog">
-          <v-list-tile>
-            <v-list-tile-action>
-              <v-icon v-if="this.$router.currentRoute.fullPath==='/dashboard'" color="light-green lighten-1">dashboard</v-icon>
-              <v-icon v-else>dashboard</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                <span v-if="this.$router.currentRoute.fullPath==='/dashboard'" class="navCurrent">Dashboard</span>
-                <span v-else>Dashboard</span>
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </router-link>
 
         <router-link to ="/parcours">
           <v-list-tile>
             <v-list-tile-action>
-              <v-icon v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" color="light-green lighten-1">code</v-icon>
+              <v-icon v-if="this.$router.currentRoute.fullPath==='/parcours'" color="light-green lighten-1">code</v-icon>
               <v-icon v-else>code</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title>
-                <span v-if="this.$router.currentRoute.fullPath==='/parcoursliste'" class="navCurrent"> Mes parcours</span>
+                <span v-if="this.$router.currentRoute.fullPath==='/parcours'" class="navCurrent"> Mes parcours</span>
                 <span v-else>Mes Parcours</span>
               </v-list-tile-title>
             </v-list-tile-content>
@@ -70,7 +56,7 @@
 
         <v-divider></v-divider>
 
-        <router-link to ="/connexion">
+        <router-link to ="/connexion" v-if="!islog">
           <v-list-tile>
             <v-list-tile-action>
               <v-icon v-if="this.$router.currentRoute.fullPath==='/connexion'" color="light-green lighten-1">lock_open</v-icon>
@@ -85,7 +71,7 @@
           </v-list-tile>
         </router-link>
 
-        <router-link to ="/inscription">
+        <router-link to ="/inscription" v-if="!islog">
           <v-list-tile>
             <v-list-tile-action>
               <v-icon v-if="this.$router.currentRoute.fullPath==='/inscription'" color="light-green lighten-1">lock</v-icon>

@@ -8,6 +8,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Slim\Http\UploadedFile;
 use App\models\Fill;
+use App\models\UnitTest;
+
 
 class ExerciceController extends BaseController
 {
@@ -114,8 +116,9 @@ class ExerciceController extends BaseController
             $exercice->title = $tab["title"];
             $exercice->parcours_id = $args["id"];
             $exercice->description = $tab["description"];
+            
+            $exercice->unit_test = true;
             $exercice->save();
-
 
             try {
 
@@ -125,30 +128,46 @@ class ExerciceController extends BaseController
                 $uploadFile = $request->getUploadedFiles();
 
                 // on s'occupe du php
-
-                $myUploadPhp = $uploadFile['file'];
+                $myUploadPhp = $uploadFile['myfile'];
 
                 if ($myUploadPhp->getError() === UPLOAD_ERR_OK) {
 
 
                     $filename = UploadedFile::moveUploadedFile($directory, $myUploadPhp);
+                    try {
+                      $unitEntity = new UnitTest();
+                      $unitEntity->file = $filename;
+                          $unitEntity->variable_test = $tab["variable_test"];
 
-                    return Writer::json_output($response, 201, ['SUCCESS UPLOAD' => $filename, "exercice" => $exercice]);
 
+                      $unitEntity->exercices_id = $exercice->id;
+                      $unitEntity->save();
+
+                      $exercice->unitEntity = $unitEntity;
+                  } catch (Exception $e) {
+                    return Writer::json_output($response, 500, ['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
                 }
+                return Writer::json_output($response, 201, ['SUCCESS UPLOAD' => $filename, "exercice" => $exercice]);
 
-            } catch (\Exception $e) {
+            } else {
 
-                return Writer::json_output($response, 201, ["message" => $e->getMessage()]);
+                return Writer::json_output($response, 201, ['get error marche pas']);
 
             }
 
-
         } catch (\Exception $e) {
 
-            return Writer::json_output($response, 500, ['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
+            return Writer::json_output($response, 201, ["message" => $e->getMessage()]);
 
         }
+        
+        
+        
+    } catch (\Exception $e) {
+
+        return Writer::json_output($response, 500, ['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
+
+    }
 
 
         // a voir si mettre des verifs
@@ -170,78 +189,78 @@ class ExerciceController extends BaseController
                    }
                    */
 
-    }
+               }
 
 
-    public function deleteExercice(Request $request, Response $response, $args)
-    {
-        try {
-            $exercice = Exercice::findOrFail($args['id']);
-            $exercice->delete();
-            return Writer::json_output($response, 204);
-        } catch (ModelNotFoundException $e) {
-            $notFoundHandler = $this->container->get('notFoundHandler');
-            return $notFoundHandler($request, $response);
-        }
-    }
+               public function deleteExercice(Request $request, Response $response, $args)
+               {
+                try {
+                    $exercice = Exercice::findOrFail($args['id']);
+                    $exercice->delete();
+                    return Writer::json_output($response, 204);
+                } catch (ModelNotFoundException $e) {
+                    $notFoundHandler = $this->container->get('notFoundHandler');
+                    return $notFoundHandler($request, $response);
+                }
+            }
 
-    public function editExercice(Request $request, Response $response, $args)
-    {
+            public function editExercice(Request $request, Response $response, $args)
+            {
 
-        $tab = $request->getParsedBody();
-        try {
-            $exercice = Exercices::where("id", $args["id"])->firstOrFail();
-            $exercice->description = $tab["description"];
-            $exercice->title = $tab["title"];
-            $exercice->save();
-            return Writer::json_output($response, 200, $exercice);
-        } catch (ModelNotFoundException $exception) {
+                $tab = $request->getParsedBody();
+                try {
+                    $exercice = Exercices::where("id", $args["id"])->firstOrFail();
+                    $exercice->description = $tab["description"];
+                    $exercice->title = $tab["title"];
+                    $exercice->save();
+                    return Writer::json_output($response, 200, $exercice);
+                } catch (ModelNotFoundException $exception) {
 
-            $notFoundHandler = $this->container->get('notFoundHandler');
-            return $notFoundHandler($request, $response);
-        }
-    }
+                    $notFoundHandler = $this->container->get('notFoundHandler');
+                    return $notFoundHandler($request, $response);
+                }
+            }
 
-    public function testExercice(Request $request, Response $response, $args)
-    {
+            public function testExercice(Request $request, Response $response, $args)
+            {
 
 
-        $props = $request->getParsedBody();
+                $props = $request->getParsedBody();
 
-        if (isset($props['fillin']) && isset($props['userCode'])) {
+                if (isset($props['fillin']) && isset($props['userCode'])) {
 
-            try {
+                    try {
 
-                $exercice = Exercices::where('id', $args['ide'])->with('fillin')->firstOrFail();
+                        $exercice = Exercices::where('id', $args['ide'])->with('fillin')->firstOrFail();
 
                 // J'enleve "php" du code utilisateur
-                $withoutPhp = str_replace('<?php', '', $props['userCode']);
+                        $withoutPhp = str_replace('<?php', '', $props['userCode']);
                 // Et aussi les retours à la ligne
-                $withoutn = str_replace("\n", '', $withoutPhp);
+                        $withoutn = str_replace("\n", '', $withoutPhp);
                 // Et enfin les espaces
-                $withoutSpace = str_replace(' ', '', $withoutn);
+                        $withoutSpace = str_replace(' ', '', $withoutn);
 
 
                 // Et on enleve les retour à la ligne du prof
-                $codeProf = str_replace("\n", '', $exercice->fillin->codeTrue);
-                if ($codeProf === $withoutSpace) {
+                        $codeProf = str_replace("\n", '', $exercice->fillin->codeTrue);
+                        if ($codeProf === $withoutSpace) {
 
-                    return Writer::json_output($response, 200, "Ok great !");
+                            return Writer::json_output($response, 200, "Ok great !");
 
+                        }
+
+                        return Writer::json_output($response, 200, ["true" => $codeProf, "false" => $withoutSpace]);
+
+
+                    } catch (ModelNotFoundException $e) {
+
+                        $notFoundHandler = $this->container->get('notFoundHandler');
+                        return $notFoundHandler($request, $response);
+                    }
                 }
-
-                return Writer::json_output($response, 200, ["true" => $codeProf, "false" => $withoutSpace]);
-
-
-            } catch (ModelNotFoundException $e) {
-
-                $notFoundHandler = $this->container->get('notFoundHandler');
-                return $notFoundHandler($request, $response);
-            }
-        }
 
         // je dois compoarer la string de l'user et celle du prof
 
 
-    }
-}
+            }
+        }

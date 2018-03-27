@@ -14,3 +14,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 frontend/src/services/config.js
+backend/docker-compose.yml
+backend/uploads

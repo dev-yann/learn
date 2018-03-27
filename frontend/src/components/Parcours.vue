@@ -45,6 +45,7 @@
 
 <script>
   import Url from './../services/config'
+  import UrlJwt from './../services/configJwt'
   import Chat from './Chat.vue'
   import { mapMutations } from 'vuex'
 
@@ -68,7 +69,7 @@
         // Permet la modification du parcours dans le state de vuex
         ...mapMutations(['setParcours']),
         subscribe () {
-            Url.post('/connect/subscribe',{
+            UrlJwt.post('/connect/subscribe',{
                 parcoursId : this.parcours.id,
                 userId : this.$store.getters.getUser.id
             }).then(response => {

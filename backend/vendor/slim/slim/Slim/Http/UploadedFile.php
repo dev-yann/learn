@@ -327,7 +327,7 @@ class UploadedFile implements UploadedFileInterface
 
     public static function moveUploadedFile($directory, UploadedFile $uploadedFile){
 
-        try{
+
 
             $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
             $basename = bin2hex(random_bytes(8)); // see http://php.net/manual/en/function.random-bytes.php
@@ -335,12 +335,8 @@ class UploadedFile implements UploadedFileInterface
 
             $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
 
+            chmod($directory . DIRECTORY_SEPARATOR . $filename, 0777);
             return $filename;
-        } catch (\Exception $e){
 
-            return Writer::json_output($response,201,['pwoblem']);
-
-
-        }
     }
 }

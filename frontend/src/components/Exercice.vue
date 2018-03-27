@@ -21,7 +21,7 @@
                            <v-btn icon>
                               <v-icon>format_align_center</v-icon>
                            </v-btn>
-                           <v-toolbar-title color>Consignes</v-toolbar-title>
+                           <v-toExerciceolbar-title color>Consignes</v-toolbar-title>
                            <v-spacer/>
                            <v-toolbar-items>
                               <v-btn dark flat @click.native="dialog = false"><v-icon>close</v-icon></v-btn>
@@ -104,8 +104,6 @@ export default{
           code:'',
           editor: '',
           codePhp : "<?php ",
-          resultCode :"haha",
-          // dialogue pour les consignes
           dialog: false,
           notifications: false,
           sound: true,

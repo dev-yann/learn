@@ -58,7 +58,7 @@ services:
 
   adminer:
      image: adminer
-     container_name: admin.learn.local
+     container_name: admin.learn
      ports:
           - "8082:8080"
      networks:
