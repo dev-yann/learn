@@ -8,8 +8,8 @@
         <v-flex xs12 lg6>
 
             <!-- Conteneur CodeMirror -->
-            <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea">
-         </textarea>
+            <textarea class="codemirror-textarea" v-model="codePhp" name="codemirror-textarea" id="codemirror-textarea"/>
+
             <!-- Pop up consignes -->
             <v-card-text class="btnConsigne">
                 <div>
@@ -63,7 +63,7 @@
 
             <!-- Conteneur Prévisualisation -->
             <div class="resultCode">
-                <p v-model="resultCode"></p>
+                <p v-model="resultCode" class="prevCode"></p>
             </div>
 
             <!-- Tester le code -->
@@ -87,6 +87,7 @@
     import $ from "jquery"
     import CodeMirror from "codemirror"
     import VueCodeMirror from "vue-codemirror"
+
 
     /* importation des plugins pour la coloration syntaxique du php */
     import clike from "./../../node_modules/codemirror/mode/clike/clike.js"
@@ -119,7 +120,6 @@
                 widgets: false,
                 loadingTest: false,
                 exercice: {}
-
             }
         },
         methods: {
@@ -134,6 +134,7 @@
                     user: this.getUser,
                     exId: this.$route.params.ide,
                     parcId: this.getParcours.id
+
 
                 }).then(response => {
 
@@ -217,5 +218,8 @@
     .btnTester, .btnConsigne {
         height: 100px;
         position: relative
+    }
+    .prevCode{
+      margin : 0
     }
 </style>

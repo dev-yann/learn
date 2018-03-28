@@ -6,6 +6,7 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import store from './store'
+import interceptor from "./services/interceptor";
 
 import('../node_modules/vuetify/dist/vuetify.min.css');
 
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 
 Vue.use(Vuetify);
 Vue.use(Vuex);
+Vue.use(interceptor, {router})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

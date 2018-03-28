@@ -13,7 +13,7 @@
       </v-flex>
 
       <v-flex xs12>
-          <v-btn color="success" @click="submitFile()">Ajouter l'exercice au parcours</v-btn>
+          <v-btn  @click="submitFile()">Ajouter l'exercice au parcours</v-btn>
           <!-- <v-btn color="success" @click="testExercice()">Tester votre test unitaire</v-btn> -->
       </v-flex>
     </div>

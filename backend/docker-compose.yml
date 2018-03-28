@@ -19,7 +19,7 @@ networks:
 services:
   api.public:
     image: canals/php
-    container_name: api.learn.local
+    container_name: api.learn.local.local
     environment:
         - VHOST_HOSTNAME=api.learn.local
         - VHOST_DOCROOT=/var/www/api

@@ -46,7 +46,7 @@ export default {
      data: () => ({
         rowsPerPageItems: [3, 6, 9],
         pagination: {
-          rowsPerPage: 6
+          rowsPerPage: 3
         },
         items: []
       }),
