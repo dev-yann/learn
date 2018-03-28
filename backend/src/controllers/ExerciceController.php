@@ -162,14 +162,14 @@ class ExerciceController extends BaseController
 
                 }
 
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
 
                 return Writer::json_output($response, 201, ["message" => $e->getMessage()]);
 
             }
 
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
             return Writer::json_output($response, 500, ['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
 

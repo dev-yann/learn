@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Slim\Http\UploadedFile;
 use PHPSandbox\PHPSandbox;
-use PHPUnit\Framework\TestCase;
+
 use App\models\Exercices;
 
 

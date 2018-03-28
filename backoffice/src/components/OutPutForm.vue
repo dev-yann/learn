@@ -81,9 +81,9 @@ import url from './../services/config'
             formData.append('myfile',this.file);
             formData.append('title',this.title);
             formData.append('description',this.description);
-                        formData.append('variable_test',this.variable_test);
+            formData.append('variable_test',this.variable_test);
 
-            console.log(formData.getAll('myfile'));
+
 
             // axios
             // todo : recuperer l'id du bon parcours
