@@ -25,4 +25,8 @@ class Forum extends Model
     public function users() {
         return $this->belongsTo(User::class, "author_id");
     }
+
+    public function subjects () {
+        return $this->hasMany(Subject::class, "forum_id");
+    }
 }

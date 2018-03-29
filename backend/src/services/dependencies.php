@@ -31,3 +31,6 @@ $container['CheckSubscribe'] = function (){
 $container['GetUser'] = function () {
     return new \App\middleware\GetUser();
 };
+$container['ForumController'] = function ($c) {
+    return new \App\controllers\Forumcontroller($c);
+};
