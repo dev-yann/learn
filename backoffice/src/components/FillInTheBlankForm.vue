@@ -29,14 +29,18 @@
                 description: '',
                 codeTrue: '',
                 codeFalse: '',
-                line: true
+                line: true,
+                parcours : ""
             }
+        },
+        mounted () {
+          this.parcours = this.$store.state.parcours
         },
         methods: {
             submit() {
                 if (this.$refs.form.validate()) {
                     // Native form submission is not yet supported
-                    url.post('/parcours/3/add/fill', {
+                    url.post('/parcours/'+this.parcours.id+'/add/fill', {
 
                         title: this.title,
                         description: this.description,
@@ -46,7 +50,7 @@
                     }).then(response => {
 
                         console.log(response)
-                        this.$router.push({path:"/exercices"});
+                        this.$router.push('/parcours/'+this.parcours.id+'/'+this.parcours.title)
 
                     }).catch(error => {
                         console.log(error)

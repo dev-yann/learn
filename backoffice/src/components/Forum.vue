@@ -21,7 +21,7 @@
                     </v-btn>
                 </v-card-text>
             </v-flex>
-            <v-flex xs6 v-for="item in forum">
+            <v-flex xs6 v-for="item in forum" key="item.id">
                 <v-card>
                     <v-card-title primary-title>
 

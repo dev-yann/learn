@@ -54,6 +54,7 @@ $app->group('/connect',function () {
 
     $this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
     $this->get('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:getExercice");
+    $this->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");
     $this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" )->add('CheckSubscribe');
     $this->get('/dashboard', "UserController:getDashboard");
     $this->get('/author_parcours', "ParcoursController:getAuthorParcours");
@@ -61,5 +62,6 @@ $app->group('/connect',function () {
     $this->post('/author_forum[/]', "UserController:addForum");
     $this->get('/forum', "UserController:getForum");
 
+$this->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
 
 })->add('CheckJwt');

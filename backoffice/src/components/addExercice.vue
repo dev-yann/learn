@@ -23,7 +23,8 @@
         name: "add-exercice",
         components: {fillIn, testOutPut},
         data () {
-            return {
+            return {   
+                parcours : "",
 
                 items: [
                     { text: 'Fill in the blank' },

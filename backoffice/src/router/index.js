@@ -43,6 +43,17 @@ export default new Router({
             component: Parcours
         },
         {
+         path: '/parcours/:id/:name',
+        
+      name: 'exercices-list',
+      components: {
+        default : Exercices,
+      },
+      meta: {
+        requireAuth: false
+      }
+     },
+        {
             path: "/exercices",
             name: "Exercices",
             component: Exercices
