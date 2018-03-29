@@ -2,21 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38412368-d933-4255-a949-18dfbddb742d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/controllers/Forumcontroller.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/models/ResponseSubject.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/backend/src/models/Subject.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/ForumResponse.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/backend/src/config/migration.php" afterPath="$PROJECT_DIR$/backend/src/config/migration.php" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/UserController.php" afterPath="$PROJECT_DIR$/backend/src/controllers/UserController.php" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Forum.php" afterPath="$PROJECT_DIR$/backend/src/models/Forum.php" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/User.php" afterPath="$PROJECT_DIR$/backend/src/models/User.php" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/dependencies.php" afterPath="$PROJECT_DIR$/backend/src/services/dependencies.php" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/ExerciceController.php" afterPath="$PROJECT_DIR$/backend/src/controllers/ExerciceController.php" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/ParcoursController.php" afterPath="$PROJECT_DIR$/backend/src/controllers/ParcoursController.php" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/SandboxController.php" afterPath="$PROJECT_DIR$/backend/src/controllers/SandboxController.php" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/routes.php" afterPath="$PROJECT_DIR$/backend/src/services/routes.php" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/2f4111ba9556a378.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/32ad2db1b7e38527.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/4757c1526995f710.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/d17889f5d75d6a86.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/components/Exercices.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/Exercices.vue" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/components/FillInTheBlankForm.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/FillInTheBlankForm.vue" />
       <change beforePath="$PROJECT_DIR$/backoffice/src/components/Forum.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/Forum.vue" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Forum.vue" afterPath="$PROJECT_DIR$/frontend/src/components/Forum.vue" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ForumSujet.vue" afterPath="$PROJECT_DIR$/frontend/src/components/ForumSujet.vue" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/components/Inscription.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/Inscription.vue" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/components/OutPutForm.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/OutPutForm.vue" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/components/Parcours.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/Parcours.vue" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/components/addExercice.vue" afterPath="$PROJECT_DIR$/backoffice/src/components/addExercice.vue" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/router/index.js" afterPath="$PROJECT_DIR$/backoffice/src/router/index.js" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/services/config.js" afterPath="$PROJECT_DIR$/backoffice/src/services/config.js" />
+      <change beforePath="$PROJECT_DIR$/backoffice/src/services/configJwt.js" afterPath="$PROJECT_DIR$/backoffice/src/services/configJwt.js" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Exercice.vue" afterPath="$PROJECT_DIR$/frontend/src/components/Exercice.vue" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/config.js" afterPath="$PROJECT_DIR$/frontend/src/services/config.js" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/configJwt.js" afterPath="$PROJECT_DIR$/frontend/src/services/configJwt.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,7 +52,7 @@
       <file leaf-file-name="Forum.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Forum.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="150">
               <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding />
             </state>
@@ -64,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ForumResponse.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ForumResponse.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/ForumResponse.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="278">
-              <caret line="17" column="76" lean-forward="true" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
+              <caret line="17" column="76" lean-forward="false" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
               <folding>
                 <element signature="e#2279#2317#0" expanded="true" />
               </folding>
@@ -86,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="38" />
+            <state relative-caret-position="390">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -100,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/backend/src/models/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+              <caret line="21" column="7" lean-forward="false" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -202,11 +209,11 @@
         <option value="$PROJECT_DIR$/backend/src/config/migration.php" />
         <option value="$PROJECT_DIR$/backend/src/models/Subject.php" />
         <option value="$PROJECT_DIR$/frontend/src/router/index.js" />
-        <option value="$PROJECT_DIR$/backend/src/services/routes.php" />
         <option value="$PROJECT_DIR$/backend/src/models/ResponseSubject.php" />
         <option value="$PROJECT_DIR$/backend/src/models/User.php" />
         <option value="$PROJECT_DIR$/backend/src/controllers/Forumcontroller.php" />
         <option value="$PROJECT_DIR$/frontend/src/components/ForumResponse.vue" />
+        <option value="$PROJECT_DIR$/backend/src/services/routes.php" />
       </list>
     </option>
   </component>
@@ -495,18 +502,18 @@
       <workItem from="1522140333854" duration="4846000" />
       <workItem from="1522168209411" duration="7299000" />
       <workItem from="1522255495902" duration="9465000" />
-      <workItem from="1522310221351" duration="17979000" />
+      <workItem from="1522310221351" duration="18314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305994000" />
+    <option name="totallyTimeSpent" value="306329000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="490" y="23" width="1260" height="971" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27339903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27339903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -525,6 +532,26 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37516004" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27339903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941988" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -854,14 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Forum.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/services/dependencies.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -923,7 +942,7 @@
     <entry file="file://$PROJECT_DIR$/backend/src/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <caret line="21" column="7" lean-forward="false" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -933,26 +952,34 @@
         <state relative-caret-position="424">
           <caret line="75" column="47" lean-forward="true" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
           <folding>
-            <element signature="e#117#148#0#PHP" expanded="true" />
+            <element signature="e#117#148#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/ForumResponse.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
-          <caret line="17" column="76" lean-forward="true" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
+          <caret line="17" column="76" lean-forward="false" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
           <folding>
             <element signature="e#2279#2317#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Forum.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/services/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

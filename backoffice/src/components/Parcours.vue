@@ -10,14 +10,14 @@
                     </div>
                 </v-card-title>
                 <v-card-actions>
-                    <router-link to="/exercices"><v-btn flat color="light-green lighten-1">Accéder au parcours</v-btn></router-link>
+                   <router-link :to="{ name : 'exercices-list', params : { id : parcours.id, name : parcours.title}}"><v-btn flat color="light-green lighten-1">Accéder au parcours</v-btn></router-link>
                 </v-card-actions>
             </v-card>
         </v-flex>
 </template>
 
 <script>
-    import Url from './../services/config'
+    import Url from './../services/configJwt'
     export default {
         name: "parcours",
         data: () => ({
@@ -26,7 +26,7 @@
 
         mounted () {
 
-            Url.get('/parcours').then(response => {
+            Url.get('/connect/author_parcours').then(response => {
                 this.items = response.data.parcours
             }).catch(error => {
                 console.log(error)
