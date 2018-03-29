@@ -25,5 +25,8 @@ class Parcours extends Model
     public function users () {
         return $this->belongsToMany(User::class, 'parcours2users','parcours_id','user_id')->withPivot(['parcours_id', 'user_id']);
     }
+    public function forums () {
+        return $this->hasOne(Forum::class,"parcours_id");
+    }
 
 }

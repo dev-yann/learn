@@ -58,6 +58,8 @@ $app->group('/connect',function () {
     $this->get('/dashboard', "UserController:getDashboard");
     $this->get('/author_parcours', "ParcoursController:getAuthorParcours");
     $this->post('/parcours[/]',"ParcoursController:createParcours");
+    $this->post('/author_forum[/]', "UserController:addForum");
+    $this->get('/forum', "UserController:getForum");
 
 
 })->add('CheckJwt');
