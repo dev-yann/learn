@@ -43,8 +43,8 @@ $app->delete('/groupes/{id:[0-9]+}/delete[/]',"GroupeController:deleteGroupe");
 $app->delete('/exercices/{id:[0-9]+}/delete[/]',"ExerciceController:deleteExercice");
 $app->patch('/exercices/{id:[0-9]+}/edit[/]',"ExerciceController:editExercice");
 
-$app->post('/sandbox',"SandboxController:execute");
-$app->post('/parcours/{p_id}/exercices/{e_id}/verify',"SandboxController:verify");
+$app->post('/sandbox[/]',"SandboxController:execute");
+	$app->post('/parcours/{id}/exercice/{ide}/verify',"SandboxController:verify");
 
 /**
  * ATTENTION, ON AJOUTE CONNECT DEVANT TOUTES LES ROUTES ICI
@@ -52,12 +52,13 @@ $app->post('/parcours/{p_id}/exercices/{e_id}/verify',"SandboxController:verify"
 
 $app->group('/connect',function () {
 
-    $this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
-    $this->get('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:getExercice");
-    $this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" )->add('CheckSubscribe');
-    $this->get('/dashboard', "UserController:getDashboard");
-    $this->get('/author_parcours', "ParcoursController:getAuthorParcours");
-    $this->post('/parcours[/]',"ParcoursController:createParcours");
+
+	$this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
+	$this->get('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:getExercice");
+	$this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" )->add('CheckSubscribe');
+	$this->get('/dashboard', "UserController:getDashboard");
+	$this->get('/author_parcours', "ParcoursController:getAuthorParcours");
+	$this->post('/parcours[/]',"ParcoursController:createParcours");
 
 
 })->add('CheckJwt');

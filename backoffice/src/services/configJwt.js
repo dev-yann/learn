@@ -2,7 +2,7 @@ import axios from 'axios'
 import ls from './localStorage'
 
 export default axios.create({
-    baseURL: `http://api.learn:10080`
+    baseURL: `http://api.learn.local:10080`
 })
 
 // Add a request interceptor

@@ -1,15 +1,43 @@
 <template>
   <div>
       <v-flex xs12>
-          <v-text-field v-model="title" name="title" label="titre" ></v-text-field>
 
-          <v-text-field v-model="description" name="level" label="description" :multi-line="line"></v-text-field>
+          <p>Ce type d'exercice permet d'ajouter un test unitaire à l'exercice </p>
+          <p>Choisissez le fichier de test unitaire à télécharger</p>
+         
+          <v-text-field required v-model="title" name="title" label="titre" ></v-text-field>
 
-          <v-text-field v-model="variable_test" name="var_test" label="nom de la variable à tester selon votre test unitaire"></v-text-field>
+          <v-text-field required v-model="description" name="level" label="description" :multi-line="line"></v-text-field>
 
+          <v-text-field v-model="variable_test" name="var_test" placeholder="ex : somme" label="nom de la variable à tester "></v-text-field>
+          <p> Exemple de test unitaire : les lignes de codes avec * en commentaire sont obligatoire afin que notre programme s'exécute correctement</p>
+ <code>
+<?php
+use PHPUnit\Framework\TestCase; // * , utilise PHP UNIT
+
+class Verify extends TestCase { // *, Votre classe doit se nomme Verify et étendre de Test Case
+
+  public function exec($var) {   // *, Fonction exec obligatoire
+    return $this->egalite($var,5);  // *, appel de votre fonction
+  }
+  public function egalite ($rep,$req) { // Votre Fonction, en cas de réussite return true, sinon false
+    try {
+      $this->assertSame($rep, $req);  
+      return true;
+    } catch (Exception $e) {
+      return false;
+          }
+  }
+
+}
+
+?>
+
+          </code>
           <label>Upload a file :
               <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
           </label>
+         
       </v-flex>
 
       <v-flex xs12>
@@ -92,7 +120,7 @@ import url from './../services/config'
                     'Content-Type' : 'multipart/form-data'
                 }
             }).then(response => {
-                console.log(response)
+                               this.$router.push('/parcours')
 
             }).catch(error => {
                 console.log(error)
@@ -118,5 +146,8 @@ import url from './../services/config'
 <style scoped>
 label{
 font-size : 1.2em;
+}
+code {
+  width:100%;
 }
 </style>
