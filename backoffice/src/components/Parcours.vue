@@ -1,5 +1,4 @@
 <template>
-    <v-layout >
         <v-flex xs12 sm6 offset-sm3 class="conteneur">
         <router-link to="add" class="creerParcours"><v-btn color="light-green lighten-1" dark @click.stop="dialog3 = true">Ajouter un parcours</v-btn></router-link>
             <v-card v-for="parcours in items" :key="parcours.id">
@@ -15,7 +14,6 @@
                 </v-card-actions>
             </v-card>
         </v-flex>
-    </v-layout>
 </template>
 
 <script>
