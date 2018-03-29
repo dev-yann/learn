@@ -40,4 +40,8 @@ class User extends Model
        public function exercices() {
          return $this->belongsToMany(Exercices::class, 'user2exercice', 'user_id', 'exercice_id')->withPivot(['user_id','exercice_id','state']);
     }
+
+    public function forums () {
+        return $this->hasMany(Forum::class, 'author_id');
+    }
 }

@@ -232,6 +232,32 @@ class Migrator {
          }
 
         /**
+         * create table for forum
+         */
+        if (!Capsule::schema()->hasTable('forum')) {
+            Capsule::schema()->create('forum', function($table)
+            {
+
+                $table->integer('id', true);
+                $table->string('title');
+
+
+                //FK
+                $table->integer('parcours_id');
+                $table->integer('author_id');
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('parcours_id')->references('id')->on('parcours')->onDelete('cascade');
+                $table->foreign('author_id')->references('id')->on('user')->onDelete('cascade');
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+
+            });
+        }
+
+        /**
          * create table for series
          */
        /* if (!Capsule::schema()->hasTable('serie')) {

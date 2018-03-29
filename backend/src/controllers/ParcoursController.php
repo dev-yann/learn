@@ -137,6 +137,6 @@ public function createParcours (Request $request,Response $response) {
 
         $user = $request->getAttribute("user");
 
-        return Writer::json_output($response, 200, $user->parcours);
+        return Writer::json_output($response, 200, ["data" => $user->parcours]);
     }
 }
