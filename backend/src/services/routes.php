@@ -45,6 +45,10 @@ $app->patch('/exercices/{id:[0-9]+}/edit[/]',"ExerciceController:editExercice");
 
 $app->post('/sandbox',"SandboxController:execute");
 $app->post('/parcours/{p_id}/exercices/{e_id}/verify',"SandboxController:verify");
+$app->get('/user-forum[/]',"UserController:getForumUser");
+
+$app->get('/forum/subject/{id:[0-9]+}[/]',"ForumController:getSubject");
+$app->get('/forum/subject/{id:[0-9]+}/response', "ForumController:getResponse");
 
 /**
  * ATTENTION, ON AJOUTE CONNECT DEVANT TOUTES LES ROUTES ICI
@@ -60,6 +64,8 @@ $app->group('/connect',function () {
     $this->post('/parcours[/]',"ParcoursController:createParcours");
     $this->post('/author_forum[/]', "UserController:addForum");
     $this->get('/forum', "UserController:getForum");
+    $this->post('/add_subject[/]',"ForumController:addSubject");
+    $this->post('/subject/add_response', "ForumController:addResponse");
 
 
 })->add('CheckJwt');

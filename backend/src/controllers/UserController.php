@@ -311,4 +311,10 @@ class UserController extends BaseController
 
         return Writer::json_output($response, 200, $user->forums);
     }
+
+    public function getForumUser (Request $request, Response $response) {
+
+        $forums = Forum::with("users")->get();
+        return Writer::json_output($response, 200, ["data" => $forums]);
+    }
 }

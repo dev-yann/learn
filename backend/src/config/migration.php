@@ -258,6 +258,63 @@ class Migrator {
         }
 
         /**
+         * create table for forum
+         */
+        if (!Capsule::schema()->hasTable('subject')) {
+            Capsule::schema()->create('subject', function($table)
+            {
+
+                $table->integer('id', true);
+                $table->string('title')->default('');
+                $table->string('description')->default('');
+
+
+                //FK
+                $table->integer('forum_id');
+
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+               
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('forum_id')->references('id')->on('forum')->onDelete('cascade');
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+
+            });
+        }
+
+        /**
+         * create table for forum
+         */
+        if (!Capsule::schema()->hasTable('response')) {
+            Capsule::schema()->create('response', function($table)
+            {
+
+                $table->integer('id', true);
+                $table->string('post');
+
+
+                //FK
+                $table->integer('subject_id');
+                $table->integer('user_id');
+
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('subject_id')->references('id')->on('subject')->onDelete('cascade');
+                $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+
+            });
+        }
+
+        /**
          * create table for series
          */
        /* if (!Capsule::schema()->hasTable('serie')) {

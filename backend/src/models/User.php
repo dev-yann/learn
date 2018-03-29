@@ -24,7 +24,7 @@ class User extends Model
      */
     public $timestamps = false;
 
-    protected $hidden =["password"];
+    protected $hidden =["password",'id','author'];
 
     public function posts () {
         return $this->hasMany(Posts::class, 'user_id');
@@ -43,5 +43,9 @@ class User extends Model
 
     public function forums () {
         return $this->hasMany(Forum::class, 'author_id');
+    }
+
+    public function responseSubjects () {
+        return $this->hasMany(ResponseSubject::class, 'user_id');
     }
 }

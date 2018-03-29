@@ -13,6 +13,7 @@ import Parcours from '@/components/Parcours'
 import Chat from '@/components/Chat'
 import Exercice from '@/components/Exercice'
 import NotFound from '@/components/Notfound'
+import ForumResponse from '@/components/ForumResponse'
 
 import store from '@/store'
 import ls from '@/services/localStorage'
@@ -26,114 +27,124 @@ Vue.use(Router)
  */
 
 const router = new Router({
-  routes: [
-      {
-        path: '*',
-        component: NotFound
-      },
-    {
-      path: '/',
-      component: Connexion,
+    routes: [
+        {
+            path: '*',
+            component: NotFound
+        },
+        {
+            path: '/',
+            component: Connexion,
 
-        beforeEnter: (to, from, next) => {
+            beforeEnter: (to, from, next) => {
 
-            if(store.getters['isConnected'] && ls.get('token')) {
-                next({path: '/dashboard'})
-            } else {
-                next();
+                if (store.getters['isConnected'] && ls.get('token')) {
+                    next({path: '/dashboard'})
+                } else {
+                    next();
+                }
             }
-        }
 
-    },
-    {
-      path: '/connexion',
-      name: 'Connexion',
-      component: Connexion,
-      meta : {
-         requireAuth : false
-      },
-        beforeEnter: (to, from, next) => {
+        },
+        {
+            path: '/connexion',
+            name: 'Connexion',
+            component: Connexion,
+            meta: {
+                requireAuth: false
+            },
+            beforeEnter: (to, from, next) => {
 
-            if(store.getters['isConnected'] && ls.get('token')) {
-                next({path: '/dashboard'})
-            } else {
-                next();
+                if (store.getters['isConnected'] && ls.get('token')) {
+                    next({path: '/dashboard'})
+                } else {
+                    next();
+                }
             }
-      }
-    },
-    {
-      path: '/inscription',
-      name: 'Inscription',
-      component: Inscription,
-      meta : {
-        requireAuth : false
-      },
-        beforeEnter: (to, from, next) => {
+        },
+        {
+            path: '/inscription',
+            name: 'Inscription',
+            component: Inscription,
+            meta: {
+                requireAuth: false
+            },
+            beforeEnter: (to, from, next) => {
 
-            if(store.getters['isConnected'] && ls.get('token')) {
-                next({path: '/dashboard'})
-            } else {
-                next();
+                if (store.getters['isConnected'] && ls.get('token')) {
+                    next({path: '/dashboard'})
+                } else {
+                    next();
+                }
             }
-        }
-    },
-    {
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: Dashboard,
-       meta: {
-         requireAuth: true
-      }
-    },
-    {
-      path: '/parcoursliste',
-      name: 'ParcoursListe',
-      component: ParcoursListe,
-        meta : {
-          requireAuth : false
-        }
-    },
-    {
-      path: '/forum',
-      name: 'Forum',
-      component: Forum
-    },
+        },
+        {
+            path: '/dashboard',
+            name: 'Dashboard',
+            component: Dashboard,
+            meta: {
+                requireAuth: true
+            }
+        },
+        {
+            path: '/parcoursliste',
+            name: 'ParcoursListe',
+            component: ParcoursListe,
+            meta: {
+                requireAuth: false
+            }
+        },
+        {
+            path: '/forum',
+            name: 'Forum',
+            component: Forum
+        },
 
-    {
-      path: '/exercice',
-      name: 'Exercice',
-      component: Exercice
-    },
-    {
-      path: '/parcours/:id/exercice/:ide',
-      name: 'exercice',
-      component: Exercice,
-     meta: {
-        requireAuth: true
-     }
-   },
-    {
-      path: '/parcours/:id/:name',
-      name: 'parcours',
-      components: {
-        default : Parcours,
-        chat : Chat
-      },
-      meta: {
-        requireAuth: false
-      }
-     },
-    {
-      path: '/forumsujet',
-      name: 'ForumSujet',
-      component: ForumSujet
-    },
-    {
-      path: '/forumadd',
-      name: 'ForumAdd',
-      component: ForumAdd
-    },
-  ]
+        {
+            path: '/exercice',
+            name: 'Exercice',
+            component: Exercice
+        },
+        {
+            path: '/parcours/:id/exercice/:ide',
+            name: 'exercice',
+            component: Exercice,
+            meta: {
+                requireAuth: true
+            }
+        },
+        {
+            path: '/parcours/:id/:name',
+            name: 'parcours',
+            components: {
+                default: Parcours,
+                chat: Chat
+            },
+            meta: {
+                requireAuth: false
+            }
+        },
+        {
+            path: '/forumsujet/:id/:title',
+            name: 'forumsujet',
+            component: ForumSujet,
+            props: true,
+            meta: {
+                requireAuth: false
+            }
+        },
+        {
+            path: '/forumadd',
+            name: 'ForumAdd',
+            component: ForumAdd
+        },
+        {
+            path: '/forum-response/:id/:title/subject/:idr',
+            name: 'forum-response',
+            props: true,
+            component: ForumResponse
+        }
+    ]
 })
 
 export default router;
