@@ -16,15 +16,19 @@ class SandboxController extends BaseController
   $tab = $req->getParsedBody();
   $sandbox = new PHPSandbox();
   $sandbox->setOption('Error Level',true);
+  $sandbox->setOption('allow_functions',true);
+  $sandbox->setOption('capture_output',true);
+  $sandbox->whitelistFunc( 'print_r') ;
+  $sandbox->whitelistFunc( 'var_dump') ;
   $code = $tab["code"];
- 
+
   try {
-     $output = $sandbox->execute($code);
-    return Writer::json_output($resp,200 );
-  }
-  catch (\PHPSandbox\Error $e) {
-    $error_parser = $e->getPrevious();
-    if (empty ($error_parser)) {
+   $output = $sandbox->execute($code);
+   return Writer::json_output($resp,200,$output );
+ }
+ catch (\PHPSandbox\Error $e) {
+  $error_parser = $e->getPrevious();
+  if (empty ($error_parser)) {
       return Writer::json_output($resp,500,array("erreur"=> $e->getMessage())); // ERREUR AU NIVEAU DU PARSAGE DU TEXTE PHP
     }
     else  {
@@ -44,6 +48,7 @@ public function verify( Request $req,Response $resp,$args) {
     $filetest = $exercice->unittest()->first();
     $sandbox = new PHPSandbox();
     $sandbox->setOption('sandbox_includes',true);
+    $sandbox->setOption('allow_functions',true);
     $sandbox->setOption('allow_includes',true);
     $sandbox->setOption('allow_namespaces ',true);
     $sandbox->setOption('allow_aliases',true); // ACCEPTE L UTILISATION D ALIAS
@@ -51,10 +56,18 @@ $sandbox->setOption('allow_classes',true); // ACCEPTE LES CALSSE
 $sandbox->setOption("namespaces",["TestCase"]); // ACCEPTE LE NAME SPACE TEST CASE
 
 $sandbox->whitelistClass("TestCase");
-$sandbox->_include("/var/www/uploads/".$filetest->file."");
+
 
 $code .= '$verify_test = new Verify();';
-$code .= 'return $verify_test->exec($'.$filetest->variable_test.');';
+
+if ($filetest->type==="fonction") {
+ $sandbox->whitelistFunc("triple") ;
+ $code .= 'return $verify_test->exec();';
+}
+else {
+  $code .= 'return $verify_test->exec($'.$filetest->custom.');';
+}
+$sandbox->_include("/var/www/uploads/".$filetest->file."");
 
 return Writer::json_output($resp,200,array("valide"=> $sandbox->execute($code)))  ;
 

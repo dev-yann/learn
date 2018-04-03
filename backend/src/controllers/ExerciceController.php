@@ -142,7 +142,8 @@ class ExerciceController extends BaseController
                     try {
                         $unitEntity = new UnitTest();
                         $unitEntity->file = $filename;
-                        $unitEntity->variable_test = $tab["variable_test"];
+                        $unitEntity->custom = $tab["custom"];
+                        $unitEntity->type = $tab["type"];
 
 
                         $unitEntity->exercices_id = $exercice->id;

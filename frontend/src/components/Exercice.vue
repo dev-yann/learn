@@ -197,7 +197,7 @@ import php from "./../../node_modules/codemirror/mode/php/php.js"
             }).then(response => {
                 console.log(response)
                 this.state = true
-                if (response.data.valide) {
+                if (response.data.valide ===true) {
                     this.state_message = "juste"
                 }
                 else    {

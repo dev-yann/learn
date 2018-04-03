@@ -9,7 +9,7 @@
 
       <v-text-field required v-model="description" name="level" label="description" :multi-line="line"></v-text-field>
 
-      <v-text-field v-model="variable_test" name="var_test" placeholder="ex : somme" label="nom de la variable à tester "></v-text-field>
+      <v-text-field v-model="custom" name="custom" placeholder="ex : somme" label="nom de la variable à tester "></v-text-field>
       <p> Instruction pour le test unitaire : <ul>
         <li>les lignes de codes avec * en commentaire sont obligatoire afin que notre programme s'exécute correctement</li>
         <li> Utilisation de la classe Test case: use PHPUnit\Framework\TestCase </li>
@@ -17,24 +17,29 @@
         <li>Créer une fonction exec</li>
       </ul></p>
       <p>Exemple de test unitaire :</p>
-      <code>
-        <?php
-        use PHPUnit\Framework\TestCase; // * , utilise PHP UNIT
 
-        class Verify extends TestCase { // *, Votre classe doit se nomme Verify et étendre de Test Case
+      <v-select :items="items" v-model="type" label="Select" class="input-group--focused" item-value="text" ></v-select>
 
-        public function exec($var=null) {   // *, Fonction exec obligatoire
-        return $this->egalite($var,5);  // *, appel de votre fonction
-      }
-      public function egalite ($rep,$req) { // Votre Fonction, en cas de réussite return true, sinon false
-      try {
-      $this->assertSame($rep, $req);  
-      return true;
-         } catch (Exception $e) {
-        return false;
-          }   
-      } 
-  }
+
+    </v-flex>
+    <code>
+      <?php
+      use PHPUnit\Framework\TestCase; // * , utilise PHP UNIT
+
+      class Verify extends TestCase { // *, Votre classe doit se nomme Verify et étendre de Test Case
+
+      public function exec($var=null) {   // *, Fonction exec obligatoire
+      return $this->egalite($var,5);  // *, appel de votre fonction
+    }
+    public function egalite ($rep,$req) { // Votre Fonction, en cas de réussite return true, sinon false
+    try {
+    $this->assertSame($rep, $req);  
+    return true;
+  } catch (Exception $e) {
+  return false;
+}   
+} 
+}
 </code>
 <label>Upload a file :
   <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
@@ -89,11 +94,17 @@ export default {
           sound: true,
           widgets: false,
           loadingTest: false,
-          variable_test :'',
+          custom :'',
           title:'',
           line: true,
-          description: ''
+          description: '',
+          items: [
+          { text: 'fonction' },
+          { text: 'variable' }
+          ],
+          type : ''
         }
+
       },
       mounted () {
         this.parcours = this.$store.state.parcours
@@ -117,7 +128,8 @@ export default {
              formData.append('myfile',this.file);
              formData.append('title',this.title);
              formData.append('description',this.description);
-             formData.append('variable_test',this.variable_test);
+             formData.append('custom',this.custom);
+             formData.append('type',this.type);
 
 
 
