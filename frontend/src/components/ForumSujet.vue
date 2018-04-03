@@ -114,7 +114,7 @@
                     titre: this.titre,
                     description: this.description
                 }).then(response => {
-                    console.log(response)
+                   this.$router.push("/forum")
                 }).catch(error => {
                     console.log(error)
                 })

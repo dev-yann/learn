@@ -24,7 +24,7 @@ class User extends Model
      */
     public $timestamps = false;
 
-    protected $hidden =["password",'id','author'];
+    protected $hidden =["password",'author'];
 
     public function posts () {
         return $this->hasMany(Posts::class, 'user_id');

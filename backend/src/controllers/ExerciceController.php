@@ -257,12 +257,12 @@ class ExerciceController extends BaseController
 
                     if ($this->validate($request, $response, $props)) {
 
-                        return Writer::json_output($response, 200, ["message" => "synchronisé"]);
+                        return Writer::json_output($response, 200, ["message" => "juste"]);
 
                     }
                 }
 
-                return Writer::json_output($response, 200, ["message" => "No it's false !!!"]);
+                return Writer::json_output($response, 200, ["message" => "faux"]);
 
 
             } catch (ModelNotFoundException $e) {

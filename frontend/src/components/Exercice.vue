@@ -40,6 +40,7 @@
                                         <v-list-tile-content>
                                             <v-list-tile-title>{{exercice.title}}</v-list-tile-title>
                                             <p class="consigne">{{exercice.description}}</p>
+                                            <p class="consigne">{{exercice.variables_test}}</p>
                                         </v-list-tile-content>
                                     </v-flex>
                                 </v-layout>
@@ -52,6 +53,15 @@
             </v-layout>
         </div>
     </v-card-text>
+    <v-dialog v-model="state" persistent max-width="290">
+        <v-card>
+            <v-card-text>L'exercice est <span v-model="this.state_message">{{state_message}}</span></v-card-text>
+            <v-card-actions> 
+                <v-spacer></v-spacer>
+                <v-btn color="green darken-1" flat @click.native="state = false">Ok</v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 
 
     <!--<v-btn @click="test">test</v-btn>-->
@@ -67,7 +77,7 @@
     </div>
 
     <!-- Tester le code -->
-    <v-card-text class="btnTester">
+    <v-card-text v-show="exercice.fillinType" class="btnTester">
         <v-fab-transition>
             <v-btn color="light-blue lighten-1" class="btnRafraiche" dark absolute top left fab v-show="!hidden"
             @click="test">
@@ -75,20 +85,18 @@
         </v-btn>
     </v-fab-transition>
 </v-card-text>
-<v-card-text class="btnTester">
-    <v-fab-transition>
-        <v-btn color="red lighten-1" class="btnRafraiche" dark absolute top right fab
-        @click="runPhp">
-        <v-icon>cached</v-icon>
-    </v-btn>
+<v-card-text v-show="!exercice.fillinType" class="btnTester">
+  <v-fab-transition>
+    <v-btn color="green lighten-1" class="btnRafraiche" dark absolute top right  fab
+    @click="verifyCode">
+    <v-icon>check</v-icon>
+</v-btn>
 </v-fab-transition>
-</v-card-text>
-<v-card-text class="btnTester">
-    <v-fab-transition>
-        <v-btn color="green lighten-1" class="btnRafraiche" dark absolute top  fab
-        @click="verifyCode">
-        <v-icon>check</v-icon>
-    </v-btn>
+<v-fab-transition>
+    <v-btn color="red lighten-1" class="btnRafraiche" dark absolute top left fab
+    @click="runPhp">
+    <v-icon>cached</v-icon>
+</v-btn>
 </v-fab-transition>
 </v-card-text>
 </v-flex>
@@ -136,7 +144,9 @@ import php from "./../../node_modules/codemirror/mode/php/php.js"
                 loadingTest: false,
                 exercice: {},
                 resultCode: '',
-                hidden:false
+                hidden:false,
+                state :false,
+                state_message : ""
             }
         },
         methods: {
@@ -154,7 +164,8 @@ import php from "./../../node_modules/codemirror/mode/php/php.js"
 
 
                 }).then(response => {
-
+                    this.state=true
+                    this.state_message = response.data.message
                     console.log(response)
 
                 }).catch(error => {
@@ -169,15 +180,15 @@ import php from "./../../node_modules/codemirror/mode/php/php.js"
 
 
               }).then(response => {
- this.resultCode = response.data
-                console.log(response)
+                 this.resultCode = response.data
+                 console.log(response)
 
-            }).catch(error => {
-console.log(error.response.data.erreur)
- this.resultCode= error.response.data.erreur
-                      })
-        },
-        verifyCode() {
+             }).catch(error => {
+                console.log(error.response.data.erreur)
+                this.resultCode= error.response.data.erreur
+            })
+         },
+         verifyCode() {
 
             Url.post('/parcours/' + this.$route.params.id + '/exercice/' + this.$route.params.ide + '/verify',{
                 user: this.getUser,
@@ -185,12 +196,19 @@ console.log(error.response.data.erreur)
 
             }).then(response => {
                 console.log(response)
-
+                this.state = true
+                if (response.data.valide) {
+                    this.state_message = "juste"
+                }
+                else    {
+                    this.state_message ="faux"
+                }
 
             }).catch(error => {
-
-            this.resultCode=error.response.data.erreur
-          })
+                console.log(error)
+                this.state = true
+                this.state_message ="faux"
+            })
 
         }
 

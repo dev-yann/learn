@@ -149,13 +149,13 @@ class UserController extends BaseController
     // inscription a un  parcours
     public function subscribeParcoursUser(Request $request, Response $response)
     {
-
+        $myUser = $request->getAttribute("user");
         $tab = $request->getParsedBody();
         // on recoit parcours id et user id
         try {
 
             // Association dans la table parcours2users
-            $user = User::where('id', $tab['userId'])->firstOrFail();
+            $user = User::where('id', $myUser->id)->firstOrFail();
             $user->parcours()->syncWithoutDetaching($tab['parcoursId']);
 
             return Writer::json_output($response, 201, ['message' => 'Inscription effectuée']);

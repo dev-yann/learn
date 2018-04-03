@@ -109,9 +109,10 @@
             searchForum() {
 
                 Url.get('/connect/author_parcours').then(response => {
-                    response.data.data.forEach((items) => {
+                    response.data.parcours.forEach((items) => {
                         this.select.push(items)
                     })
+                    console.log(response)
                 }).catch(error => {
                     console.log(error)
                 })

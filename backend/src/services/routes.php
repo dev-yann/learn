@@ -45,12 +45,12 @@ $app->patch('/exercices/{id:[0-9]+}/edit[/]',"ExerciceController:editExercice");
 
 
 $app->post('/sandbox',"SandboxController:execute");
-$app->post('/parcours/{p_id}/exercices/{e_id}/verify',"SandboxController:verify");
+
 $app->get('/user-forum[/]',"UserController:getForumUser");
 
 $app->get('/forum/subject/{id:[0-9]+}[/]',"ForumController:getSubject");
 $app->get('/forum/subject/{id:[0-9]+}/response', "ForumController:getResponse");
-
+	$app->post('/parcours/{id}/exercice/{ide}/verify',"SandboxController:verify");
 
 /**
  * ATTENTION, ON AJOUTE CONNECT DEVANT TOUTES LES ROUTES ICI
@@ -58,18 +58,18 @@ $app->get('/forum/subject/{id:[0-9]+}/response', "ForumController:getResponse");
 
 $app->group('/connect',function () {
 
-    $this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
-    $this->get('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:getExercice");
-    $this->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");
-    $this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" )->add('CheckSubscribe');
-    $this->get('/dashboard', "UserController:getDashboard");
-    $this->get('/author_parcours', "ParcoursController:getAuthorParcours");
-    $this->post('/parcours[/]',"ParcoursController:createParcours");
-    $this->post('/author_forum[/]', "UserController:addForum");
-    $this->get('/forum', "UserController:getForum");
-    $this->post('/add_subject[/]',"ForumController:addSubject");
-    $this->post('/subject/add_response', "ForumController:addResponse");
+	$this->post('/subscribe[/]', "UserController:subscribeParcoursUser");
+	$this->get('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:getExercice");
+	$this->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour");
+	$this->post('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}', "ExerciceController:testExercice" )->add('CheckSubscribe');
+	$this->get('/dashboard', "UserController:getDashboard");
+	$this->get('/author_parcours', "ParcoursController:getAuthorParcours");
+	$this->post('/parcours[/]',"ParcoursController:createParcours");
+	$this->post('/author_forum[/]', "UserController:addForum");
+	$this->get('/forum', "UserController:getForum");
+	$this->post('/add_subject[/]',"ForumController:addSubject");
+	$this->post('/subject/add_response', "ForumController:addResponse");
 
-$this->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
+	$this->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
 
 })->add('CheckJwt');

@@ -10,29 +10,31 @@
       <v-text-field required v-model="description" name="level" label="description" :multi-line="line"></v-text-field>
 
       <v-text-field v-model="variable_test" name="var_test" placeholder="ex : somme" label="nom de la variable à tester "></v-text-field>
-      <p> Exemple de test unitaire : les lignes de codes avec * en commentaire sont obligatoire afin que notre programme s'exécute correctement</p>
+      <p> Instruction pour le test unitaire : <ul>
+        <li>les lignes de codes avec * en commentaire sont obligatoire afin que notre programme s'exécute correctement</li>
+        <li> Utilisation de la classe Test case: use PHPUnit\Framework\TestCase </li>
+        <li>Classe doit se nommer Verify</li>
+        <li>Créer une fonction exec</li>
+      </ul></p>
+      <p>Exemple de test unitaire :</p>
       <code>
         <?php
         use PHPUnit\Framework\TestCase; // * , utilise PHP UNIT
 
         class Verify extends TestCase { // *, Votre classe doit se nomme Verify et étendre de Test Case
 
-        public function exec($var) {   // *, Fonction exec obligatoire
+        public function exec($var=null) {   // *, Fonction exec obligatoire
         return $this->egalite($var,5);  // *, appel de votre fonction
       }
       public function egalite ($rep,$req) { // Votre Fonction, en cas de réussite return true, sinon false
       try {
       $this->assertSame($rep, $req);  
       return true;
-    } catch (Exception $e) {
-    return false;
+         } catch (Exception $e) {
+        return false;
+          }   
+      } 
   }
-}
-
-}
-
-?>
-
 </code>
 <label>Upload a file :
   <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
@@ -93,7 +95,7 @@ export default {
           description: ''
         }
       },
-        mounted () {
+      mounted () {
         this.parcours = this.$store.state.parcours
       },
 
