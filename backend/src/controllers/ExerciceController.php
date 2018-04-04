@@ -3,6 +3,7 @@
 namespace App\controllers;
 
 use App\models\Exercices;
+use App\models\Parcours;
 use App\models\User;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -311,6 +312,187 @@ class ExerciceController extends BaseController
 
             return Writer::json_output($response, 401, ["message" => "synchronisation échouée"]);
         }
+    }
+
+    public function modifyExercice (Request $request, Response $response) {
+
+        // recuperer l'user
+        $user = $request->getAttribute('user');
+
+        // verifier si l'exo lui appartient
+        $params = $request->getParsedBody();
+        $exoId = $params['id'];
+
+        $test = false;
+        $changeExo = '';
+        $parcours = Parcours::where('author_id',$user->id)->with('exercices')->get();
+
+
+        foreach ($parcours as $parcour) {
+            foreach ($parcour->exercices as $exercice){
+                if ($exercice->id == $exoId){
+                    $test = true;
+                    $changeExo = $exercice;
+                    break;
+                }
+            }
+        }
+
+
+
+        // alors on modifie
+        if ($test) {
+            $myExo = Exercices::where('id', $changeExo->id)->firstOrFail();
+            $myExo->title = $params['title'];
+            $myExo->description = $params['description'];
+
+            if ($params['type'] === "Fill in the blank"){
+
+                $data = $this->modifyFillIn($myExo, $params, $response);
+                return Writer::json_output($response, 201, ['message' => "Ressource modifiée", "data" => $data]);
+
+            } else {
+
+                $data = $this->modifyOutput($myExo, $params, $request, $response);
+                return Writer::json_output($response, 201, ['message' => "Ressource modifiée", "data" => $data]);
+
+            }
+
+        } else {
+
+            return Writer::json_output($response, 400, ["message" => $test]);
+
+        }
+    }
+
+    private function modifyFillIn ($exercice, $params, $response) {
+
+        try {
+            if ($exercice->unit_test == 1) {
+
+                $myUnit = UnitTest::where('exercices_id',$exercice->id)->firstOrFail();
+                $myUnit->delete();
+
+                $entityFill = new Fill();
+
+            } else {
+
+                $entityFill = Fill::where('exercices_id',$exercice->id)->firstOrFail();
+
+
+            }
+        } catch (ModelNotFoundException $e) {
+
+            return Writer::json_output($response, 404, ["message" => "Ressource non trouvée"]);
+        }
+
+
+        $exercice->fillinType = 1;
+        $exercice->unit_test = 0;
+
+        $entityFill->codeTrue = $params['codeTrue'];
+        $entityFill->codeFalse = $params['codeFalse'];
+        $entityFill->exercices_id = $exercice->id;
+
+        $exercice->save();
+        $entityFill->save();
+
+        $exercice->fill = $entityFill;
+        return $exercice;
+    }
+
+    private function modifyOutput ($exercice, $params, Request $request, Response $response) {
+
+
+
+        try {
+            if ($exercice->fillinType == 1) {
+
+                $myFill = Fill::where('exercices_id',$exercice->id)->firstOrFail();
+                $myFill->delete();
+
+                $entityOutPut = new UnitTest();
+
+            } else {
+
+                $entityOutPut = UnitTest::where('exercices_id',$exercice->id)->firstOrFail();
+
+
+            }
+        } catch (ModelNotFoundException $e) {
+
+            return Writer::json_output($response, 404, ["message" => "Ressource non trouvée"]);
+        }
+
+
+
+        $exercice->fillinType = 0;
+        $exercice->unit_test = 1;
+
+
+        $entityOutPut->custom = $params['custom'];
+        $entityOutPut->type = $params['type_output'];
+        $entityOutPut->exercices_id = $exercice->id;
+
+        /**
+         *
+         *
+         *
+         *
+         *
+         *
+         */
+        $entityOutPut->variable_test = 'default';
+        /**
+         *
+         *
+         *
+         *
+         *
+         *
+         */
+
+        $directory = $this->container['upload_directory'];
+        $uploadFile = $request->getUploadedFiles();
+        $myUploadPhp = $uploadFile['myfile'];
+
+        if ($myUploadPhp->getError() === UPLOAD_ERR_OK) {
+
+
+            $filename = UploadedFile::moveUploadedFile($directory, $myUploadPhp);
+            try {
+
+
+                // on suprime l'ancien si il existe
+                if (isset($entityOutPut->file)){
+                    $this->deleteUnitTest($entityOutPut, $directory);
+                }
+                // on ajoute le nouveau
+                $entityOutPut->file = $filename;
+                $entityOutPut->save();
+                $exercice->save();
+
+                $exercice->unitEntity = $entityOutPut;
+
+                return $exercice;
+
+            } catch (\Exception $e) {
+
+                return Writer::json_output($response, 500, ['type' => 'error', 'error' => 500, 'message' => $e->getMessage()]);
+            }
+
+        } else {
+
+
+            return Writer::json_output($response, 201, ["message" => "Une erreur est survenue pendant l'ajout"]);
+
+
+        }
+    }
+
+    private function deleteUnitTest ($entity, $directory) {
+        $name = $entity->file;
+        unlink($directory . DIRECTORY_SEPARATOR . $name);
     }
 }
 

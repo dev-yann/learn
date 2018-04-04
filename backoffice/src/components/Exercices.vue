@@ -18,7 +18,14 @@
           <router-link to="/exercices"><v-btn flat color="light-green lighten-1">Accéder à l'exercice</v-btn></router-link>
         </v-card-actions>
         <v-card-actions>
-          <router-link to = "/exercices"><v-btn flat color="light-green lighten-1">Modifier</v-btn></router-link>
+          <router-link :to = "{
+          name : 'modify',
+          params : {
+            id : exercice.id,
+            type : exercice.unit_test,
+            title_true : exercice.title,
+            description : exercice.description
+            }}"><v-btn flat color="light-green lighten-1">Modifier</v-btn></router-link>
         </v-card-actions>
       </v-card>
     </v-flex>

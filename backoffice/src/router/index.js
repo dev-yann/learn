@@ -8,6 +8,7 @@ import NotFound from '@/components/Notfound'
 import Inscription from '@/components/Inscription'
 import Connexion from '@/components/Connexion'
 import Forum from '@/components/Forum'
+import Modify from '@/components/Modify'
 
 Vue.use(Router);
 
@@ -43,16 +44,16 @@ export default new Router({
             component: Parcours
         },
         {
-         path: '/parcours/:id/:name',
-        
-      name: 'exercices-list',
-      components: {
-        default : Exercices,
-      },
-      meta: {
-        requireAuth: false
-      }
-     },
+            path: '/parcours/:id/:name',
+
+            name: 'exercices-list',
+            components: {
+                default: Exercices,
+            },
+            meta: {
+                requireAuth: false
+            }
+        },
         {
             path: "/exercices",
             name: "Exercices",
@@ -67,6 +68,15 @@ export default new Router({
             path: "/forum",
             name: "forum",
             component: Forum
+        },
+        {
+            name: 'modify',
+            path: '/exercice/:id/modify',
+            component: Modify,
+            props: true,
+            meta: {
+                requireAuth: true
+            }
         }
     ]
 })

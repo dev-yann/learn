@@ -218,6 +218,8 @@ class Migrator {
                  $table->integer('id', true);
                  $table->string('file');
                         $table->string('variable_test')->default('');
+                        $table->string('custom')->default('');
+                        $table->string('type')->default('');
 
                  //FK
                  $table->integer('exercices_id');
