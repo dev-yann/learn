@@ -8,7 +8,7 @@ use Slim\Http\UploadedFile;
 use PHPSandbox\PHPSandbox;
 use PHPUnit\Framework\TestCase;
 use App\models\Exercices;
-
+use App\controllers\XpController;
 
 class SandboxController extends BaseController
 {
@@ -54,22 +54,24 @@ public function verify( Request $req,Response $resp,$args) {
     $sandbox->setOption('allow_aliases',true); // ACCEPTE L UTILISATION D ALIAS
 $sandbox->setOption('allow_classes',true); // ACCEPTE LES CALSSE
 $sandbox->setOption("namespaces",["TestCase"]); // ACCEPTE LE NAME SPACE TEST CASE
-
+$sandbox->setOption('capture_output',true);
 $sandbox->whitelistClass("TestCase");
 
 
 $code .= '$verify_test = new Verify();';
 
 if ($filetest->type==="fonction") {
- $sandbox->whitelistFunc("triple") ;
- $code .= 'return $verify_test->exec();';
+ $sandbox->whitelistFunc($filetest->custom) ;
+ $code .= 'echo $verify_test->exec();';
 }
 else {
-  $code .= 'return $verify_test->exec($'.$filetest->custom.');';
+  $code .= 'echo $verify_test->exec($'.$filetest->custom.');';
 }
 $sandbox->_include("/var/www/uploads/".$filetest->file."");
+$t = $sandbox->execute($code);
+$t = substr($t, -1);
 
-return Writer::json_output($resp,200,array("valide"=> $sandbox->execute($code)))  ;
+return Writer::json_output($resp,200,array("valide"=> $t ))  ;
 
 } catch (ModelNotFoundException $e){
 
@@ -86,5 +88,46 @@ catch (\PHPSandbox\Error $e) {
 
 }  
 }
+}
+public function validate ($request, $response)
+{
+
+  $tab = $request->getParsedBody();
+  $id = $tab["exercice"];
+  $parcours = $request->getAttribute('parcours');
+
+
+  $user = $request->getAttribute('user');
+  try {
+
+
+
+
+            // on ajoute les points si l'exo n'a pas encore été
+            // validé par l'utilisateur
+
+    $test = true;
+    foreach ($user->exercices as $exercice) {
+
+      if ($exercice->pivot->exercice_id === $id) {
+        $test = false;
+      }
+    }
+
+    if ($test) {
+      $user->exercices()->syncWithoutDetaching([$id => ["state" => 1]]);
+
+      $parcours = $request->getAttribute('parcours');
+      $user = XpController::setXp($parcours, $user);
+      $user->save();
+    }
+
+    return true;
+
+
+  } catch (ModelNotFoundException $e) {
+
+    return Writer::json_output($response, 401, ["message" => "synchronisation échouée"]);
+  }
 }
 }
