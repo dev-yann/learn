@@ -11,6 +11,8 @@
                 </v-card-title>
                 <v-card-actions>
                    <router-link :to="{ name : 'exercices-list', params : { id : parcours.id, name : parcours.title}}"><v-btn flat color="light-green lighten-1">Accéder au parcours</v-btn></router-link>
+                   <router-link :to="{ name : 'edit-parcours', params : { id : parcours.id, name : parcours.title}}"><v-btn flat @click="del()">   <v-icon  flat color="orange">edit</v-icon></v-btn></router-link>
+                       <v-btn flat @click="del(parcours.id)">   <v-icon  flat color="red">delete</v-icon></v-btn>
                 </v-card-actions>
             </v-card>
         </v-flex>
@@ -25,12 +27,25 @@
         }),
 
         mounted () {
-
-            Url.get('/connect/author_parcours').then(response => {
+          this.getParcours();
+        
+        },
+        methods : {
+          getParcours () {
+                Url.get('/connect/author_parcours').then(response => {
                 this.items = response.data.parcours
             }).catch(error => {
                 console.log(error)
             })
+          },
+          del(id) {
+               Url.delete('/connect/parcours/'+id+'/delete').then(response => {
+                  this.$router.push('/parcours')
+                 this.getParcours();
+              }).catch(error => {
+                console.log(error)
+            })
+          }
         }
     }
 </script>

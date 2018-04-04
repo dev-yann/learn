@@ -180,63 +180,83 @@ import php from "./../../node_modules/codemirror/mode/php/php.js"
 
 
               }).then(response => {
-                 this.resultCode = response.data
-                 console.log(response)
+               this.resultCode = response.data
+               console.log(response)
 
-             }).catch(error => {
-                console.log(error.response.data.erreur)
-                this.resultCode= error.response.data.erreur
-            })
-         },
-         verifyCode() {
+           }).catch(error => {
+            console.log(error.response.data.erreur)
+            this.resultCode= error.response.data.erreur
+        })
+       },
+       verifyCode() {
 
-            Url.post('/parcours/' + this.$route.params.id + '/exercice/' + this.$route.params.ide + '/verify',{
-                user: this.getUser,
-                code: this.editor.getValue()
+        Url.post('/parcours/' + this.$route.params.id + '/exercice/' + this.$route.params.ide + '/verify',{
+            user: this.getUser,
+            code: this.editor.getValue()
 
-            }).then(response => {
-                console.log(response)
-                this.state = true
-                if (response.data.valide ===true) {
-                    this.state_message = "juste"
-                }
-                else    {
-                    this.state_message ="faux"
-                }
+        }).then(response => {
+            console.log(response)
+            this.state = true
+            if (response.data.valide ==1) {
+                this.state_message = "juste"
+                this.validate();
+               
 
-            }).catch(error => {
-                console.log(error)
-                this.state = true
+            }
+
+
+            else    {
                 this.state_message ="faux"
-            })
+            }
 
-        }
-
+        }).catch(error => {
+            console.log(error)
+            this.state = true
+            this.state_message ="faux"
+        })
 
     },
-    mounted() {
+    validate() {
+         Url.patch('/connect/parcours/'+this.$route.params.id+'/exercice/'+this.$route.params.ide+'/validate',{
+                    user: this.getUser.id,
+
+                    exercice: this.exercice.id,
+                  
+                }).then(response => {
+                    console.log("ok")
 
 
-        Url.get('/connect/parcours/' + this.$route.params.id + '/exercice/' + this.$route.params.ide).then(response => {
+                }).catch(error => {
+                    console.log(error)
 
-            console.log(response);
-            if (typeof  response.data.exercice.myFill !== 'undefined') {
-             this.codePhp = "<?php " + response.data.exercice.myFill.codeFalse;
-             this.exercice = response.data.exercice;
-             this.loadingTest = true;
-         }
-         else    {
-             this.codePhp = "<?php ";
-             this.exercice = response.data.exercice;
-             this.loadingTest = true;
-         }
+                })
+    }
 
 
+},
+mounted() {
 
-     }).then(() => {
 
-        this.code = $(".codemirror-textarea")[0];
-        this.editor = CodeMirror.fromTextArea(this.code, {
+    Url.get('/connect/parcours/' + this.$route.params.id + '/exercice/' + this.$route.params.ide).then(response => {
+
+        console.log(response);
+        if (typeof  response.data.exercice.myFill !== 'undefined') {
+           this.codePhp = "<?php " + response.data.exercice.myFill.codeFalse;
+           this.exercice = response.data.exercice;
+           this.loadingTest = true;
+       }
+       else    {
+           this.codePhp = "<?php ";
+           this.exercice = response.data.exercice;
+           this.loadingTest = true;
+       }
+
+
+
+   }).then(() => {
+
+    this.code = $(".codemirror-textarea")[0];
+    this.editor = CodeMirror.fromTextArea(this.code, {
                     // Numerotation des lignes
                     lineNumbers: true,
                     // coloration syntaxique PHP
@@ -248,10 +268,10 @@ import php from "./../../node_modules/codemirror/mode/php/php.js"
                 });
 
 
-    }).catch(error => {
+}).catch(error => {
 
-        console.log(error)
-    })
+    console.log(error)
+})
 },
 computed: {
             // Permet la verification dynamiques de loadtesting

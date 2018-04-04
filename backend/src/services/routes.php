@@ -20,8 +20,7 @@ $app->get('/parcours[/]', "ParcoursController:getParcours");
 // Parcours avec la liste des exercices
 $app->get('/parcours/{id:[0-9]+}[/]', "ParcoursController:getParcour")->add('GetUser');
 $app->get('/parcours/{id: [0-9]+}/posts', "ParcoursController:getPostsOfParcours");
-$app->patch('/parcours/{id:[0-9]+}/edit[/]', "ParcoursController:editParcours");
-$app->delete('/parcours/{id:[0-9]+}/delete[/]', "ParcoursController:deleteParcours");
+
 
 
 
@@ -50,7 +49,7 @@ $app->get('/user-forum[/]',"UserController:getForumUser");
 
 $app->get('/forum/subject/{id:[0-9]+}[/]',"ForumController:getSubject");
 $app->get('/forum/subject/{id:[0-9]+}/response', "ForumController:getResponse");
-	$app->post('/parcours/{id}/exercice/{ide}/verify',"SandboxController:verify");
+$app->post('/parcours/{id}/exercice/{ide}/verify',"SandboxController:verify");
 
 /**
  * ATTENTION, ON AJOUTE CONNECT DEVANT TOUTES LES ROUTES ICI
@@ -69,7 +68,10 @@ $app->group('/connect',function () {
 	$this->get('/forum', "UserController:getForum");
 	$this->post('/add_subject[/]',"ForumController:addSubject");
 	$this->post('/subject/add_response', "ForumController:addResponse");
+	$this->patch('/parcours/{id:[0-9]+}/edit[/]', "ParcoursController:editParcours");
+	$this->delete('/parcours/{id:[0-9]+}/delete[/]', "ParcoursController:deleteParcours");
 
+	$this->patch('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}/validate', "SandboxController:Validate");
 	$this->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
 
 	$this->post('/exercice/modify[/]', "ExerciceController:modifyExercice");

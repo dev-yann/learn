@@ -8,12 +8,17 @@ import NotFound from '@/components/Notfound'
 import Inscription from '@/components/Inscription'
 import Connexion from '@/components/Connexion'
 import Forum from '@/components/Forum'
+
 import Modify from '@/components/Modify'
+
+import EditParcours from '@/components/EditParcours'
+
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
+
         {
             path: '*',
             component: NotFound
@@ -55,6 +60,17 @@ export default new Router({
             }
         },
         {
+            path: '/parcours/:id/edit/:name',
+
+            name: 'edit-parcours',
+            components: {
+                default: EditParcours,
+            },
+            meta: {
+                requireAuth: false
+            }
+        },
+        {
             path: "/exercices",
             name: "Exercices",
             component: Exercices
@@ -68,7 +84,8 @@ export default new Router({
             path: "/forum",
             name: "forum",
             component: Forum
-        },
+        }
+        ,
         {
             name: 'modify',
             path: '/exercice/:id/modify',
@@ -79,4 +96,5 @@ export default new Router({
             }
         }
     ]
+
 })
