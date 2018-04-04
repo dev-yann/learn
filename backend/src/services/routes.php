@@ -71,7 +71,7 @@ $app->group('/connect',function () {
 	$this->patch('/parcours/{id:[0-9]+}/edit[/]', "ParcoursController:editParcours");
 	$this->delete('/parcours/{id:[0-9]+}/delete[/]', "ParcoursController:deleteParcours");
 
-	$this->post('/validate[/]','SandboxController:validate');
+	$this->patch('/parcours/{id:[0-9]+}/exercice/{ide: [0-9]+}/validate', "SandboxController:Validate");
 	$this->post('/parcours/{id:[0-9]+}/add[/]', "ExerciceController:createExercice");
 
 })->add('CheckJwt');

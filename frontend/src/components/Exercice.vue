@@ -217,12 +217,13 @@ import php from "./../../node_modules/codemirror/mode/php/php.js"
 
     },
     validate() {
-         Url.post('/connect/validate/',{
-                    user: this.getUser,
-                    exercice: this.exercice.id
+         Url.patch('/connect/parcours/'+this.$route.params.id+'/exercice/'+this.$route.params.ide+'/validate',{
+                    user: this.getUser.id,
 
+                    exercice: this.exercice.id,
+                  
                 }).then(response => {
-                    console.log(response)
+                    console.log("ok")
 
 
                 }).catch(error => {

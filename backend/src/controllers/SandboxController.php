@@ -8,6 +8,8 @@ use Slim\Http\UploadedFile;
 use PHPSandbox\PHPSandbox;
 use PHPUnit\Framework\TestCase;
 use App\models\Exercices;
+use App\models\User;
+use App\models\Parcours;
 use App\controllers\XpController;
 
 class SandboxController extends BaseController
@@ -89,15 +91,12 @@ catch (\PHPSandbox\Error $e) {
 }  
 }
 }
-public function validate ($request, $response)
+public function validate ($request, $response,$args)
 {
 
   $tab = $request->getParsedBody();
-  $id = $tab["exercice"];
-  $parcours = $request->getAttribute('parcours');
-
-
-  $user = $request->getAttribute('user');
+  $parcours = Parcours::where("id",$args["id"])->first();
+  $user = User::where("id",$tab["user"])->first();
   try {
 
 
@@ -115,14 +114,12 @@ public function validate ($request, $response)
     }
 
     if ($test) {
-      $user->exercices()->syncWithoutDetaching([$id => ["state" => 1]]);
+      $user->exercices()->syncWithoutDetaching([$args["ide"]=> ["state" => 1]]);
 
-      $parcours = $request->getAttribute('parcours');
       $user = XpController::setXp($parcours, $user);
       $user->save();
     }
-
-    return true;
+     return Writer::json_output($response, 200, ["message" => $user]);
 
 
   } catch (ModelNotFoundException $e) {
