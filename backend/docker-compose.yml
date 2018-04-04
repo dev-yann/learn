@@ -54,7 +54,7 @@ services:
     networks:
           - learn_network
     volumes :
-          - ./data:/var/data
+          - ./data:/var/lib/mysql
 
   adminer:
      image: adminer
