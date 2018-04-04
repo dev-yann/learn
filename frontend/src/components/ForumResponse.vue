@@ -83,12 +83,7 @@
         }),
         mounted () {
 
-            Url.get("/forum/subject/" + this.idr + "/response").then(response => {
-                this.items.push(...response.data.data)
-                console.log(this.items)
-            }).catch(error => {
-                console.log(error)
-            })
+          this.getMessages()
 
         },
         methods: {
@@ -101,7 +96,14 @@
                     this.selected.push(index)
                 }
             },
-
+            getMessages() {
+                  Url.get("/forum/subject/" + this.idr + "/response").then(response => {
+                this.items = response.data.data
+                console.log(this.items)
+            }).catch(error => {
+                console.log(error)
+            })
+        },
             add () {
                 UrlJ.post('/connect/subject/add_response',{
 
@@ -109,7 +111,8 @@
                     subject_id: this.idr
 
                 }).then(response => {
-
+                    this.getMessages()
+                    this.dialog3 = false
                     console.log(response)
 
                 }).catch(error => {

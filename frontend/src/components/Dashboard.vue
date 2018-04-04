@@ -12,9 +12,11 @@
                     class="elevation-1"
             >
                 <template slot="items" slot-scope="props">
+                    <router-link :to="{ name : 'parcours', params : { id : props.item.id, name : props.item.title}}">
                     <td>{{ props.item.title }}</td>
                     <td>{{ props.item.level }}</td>
                     <td>{{ props.item.temps }}</td>
+                    </router-link>
                 </template>
             </v-data-table>
         </v-flex>
@@ -58,5 +60,8 @@
 <style scoped>
     h1 {
         text-align: center;
+    }
+    a {
+        color : white;
     }
 </style>
